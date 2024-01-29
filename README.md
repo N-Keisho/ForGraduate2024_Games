@@ -17,6 +17,15 @@
 - バージョン：2022.3.3f1 
 
 ## GitHubの使い方
+### コマンドラインの場合
+```
+// 1. 指定ディレクトリに移動.任意の場所です．
+cd /Users/example/Desktop
+
+// 2. データをダウンロード
+git clone https://github.com/N-Keisho/ForGraduate2024_Games
+```
+### コマンドラインがよくわからないときは...
 - わったーさんが"[きっしーれふゲームズ](https://github.com/wattah1002/ref-kissy-games)"のときにめちゃくちゃ丁寧な説明を作成されているので，適宜参照してください．
 - [GitHub Desktop](https://desktop.github.com/)アプリが便利なのでご活用ください．
 - 不明点があればけーしょーまでご連絡ください．
