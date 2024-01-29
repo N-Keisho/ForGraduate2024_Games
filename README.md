@@ -5,14 +5,19 @@
 昨年のれふきっしーゲームズに，ミニゲーム同士をつなぐようなストーリーが追加されているイメージです．
 
 ### 関連ファイル
--　[ゲーム作りのテーマと登場人物](https://nine-bike-e1b.notion.site/2024-657e3095a7494eb392f9486dcc95e6f9?pvs=4)
+- [ゲーム作りのテーマと登場人物](https://nine-bike-e1b.notion.site/2024-657e3095a7494eb392f9486dcc95e6f9?pvs=4)
 - [PM向けシート](https://docs.google.com/document/d/1V3t_zMQyf0RXn0IwO1Ikf_5Zodj7-u9Sxe1x3IXSSFU/edit)
+
+### 参考ゲーム
+- [きっしーれふゲームズ](https://github.com/wattah1002/ref-kissy-games)
+- [きらりゲームズ](https://github.com/keichange/kirari-games)
+
 
 ## Unity 
 - バージョン：2020.3.36f1 
 
 ## GitHubの使い方
-わったーさんが"[ref-kessiy-games](https://github.com/wattah1002/ref-kissy-games)"のときにめちゃくちゃ丁寧な説明を作成されているので，適宜参照してください．
+わったーさんが"[きっしーれふゲームズ](https://github.com/wattah1002/ref-kissy-games)"のときにめちゃくちゃ丁寧な説明を作成されているので，適宜参照してください．
 [GitHub Desktop](https://desktop.github.com/)アプリが便利なのでご活用ください．
 また不明点があればけーしょーまでご連絡ください．
 
