@@ -1,4 +1,4 @@
-# ForGuradiate2024_Games
+# ForGuraduate2024_Games
 
 ## 説明
 2024年度卒業メンターに贈るゲームです.  
