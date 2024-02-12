@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/WattahGame.unity
     guid: d444de210740e5d4b96b053c283391a1
   - enabled: 1
-    path: Assets/Scenes/SibaGame.unity
+    path: Assets/SibaGame/SibaScenes/SibaGame.unity
     guid: 57506a83472bbc24eafe86919e4d8f3c
   - enabled: 1
     path: Assets/Scenes/KeichanGame.unity
