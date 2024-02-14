@@ -22,6 +22,7 @@ public class PlayerScript : MonoBehaviour
     }
 
     private void move(){
+        // 前後左右移動
         if(Input.GetKey(KeyCode.W))
         {
             transform.position += transform.forward * speed * Time.deltaTime;
@@ -38,14 +39,22 @@ public class PlayerScript : MonoBehaviour
         {
             transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
         }
+
+        // ジャンプ
         if(Input.GetKeyDown(KeyCode.Space) && isGrounded){
             rb.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
         }
+
+        // ダッシュ
+        if(Input.GetKey(KeyCode.LeftShift)){
+            speed = 15.0f;
+        }else {
+            speed = 10.0f;
+        }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "Ground"){
+    private void OnCollisionStay(Collision other) {
+        if(other.gameObject.tag == "Ground"){
             isGrounded = true;
         }
     }
