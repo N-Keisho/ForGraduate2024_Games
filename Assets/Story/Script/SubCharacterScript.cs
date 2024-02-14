@@ -16,7 +16,7 @@ public class SubCharacterScript : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();//agentにNavMeshAgentの値を入れる
-        playerScript = GameObject.Find("Player").GetComponent<PlayerScript>();
+        playerScript = GameObject.Find("Riry").GetComponent<PlayerScript>();
         agent.stoppingDistance = followDistance;
         rb = GetComponent<Rigidbody>();
     }
@@ -24,7 +24,7 @@ public class SubCharacterScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        agent.destination = target.transform.position - transform.forward;//agentの目的地をtargetの座標にする
+        agent.destination = target.transform.position - transform.forward * 1.5f;//agentの目的地をtargetの座標にする
         agent.speed = playerScript.speed;
 
         if(agent.remainingDistance < followDistance){

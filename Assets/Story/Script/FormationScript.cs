@@ -16,7 +16,7 @@ public class FormationScript : MonoBehaviour
             subCharactersInstance.Add(Instantiate(subCharacters[i], pos, Quaternion.identity));
             SubCharacterScript subCharacterScript = subCharactersInstance[i].GetComponent<SubCharacterScript>();
             if(i == 0){
-                subCharacterScript.target = GameObject.Find("Player");
+                subCharacterScript.target = GameObject.Find("Riry");
             }else{
                 subCharacterScript.target = subCharactersInstance[i - 1];
             }
