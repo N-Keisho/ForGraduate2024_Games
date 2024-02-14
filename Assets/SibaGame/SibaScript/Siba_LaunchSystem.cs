@@ -11,7 +11,7 @@ public class Siba_LaunchSystem : MonoBehaviour
 
     void Update()
     {
-        if (ShibaGM.ShibaisLimitTimerQuit1)
+        if (ShibaGM.ShibaisBarrageTimerQuit1)
         {
             if (ShibaPlayerAttackTrigger)
             {
@@ -28,7 +28,7 @@ public class Siba_LaunchSystem : MonoBehaviour
     void LaunchSystem()
     {
         Rigidbody rb = ShibaPlayerGun.GetComponent<Rigidbody>();
-        Vector3 force = new Vector3(0.0f, ShibaGM.ShibaGaugeValue1, ShibaGM.ShibaGaugeValue1 * 4.0f);
+        Vector3 force = new Vector3(0.0f, ShibaGM.ShibaBarrageGaugeValue1, ShibaGM.ShibaBarrageGaugeValue1 * 4.0f);
         rb.AddForce(force, ForceMode.Impulse);
     }
     void ResetSystem()
