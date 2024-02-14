@@ -7,12 +7,12 @@ public class Siba_PlayerController : MonoBehaviour
     [SerializeField] GameObject ShibaPlayer;
     [SerializeField] float speed;
 
-    public Siba_GameManager SibaGM;
+    public Siba_GameManager ShibaGM;
 
 
     void Update()
     {
-        if(SibaGM.ShibaisPlayerMove1)
+        if(ShibaGM.ShibaisPlayerMove1)
         {
             PlayerMove();
         }

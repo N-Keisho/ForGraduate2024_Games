@@ -10,13 +10,14 @@ public class Siba_GameManager : MonoBehaviour
     [SerializeField] Animator ShibaAnim;
     [SerializeField] TextMeshProUGUI ShibaTimeText;
     [SerializeField] TextMeshProUGUI ShibaAreaJudgement;
-
     [SerializeField] float ShibaGaugeValue;
+    public float ShibaGaugeValue1{ get{ return ShibaGaugeValue;}}
     [SerializeField] float ShibaLimitTime;
     [SerializeField] bool ShibaisGaugeArea;
     [SerializeField] bool ShibaisPlayerMove;
     public bool ShibaisPlayerMove1{ get{ return ShibaisPlayerMove;} }
-    [SerializeField] bool ShibaisLimitTimer;
+    [SerializeField] bool ShibaisLimitTimerQuit;
+    public bool ShibaisLimitTimerQuit1{ get{ return ShibaisLimitTimerQuit;} }
     [SerializeField] bool ShibaAlternateCheck;
     [SerializeField] bool ShibaAreaTextDisplay;
 
@@ -31,7 +32,7 @@ public class Siba_GameManager : MonoBehaviour
         ShibaisGaugeArea = false;
         ShibaGaugeValue = 0;
         ShibaisPlayerMove = true;
-        ShibaisLimitTimer = false;
+        ShibaisLimitTimerQuit = true;
         ShibaAlternateCheck = true;
         ShibaAreaTextDisplay = true;
     }
@@ -45,13 +46,13 @@ public class Siba_GameManager : MonoBehaviour
             ShibaGauge.gameObject.SetActive(true);
             ShibaAnim.SetBool("Swing_bool",true);
             ShibaisPlayerMove = false;
-            if (!ShibaisLimitTimer) StartCoroutine(LimitTimer());
+            if (ShibaisLimitTimerQuit) StartCoroutine(LimitTimer());
         }
         else if(Input.GetKeyUp(KeyCode.Space))
         {
             ShibaAnim.SetBool("Swing_bool",false);
         }
-        if (ShibaisLimitTimer)
+        if (!ShibaisLimitTimerQuit)
         {
             BarrageValue();
         }
@@ -78,23 +79,27 @@ public class Siba_GameManager : MonoBehaviour
             return false;
         }
     }
+    // IEnumerator LimitTimer()は、連打の制限時間の管理
     IEnumerator LimitTimer()
     {
         ShibaLimitTime = 10;
-        ShibaisLimitTimer = true;
+        ShibaGaugeValue = 0;
+        ShibaisLimitTimerQuit = false;
         ShibaAreaTextDisplay = false;
-
         while (ShibaLimitTime > -1)
         {
             ShibaTimeText.text = ShibaLimitTime.ToString("f1") + "s";
             yield return new WaitForSeconds(1.0f);
             ShibaLimitTime -= 1.0f;
         }
-        ShibaisPlayerMove = true;
-        ShibaisLimitTimer = false; 
-        ShibaAreaTextDisplay = true;    
+        ShibaisLimitTimerQuit = true;
+        ShibaisPlayerMove = true; 
+        ShibaAreaTextDisplay = true;
+        ShibaGauge.gameObject.SetActive(false);
+        ShibaTimeText.gameObject.SetActive(false);    
     }
 
+    // BarrageValueは、連打する機能を管理するシステム
     void BarrageValue()
     {
         bool isRightkeyPush = false;
@@ -102,7 +107,7 @@ public class Siba_GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow) && !isLeftkeyPush && ShibaAlternateCheck)
         {
             isRightkeyPush = true;
-            ShibaGaugeValue += 1.0f;
+            ShibaGaugeValue += 0.15f;
             ShibaAlternateCheck = false;
         }
         else if(Input.GetKeyUp(KeyCode.RightArrow))
@@ -112,7 +117,7 @@ public class Siba_GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftArrow) && !isRightkeyPush && !ShibaAlternateCheck)
         {
             isLeftkeyPush = true;
-            ShibaGaugeValue += 1.0f;
+            ShibaGaugeValue += 0.15f;
             ShibaAlternateCheck = true;
         }
         else if(Input.GetKeyUp(KeyCode.LeftArrow))
