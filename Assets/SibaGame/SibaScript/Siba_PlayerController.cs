@@ -6,8 +6,19 @@ public class Siba_PlayerController : MonoBehaviour
 {
     [SerializeField] GameObject ShibaPlayer;
     [SerializeField] float speed;
-    // Update is called once per frame
+
+    public Siba_GameManager SibaGM;
+
+
     void Update()
+    {
+        if(SibaGM.ShibaisPlayerMove1)
+        {
+            PlayerMove();
+        }
+    }
+
+    void PlayerMove()
     {
         if (Input.GetKey(KeyCode.UpArrow))
         {
