@@ -31,9 +31,7 @@ public class Siba_GameManager : MonoBehaviour
         ShibaBarrageTimeText.gameObject.SetActive(false); //Text_連打時間
         ShibaisPlayerMove = true;
         ShibaisBarrageTimerQuit = true;
-        ShibaAreaTextDisplay = true;
         StartCoroutine(GameLimitTimer());
-        ShibaBarrageGaugeValue = 0;
     }
 
     void Update()
@@ -41,13 +39,14 @@ public class Siba_GameManager : MonoBehaviour
         bool ShibaisGaugeArea;
         ShibaBarrageGauge.value = ShibaBarrageGaugeValue;
         ShibaisGaugeArea  = GaugeAreaJudgement();
-        if (Input.GetKeyDown(KeyCode.Space) && ShibaisGaugeArea)
+        if (Input.GetKeyDown(KeyCode.Space) 
+            && 
+            ShibaisGaugeArea
+            &&
+            ShibaisBarrageTimerQuit
+            )
         {
-            ShibaBarrageGauge.gameObject.SetActive(true);
-            ShibaBarrageTimeText.gameObject.SetActive(true);
-            ShibaGameTimeText.gameObject.SetActive(false);
-            ShibaisPlayerMove = false;
-            if (ShibaisBarrageTimerQuit) StartCoroutine(BarrageLimitTimer());
+            StartCoroutine(BarrageLimitTimer());
         }
         if (!ShibaisBarrageTimerQuit)
         {
@@ -69,7 +68,7 @@ public class Siba_GameManager : MonoBehaviour
             && 
             Physics.SphereCast(StartPosition, 0.0f , TargetDirection, out hit, 6.0f)
             &&
-            ShibaAreaTextDisplay
+            ShibaisBarrageTimerQuit
             )
         {
             ShibaAreaJudgementText.gameObject.SetActive(true);
@@ -92,8 +91,11 @@ public class Siba_GameManager : MonoBehaviour
     {
         float ShibaBarrageLimitTime = 10;
         ShibaBarrageGaugeValue = 0;
+        ShibaBarrageGauge.gameObject.SetActive(true);
+        ShibaBarrageTimeText.gameObject.SetActive(true);
+        ShibaGameTimeText.gameObject.SetActive(false);
         ShibaisBarrageTimerQuit = false;
-        ShibaAreaTextDisplay = false;
+        ShibaisPlayerMove = false;
         while (ShibaBarrageLimitTime > -1)
         {
             ShibaUsageGuideText.text = "れんだじかん";
@@ -102,12 +104,11 @@ public class Siba_GameManager : MonoBehaviour
             ShibaBarrageLimitTime -= 1.0f;
             ShibaGameLimitTime += 1.0f;
         }
-        ShibaisBarrageTimerQuit = true;
-        ShibaisPlayerMove = true; 
-        ShibaAreaTextDisplay = true;
         ShibaBarrageGauge.gameObject.SetActive(false);
         ShibaBarrageTimeText.gameObject.SetActive(false); 
-        ShibaGameTimeText.gameObject.SetActive(true);   
+        ShibaGameTimeText.gameObject.SetActive(true);    
+        ShibaisBarrageTimerQuit = true;
+        ShibaisPlayerMove = true;
     }
 
     IEnumerator GameLimitTimer()
@@ -126,7 +127,11 @@ public class Siba_GameManager : MonoBehaviour
         bool isRightkeyPush = false;
         bool isLeftkeyPush = false;
         bool ShibaAlternateCheck = true;
-        if (Input.GetKeyDown(KeyCode.RightArrow) && !isLeftkeyPush && ShibaAlternateCheck)
+        if (Input.GetKeyDown(KeyCode.RightArrow) 
+            && 
+            !isLeftkeyPush 
+            && 
+            ShibaAlternateCheck)
         {
             isRightkeyPush = true;
             ShibaBarrageGaugeValue += 0.15f;
@@ -136,7 +141,11 @@ public class Siba_GameManager : MonoBehaviour
         {
             isRightkeyPush = false;
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && !isRightkeyPush && !ShibaAlternateCheck)
+        if (Input.GetKeyDown(KeyCode.LeftArrow) 
+            && 
+            !isRightkeyPush 
+            && 
+            !ShibaAlternateCheck)
         {
             isLeftkeyPush = true;
             ShibaBarrageGaugeValue += 0.15f;

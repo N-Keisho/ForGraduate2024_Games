@@ -51,7 +51,6 @@ public class Siba_PlayerController : MonoBehaviour
     {
         float Horizontalvalue;
         Horizontalvalue = Input.GetAxis("Horizontal");
-        Debug.Log("Horizontal" + Horizontalvalue);
         if (Horizontalvalue  > 0.0f || Horizontalvalue < 0.0f)
         {
             ShibaPLayerAnim.SetBool("Swing_bool",true);
