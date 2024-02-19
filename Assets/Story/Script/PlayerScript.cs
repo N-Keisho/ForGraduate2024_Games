@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    public float nomalSpeed = 10.0f;
     public float speed = 10.0f;
     public float rotationSpeed = 100.0f;
     public float jumpPower = 5.0f;
@@ -47,9 +48,9 @@ public class PlayerScript : MonoBehaviour
 
         // ダッシュ
         if(Input.GetKey(KeyCode.LeftShift)){
-            speed = 15.0f;
+            speed = nomalSpeed * 1.5f;
         }else {
-            speed = 10.0f;
+            speed = nomalSpeed;
         }
     }
 
