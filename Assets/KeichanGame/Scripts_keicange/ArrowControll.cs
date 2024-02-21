@@ -8,6 +8,8 @@ public class ArrowControll : MonoBehaviour
     public KeyCode key;
     public float startPos;
     public bool enemy;
+
+    public GameObject effect;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,16 +33,22 @@ public class ArrowControll : MonoBehaviour
             if (transform.position.y >= 4.5f && transform.position.y <= 5.5f)
             {
                 Debug.Log("Great");
+                GameObject effects = Instantiate(effect) as GameObject;
+                effects.transform.position = new Vector3(startPos, 5, 0);
+                Destroy(effects , 0.2f);
+                Destroy(this.gameObject);
             }
             else if (transform.position.y >= 4.0f && transform.position.y <= 6.0f)
             {
                 Debug.Log("Good");
+                Destroy(this.gameObject);
             }
             else if (transform.position.y >= 3.0 && transform.position.y <= 7.0f)
             {
                 Debug.Log("miss");
+                Destroy(this.gameObject);
             }
-            Destroy(this.gameObject);
+            
         }
 
 
