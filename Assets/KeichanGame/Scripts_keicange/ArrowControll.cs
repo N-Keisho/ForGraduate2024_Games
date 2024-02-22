@@ -40,7 +40,7 @@ public class ArrowControll : MonoBehaviour
                 Destroy(effects , 0.2f);
                 Destroy(this.gameObject);
             }
-            else if (transform.position.y >= 4.0f && transform.position.y <= 6.0f)
+            else if (transform.position.y >= 3.7f && transform.position.y <= 6.3f)
             {
                 //Debug.Log("Good");
                 Destroy(this.gameObject);

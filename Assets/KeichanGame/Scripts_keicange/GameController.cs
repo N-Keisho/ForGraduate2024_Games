@@ -46,9 +46,9 @@ public class GameController : MonoBehaviour
             {
                 notes[i] = pause;
             }
-            Debug.Log(i);
+            //Debug.Log(i);
             Instantiate(notes[i]);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
     }
 }
