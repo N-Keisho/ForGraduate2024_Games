@@ -8,17 +8,34 @@ public class GameController : MonoBehaviour
     public float noteSpeed = 5;
     public GameObject[] notes;
     public GameObject pause;
+    public bool startMusic;
+    bool musicGo;
+
+    public AudioClip battle;
+    AudioSource BGM;
 
     // Start is called before the first frame update
     void Start()
-    {
-        StartCoroutine("Music");
+    {    
+        startMusic = false;
+        musicGo = true;
+        BGM = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            startMusic = true;
+        }
+
+        if (startMusic && musicGo)
+        {
+            musicGo = false;
+            StartCoroutine("Music");
+            BGM.PlayOneShot(battle);
+        }
     }
 
     IEnumerator Music()

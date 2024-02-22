@@ -25,7 +25,7 @@ public class CatchArrowControll : MonoBehaviour
 
     IEnumerator ColorBack()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.2f);
         sprite.sprite = low;
     }
 }

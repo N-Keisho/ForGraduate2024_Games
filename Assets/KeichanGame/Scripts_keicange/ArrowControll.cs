@@ -31,7 +31,7 @@ public class ArrowControll : MonoBehaviour
 
         if (Input.GetKeyDown(key))
         {
-            Debug.Log(key);
+            //Debug.Log(key);
             if (transform.position.y >= 4.5f && transform.position.y <= 5.5f)
             {
                 //Debug.Log("Great");
@@ -45,7 +45,7 @@ public class ArrowControll : MonoBehaviour
                 //Debug.Log("Good");
                 Destroy(this.gameObject);
             }
-            else if (transform.position.y >= 3.0 && transform.position.y <= 7.0f)
+            else if (transform.position.y >= 3.2 && transform.position.y <= 6.8f)
             {
                 //Debug.Log("miss");
                 Destroy(this.gameObject);
