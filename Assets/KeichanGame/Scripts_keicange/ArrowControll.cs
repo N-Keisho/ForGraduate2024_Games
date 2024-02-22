@@ -14,6 +14,7 @@ public class ArrowControll : MonoBehaviour
     void Start()
     {
         gameController = GameObject.Find("GameManager").GetComponent<GameController>();
+        transform.position = new Vector3(startPos, -6.0f, 0);
     }
 
     // Update is called once per frame
@@ -23,16 +24,17 @@ public class ArrowControll : MonoBehaviour
 
         if (transform.position.y >= 8)
         {
-            //Destroy(this.gameObject);
-            transform.position = new Vector3(startPos, -6.0f, 0);
+            Destroy(this.gameObject);
+            //transform.position = new Vector3(startPos, -6.0f, 0);
             gameController.hp -= 1;
         }
 
         if (Input.GetKeyDown(key))
         {
+            Debug.Log(key);
             if (transform.position.y >= 4.5f && transform.position.y <= 5.5f)
             {
-                Debug.Log("Great");
+                //Debug.Log("Great");
                 GameObject effects = Instantiate(effect) as GameObject;
                 effects.transform.position = new Vector3(startPos, 5, 0);
                 Destroy(effects , 0.2f);
@@ -40,12 +42,12 @@ public class ArrowControll : MonoBehaviour
             }
             else if (transform.position.y >= 4.0f && transform.position.y <= 6.0f)
             {
-                Debug.Log("Good");
+                //Debug.Log("Good");
                 Destroy(this.gameObject);
             }
             else if (transform.position.y >= 3.0 && transform.position.y <= 7.0f)
             {
-                Debug.Log("miss");
+                //Debug.Log("miss");
                 Destroy(this.gameObject);
             }
             
