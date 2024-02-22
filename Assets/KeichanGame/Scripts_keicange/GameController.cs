@@ -7,7 +7,6 @@ public class GameController : MonoBehaviour
     public int hp = 50;
     public float noteSpeed = 5;
     public GameObject[] notes;
-    public GameObject pause;
     public bool startMusic;
     bool musicGo;
 
@@ -45,8 +44,8 @@ public class GameController : MonoBehaviour
             if (notes[i] != null)
             {
                 Instantiate(notes[i]);
-                yield return new WaitForSeconds(0.05f);
             }
+            yield return new WaitForSeconds(0.05f);
             //Debug.Log(i);
         }
     }
