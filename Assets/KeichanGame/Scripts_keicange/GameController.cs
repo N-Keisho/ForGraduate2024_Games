@@ -42,13 +42,12 @@ public class GameController : MonoBehaviour
     {
         for (int i = 0; i < notes.Length; i++)
         {
-            if (notes[i] == null)
+            if (notes[i] != null)
             {
-                notes[i] = pause;
+                Instantiate(notes[i]);
+                yield return new WaitForSeconds(0.05f);
             }
             //Debug.Log(i);
-            Instantiate(notes[i]);
-            yield return new WaitForSeconds(0.05f);
         }
     }
 }
