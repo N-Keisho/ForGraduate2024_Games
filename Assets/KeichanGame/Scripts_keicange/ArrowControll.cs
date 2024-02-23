@@ -8,6 +8,7 @@ public class ArrowControll : MonoBehaviour
     public KeyCode key;
     public float startPos;
     public bool enemy;
+    public bool hpChange;
 
     public GameObject effect;
     // Start is called before the first frame update
@@ -26,7 +27,7 @@ public class ArrowControll : MonoBehaviour
         {
             Destroy(this.gameObject);
             //transform.position = new Vector3(startPos, -6.0f, 0);
-            gameController.hp -= 1;
+            hpChange = true;
         }
 
         if (Input.GetKeyDown(key))
@@ -49,8 +50,22 @@ public class ArrowControll : MonoBehaviour
             {
                 //Debug.Log("miss");
                 Destroy(this.gameObject);
+                hpChange = true;
             }
             
+        }
+
+        if (hpChange)
+        {
+            hpChange = false;
+            if (enemy)
+            {
+                gameController.hp -= 1;
+            }
+            else
+            {
+                gameController.hp += 1;
+            }
         }
 
 
