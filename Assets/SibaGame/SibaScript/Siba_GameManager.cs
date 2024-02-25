@@ -83,7 +83,7 @@ public class Siba_GameManager : MonoBehaviour
     IEnumerator BarrageLimitTimer()
     {
         float ShibaBarrageLimitTime = 10;
-        ShibaBarrageGaugeValue = 0;
+        ShibaBarrageGaugeValue = 60;
         ShibaBarrageGauge.gameObject.SetActive(true);
         ShibaBarrageTimeText.gameObject.SetActive(true);
         ShibaGameTimeText.gameObject.SetActive(false);
@@ -116,36 +116,77 @@ public class Siba_GameManager : MonoBehaviour
     // BarrageValue()は、矢印キーを交互に押すと、連打ゲージがたまっていく関数
     void BarrageValue()
     {
+        // プレイヤーの連打に関する変数
         bool isRightkeyPush = false;
         bool isLeftkeyPush = false;
+        bool AlternateCheck = true;
+        //　しばの連打に関する変数
+        bool isDkeyPush = false;
+        bool isAkeyPush = false;
         bool ShibaAlternateCheck = true;
+
+        // プレイヤーが右キーを押したらゲージがたまる条件
         if (Input.GetKeyDown(KeyCode.RightArrow) 
             && 
             !isLeftkeyPush 
             && 
-            ShibaAlternateCheck)
+            AlternateCheck)
         {
             isRightkeyPush = true;
-            ShibaBarrageGaugeValue += 0.15f;
-            ShibaAlternateCheck = false;
+            ShibaBarrageGaugeValue += 6.0f;
+            AlternateCheck = false;
         }
         else if(Input.GetKeyUp(KeyCode.RightArrow))
         {
             isRightkeyPush = false;
         }
+
+        // しばがDキーを押したらゲージを減らす条件
+        if (Input.GetKeyDown(KeyCode.D) 
+            && 
+            !isAkeyPush 
+            && 
+            ShibaAlternateCheck)
+        {
+            isDkeyPush = true;
+            ShibaBarrageGaugeValue -= 6.0f;
+            ShibaAlternateCheck = false;
+        }
+        else if(Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            isDkeyPush = false;
+        }
+
+        // プレイヤーが左キーを押したら、ゲージがたまる条件
         if (Input.GetKeyDown(KeyCode.LeftArrow) 
             && 
             !isRightkeyPush 
             && 
-            !ShibaAlternateCheck)
+            !AlternateCheck)
         {
             isLeftkeyPush = true;
-            ShibaBarrageGaugeValue += 0.15f;
-            ShibaAlternateCheck = true;
+            ShibaBarrageGaugeValue += 6.0f;
+            AlternateCheck = true;
         }
         else if(Input.GetKeyUp(KeyCode.LeftArrow))
         {
             isLeftkeyPush = false;
+        }
+
+        // しばがAキーを押したら、ゲージを減らす条件
+        if (Input.GetKeyDown(KeyCode.A) 
+            && 
+            !isDkeyPush 
+            && 
+            !ShibaAlternateCheck)
+        {
+            isAkeyPush = true;
+            ShibaBarrageGaugeValue -= 6.0f;
+            ShibaAlternateCheck = true;
+        }
+        else if(Input.GetKeyUp(KeyCode.A))
+        {
+            isAkeyPush = false;
         }
     }
 }

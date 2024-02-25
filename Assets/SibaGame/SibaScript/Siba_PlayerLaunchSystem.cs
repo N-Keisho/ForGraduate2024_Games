@@ -30,20 +30,10 @@ public class Siba_PlayerLaunchSystem : MonoBehaviour
             ResetSystem();
         }
     }
-
-    void OnCollisionEnter(Collision coll)
-    {
-        if(coll.gameObject.tag == "Ground")
-        {	
-            gameObject.SetActive (false);
-            ResetSystem();
-        }
-    }
-
     void LaunchSystem()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
-        Vector3 force = new Vector3(0.0f, ShibaGM.ShibaBarrageGaugeValue1, ShibaGM.ShibaBarrageGaugeValue1 * 4.0f);
+        Vector3 force = new Vector3(0.0f, 0.0f, 0.0f);
         rb.AddForce(force, ForceMode.Impulse);
     }
     void ResetSystem()
