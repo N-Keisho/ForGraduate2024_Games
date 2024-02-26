@@ -21,7 +21,6 @@ public class GraduateScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("message");
             hukidasi.SetActive(true);
         }
     }
