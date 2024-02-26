@@ -1,15 +1,23 @@
+using EasyTransition;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using EasyTransition;
+using System.Security.Cryptography.X509Certificates;
 
 public class HukidasiScript : MonoBehaviour
 {
     Transform mainCameraTransform;
+    public TransitionSettings transition;
     public string nextScene;
     void Start()
     {
         mainCameraTransform = Camera.main.transform;
+    }
+
+    private void LoadStage()
+    {
+        TransitionManager.Instance().Transition(nextScene, transition, 0);
     }
 
     // Update is called once per frame
@@ -25,7 +33,7 @@ public class HukidasiScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            SceneManager.LoadScene(nextScene);
+            LoadStage();
         }
     }
 }

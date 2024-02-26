@@ -9,8 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Title.unity
     guid: 027d50912f2dbd9468f9286a15248505
   - enabled: 1
-    path: Assets/Scenes/Story.unity
+    path: Assets/Scenes/StoryScene/Story.unity
     guid: 28b127e9bdf909c4fa478e3b3b41f045
+  - enabled: 1
+    path: Assets/Scenes/StoryScene/HiroppeStartStory.unity
+    guid: 98af9ecf56dd659409bce0f8da54bc8c
   - enabled: 1
     path: Assets/Scenes/WattahGame.unity
     guid: d444de210740e5d4b96b053c283391a1
