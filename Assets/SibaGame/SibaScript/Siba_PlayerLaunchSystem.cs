@@ -7,38 +7,21 @@ public class Siba_PlayerLaunchSystem : MonoBehaviour
 {
     [SerializeField] Slider ShibaHPSlider;
     public Siba_GameManager ShibaGM;
+    [SerializeField] private GameObject ShibaSakuraPrefab;
+    [SerializeField] private GameObject ShibaHartPrefab;
+    [SerializeField] private Transform muzzle;
 
     void Update()
     {
-        if (ShibaGM.ShibaisBarrageTimerQuit1)
+        if(Input.GetKeyDown(KeyCode.Space))
         {
-            if (ShibaGM.ShibaisPlayerMove1)
-            {
-                Debug.Log("発射");
-                LaunchSystem();
-            }
+            PlayerAttack();
         }
     }
-
-    void OnTriggerExit(Collider col)
+    void PlayerAttack()
     {
-        if(col.gameObject.tag == "Enemy")
-        {
-            ShibaHPSlider.value -= 10; 
-            Debug.Log("プレイヤーの攻撃、10のダメージ");
-            gameObject.SetActive(false);
-            ResetSystem();
-        }
-    }
-    void LaunchSystem()
-    {
-        Rigidbody rb = GetComponent<Rigidbody>();
-        Vector3 force = new Vector3(0.0f, 0.0f, 0.0f);
-        rb.AddForce(force, ForceMode.Impulse);
-    }
-    void ResetSystem()
-    {	
-        transform.localPosition = new Vector3(0.0f, 0.7f, 0.0f);
-        gameObject.SetActive (true);
+        GameObject sakura = Instantiate(ShibaSakuraPrefab) as GameObject;
+        sakura.transform.position = this.transform.position;
+        
     }
 }
