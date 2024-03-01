@@ -9,7 +9,7 @@ public class Siba_PlayerLaunchSystem : MonoBehaviour
     public Siba_GameManager ShibaGM;
     [SerializeField] private GameObject ShibaSakuraPrefab;
     [SerializeField] private GameObject ShibaHartPrefab;
-    [SerializeField] private Transform muzzle;
+    [SerializeField] private GameObject ShibaMuzzle;
 
     void Update()
     {
@@ -21,7 +21,8 @@ public class Siba_PlayerLaunchSystem : MonoBehaviour
     void PlayerAttack()
     {
         GameObject sakura = Instantiate(ShibaSakuraPrefab) as GameObject;
-        sakura.transform.position = this.transform.position;
-        
+        sakura.transform.position = ShibaMuzzle.transform.position;
+        Vector3 force = new Vector3(0.0f, 5.0f, 50.0f);
+        sakura.GetComponent<Rigidbody> ().AddForce (force, ForceMode.Impulse);  
     }
 }

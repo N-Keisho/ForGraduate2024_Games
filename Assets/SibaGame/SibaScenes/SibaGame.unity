@@ -798,6 +798,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &539136670
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 539136671}
+  m_Layer: 0
+  m_Name: Muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &539136671
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539136670}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.12, y: 4.69, z: 26.54}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &577577902
 GameObject:
   m_ObjectHideFlags: 0
@@ -1479,11 +1510,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b754484bc9db03e4ba8a39a9a8f1a52c, type: 3}
   m_PrefabInstance: {fileID: 878394959}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1068375614 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b754484bc9db03e4ba8a39a9a8f1a52c, type: 3}
-  m_PrefabInstance: {fileID: 878394959}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1068375615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1500,7 +1526,7 @@ MonoBehaviour:
   ShibaGM: {fileID: 0}
   ShibaSakuraPrefab: {fileID: 919132149155446097, guid: ff0f1a3c26d51ec48a3f9fe2e2bd482b, type: 3}
   ShibaHartPrefab: {fileID: 0}
-  muzzle: {fileID: 1068375614}
+  ShibaMuzzle: {fileID: 0}
 --- !u!1 &1097696718
 GameObject:
   m_ObjectHideFlags: 0
@@ -1515,7 +1541,7 @@ GameObject:
   - component: {fileID: 1097696719}
   m_Layer: 0
   m_Name: ShibaObject
-  m_TagString: Enemy
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1969,6 +1995,7 @@ GameObject:
   - component: {fileID: 1291396264}
   - component: {fileID: 1291396263}
   - component: {fileID: 1291396265}
+  - component: {fileID: 1291396266}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2029,6 +2056,23 @@ MonoBehaviour:
   ShibaPLayerAnim: {fileID: 1148757372}
   speed: 3
   ShibaGM: {fileID: 1291396263}
+--- !u!114 &1291396266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291396262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 908836466ae5ee942a29ea127a86f912, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShibaHPSlider: {fileID: 0}
+  ShibaGM: {fileID: 1291396263}
+  ShibaSakuraPrefab: {fileID: 1999942692546037569, guid: 31e35560d4630f7478f3550a20da5c38, type: 3}
+  ShibaHartPrefab: {fileID: 0}
+  ShibaMuzzle: {fileID: 539136670}
 --- !u!1001 &1292815138
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2397,7 +2441,7 @@ GameObject:
   - component: {fileID: 1710637165}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Ground
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
