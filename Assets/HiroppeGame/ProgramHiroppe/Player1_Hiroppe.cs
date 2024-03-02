@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Player1_Hiroppe : MonoBehaviour
 {
@@ -54,7 +55,7 @@ public class Player1_Hiroppe : MonoBehaviour
         {
             if (grounded_hiroppe == true)
             {
-                rb.AddForce(Vector3.up * jumpPower_hiroppe);
+                rb_hiroppe.AddForce(Vector3.up * jumpPower_hiroppe);
             }
         }
 
