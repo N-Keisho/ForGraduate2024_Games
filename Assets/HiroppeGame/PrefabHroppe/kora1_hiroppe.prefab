@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &173559329809882899
+--- !u!1001 &8815062852075191755
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 138adacd25a1e4ee389c1238be89b31a, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 138adacd25a1e4ee389c1238be89b31a, type: 3}
       propertyPath: m_LocalScale.x
@@ -66,7 +66,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 138adacd25a1e4ee389c1238be89b31a, type: 3}
       propertyPath: m_Name
-      value: mariokora_hiroppe.vox Variant
+      value: kora1_hiroppe
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 138adacd25a1e4ee389c1238be89b31a, type: 3}
+      propertyPath: m_TagString
+      value: P1Bullet_hiroppe
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -74,20 +78,23 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 138adacd25a1e4ee389c1238be89b31a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6360778269555922483}
+      addedObject: {fileID: 5490676215857191166}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 138adacd25a1e4ee389c1238be89b31a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8841145301378556291}
   m_SourcePrefab: {fileID: 100100000, guid: 138adacd25a1e4ee389c1238be89b31a, type: 3}
---- !u!1 &1056642337759355458 stripped
+--- !u!1 &8544468842752229530 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 138adacd25a1e4ee389c1238be89b31a, type: 3}
-  m_PrefabInstance: {fileID: 173559329809882899}
+  m_PrefabInstance: {fileID: 8815062852075191755}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &6360778269555922483
+--- !u!136 &5490676215857191166
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1056642337759355458}
+  m_GameObject: {fileID: 8544468842752229530}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -96,7 +103,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -104,3 +111,30 @@ CapsuleCollider:
   m_Height: 3.6
   m_Direction: 1
   m_Center: {x: -0.064450264, y: 1.5, z: 0.0925204}
+--- !u!54 &8841145301378556291
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8544468842752229530}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

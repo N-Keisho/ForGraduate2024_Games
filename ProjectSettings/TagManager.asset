@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ground_Hiroppe
+  - P1Bullet_hiroppe
+  - P2Bullet_hiroppe
   layers:
   - Default
   - TransparentFX
