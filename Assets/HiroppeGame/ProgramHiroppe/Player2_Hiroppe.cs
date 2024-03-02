@@ -14,21 +14,21 @@ public class Player2_Hiroppe : MonoBehaviour
     public float bulletSpeed_hiroppe = 5000;
 
 
-    private int HP_hiroppe;
+    private int HP_hiroppe2;
     public TextMeshProUGUI P2_hiroppe;
     // Start is called before the first frame update
     void Start()
     {
         rb_hiroppe = GetComponent<Rigidbody>();
 
-        HP_hiroppe = 50;
+        HP_hiroppe2 = 50;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        P2_hiroppe.text = "HP:" + HP_hiroppe.ToString();
+        P2_hiroppe.text = "HP:" + HP_hiroppe2.ToString();
         
         if (Input.GetKey(KeyCode.UpArrow)){
             transform.position += transform.TransformDirection(Vector3.forward * moveSpeed_hiroppe * Time.deltaTime);
@@ -67,7 +67,7 @@ public class Player2_Hiroppe : MonoBehaviour
     
         if (collision.gameObject.tag == "P1Bullet_hiroppe")
         {
-            HP_hiroppe -= 1;
+            HP_hiroppe2 -= 1;
         
         }
         if (collision.gameObject.tag == "Ground_hiroppe")
