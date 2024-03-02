@@ -18,7 +18,9 @@ public class Siba_GameManager : MonoBehaviour
     [SerializeField] bool ShibaisBarrageTimerQuit;// 連打時間が終わったらtrueを返すbool変数
     public bool ShibaisBarrageTimerQuit1{ get{ return ShibaisBarrageTimerQuit;} }
     [SerializeField] GameObject ShibaBarrageObject;// 連打すると攻撃できるゲームオブジェクト
-    [SerializeField] GameObject ShibaPlayer2;//Playerのゲームオブジェクト
+    [SerializeField] GameObject ShibaPlayer2;// Playerのゲームオブジェクト
+    [SerializeField] bool ShibaisAttackTrigger;// 連打後のアタック可能かのbool変数
+    public bool ShibaisAttackTrigger1{ get{ return ShibaisAttackTrigger;} set{ ShibaisAttackTrigger = value;} }
 
     
     void Start()
@@ -28,6 +30,7 @@ public class Siba_GameManager : MonoBehaviour
         ShibaBarrageTimeText.gameObject.SetActive(false); //Text_連打時間
         ShibaisPlayerMove = true; //Playerが動けるかのbool
         ShibaisBarrageTimerQuit = true; //連打時間が終わったのかのbool
+        ShibaisAttackTrigger = false; //連打後のアタック可能かのbool
         StartCoroutine(GameLimitTimer()); //ゲーム制限時間のコルーチン 
     }
 
@@ -84,10 +87,10 @@ public class Siba_GameManager : MonoBehaviour
     {
         float ShibaBarrageLimitTime = 10;
         ShibaBarrageGaugeValue = 60;
-        ShibaBarrageGauge.gameObject.SetActive(true);
-        ShibaBarrageTimeText.gameObject.SetActive(true);
-        ShibaGameTimeText.gameObject.SetActive(false);
-        ShibaisBarrageTimerQuit = false;
+        ShibaBarrageGauge.gameObject.SetActive(true); //Slider_連打ゲージ
+        ShibaBarrageTimeText.gameObject.SetActive(true); //Text_連打時間
+        ShibaGameTimeText.gameObject.SetActive(false); //Text_ゲーム制限時間
+        ShibaisBarrageTimerQuit = false; 
         ShibaisPlayerMove = false;
         while (ShibaBarrageLimitTime > -1)
         {
@@ -96,9 +99,10 @@ public class Siba_GameManager : MonoBehaviour
             ShibaBarrageLimitTime -= 1.0f;
             ShibaGameLimitTime += 1.0f;
         }
-        ShibaBarrageGauge.gameObject.SetActive(false);
-        ShibaBarrageTimeText.gameObject.SetActive(false); 
-        ShibaGameTimeText.gameObject.SetActive(true);    
+        ShibaBarrageGauge.gameObject.SetActive(false); //Slider_連打ゲージ
+        ShibaBarrageTimeText.gameObject.SetActive(false); //Text_連打時間
+        ShibaGameTimeText.gameObject.SetActive(true);  //Text_ゲーム制限時間
+        ShibaisAttackTrigger = true;  
         ShibaisBarrageTimerQuit = true;
         ShibaisPlayerMove = true;
     }

@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "sakura - \u30B3\u30D4\u30FC Variant"
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 21780e3b5c516cb4a8b9b16be167c877, type: 3}
+      propertyPath: m_TagString
+      value: sakura
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 65702495048144492, guid: 21780e3b5c516cb4a8b9b16be167c877, type: 3}

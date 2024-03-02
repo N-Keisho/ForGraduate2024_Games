@@ -1522,10 +1522,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 908836466ae5ee942a29ea127a86f912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShibaHPSlider: {fileID: 0}
   ShibaGM: {fileID: 0}
   ShibaSakuraPrefab: {fileID: 919132149155446097, guid: ff0f1a3c26d51ec48a3f9fe2e2bd482b, type: 3}
-  ShibaHartPrefab: {fileID: 0}
+  ShibaHeartPrefab: {fileID: 0}
   ShibaMuzzle: {fileID: 0}
 --- !u!1 &1097696718
 GameObject:
@@ -2019,12 +2018,13 @@ MonoBehaviour:
   ShibaBarrageTimeText: {fileID: 727430095}
   ShibaGameTimeText: {fileID: 1880176644}
   ShibaAreaJudgementText: {fileID: 780861990}
-  ShibaBarrageGaugeValue: 0
+  ShibaBarrageGaugeValue: 91
   ShibaGameLimitTime: 180
   ShibaisPlayerMove: 0
   ShibaisBarrageTimerQuit: 0
   ShibaBarrageObject: {fileID: 1068375613}
   ShibaPlayer2: {fileID: 1148757371}
+  ShibaisAttackTrigger: 0
 --- !u!4 &1291396264
 Transform:
   m_ObjectHideFlags: 0
@@ -2068,10 +2068,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 908836466ae5ee942a29ea127a86f912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShibaHPSlider: {fileID: 0}
   ShibaGM: {fileID: 1291396263}
   ShibaSakuraPrefab: {fileID: 1999942692546037569, guid: 31e35560d4630f7478f3550a20da5c38, type: 3}
-  ShibaHartPrefab: {fileID: 0}
+  ShibaHeartPrefab: {fileID: 3068474093007240724, guid: 37666baba2ef6fe4eb49f5f0d6b56bfb, type: 3}
   ShibaMuzzle: {fileID: 539136670}
 --- !u!1001 &1292815138
 PrefabInstance:
