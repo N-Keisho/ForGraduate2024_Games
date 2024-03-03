@@ -21,19 +21,26 @@ public class Player1_Hiroppe : MonoBehaviour
     public TextMeshProUGUI P1_hiroppe;
     private int num;
     private Animator anim1;// Animatorを使うための変数
+    public bool gameStartHiroppe;
+    public int prepare_hiroppe;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
+        gameStartHiroppe = false;
         rb_hiroppe = GetComponent<Rigidbody>();
         HP_hiroppe1 = 50;
         anim1 = GetComponent<Animator>();// animにAnimatorの値を取得して代入
+        prepare_hiroppe = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(gameStartHiroppe); //gameStartHiroppe=2となるとゲームスタート（OKボタンを２人とも押す）
+
         P1_hiroppe.text = "HP:" + HP_hiroppe1.ToString();
 
         if (Input.GetKey(KeyCode.W))
@@ -149,4 +156,7 @@ public class Player1_Hiroppe : MonoBehaviour
             grounded_hiroppe = false;
         }
     }
+
+
+
 }

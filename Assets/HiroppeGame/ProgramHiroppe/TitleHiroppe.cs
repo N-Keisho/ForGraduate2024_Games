@@ -14,10 +14,14 @@ public class TitleHiroppe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKey(KeyCode.A))
+        {
+            SceneManager.LoadScene("HiroppeGame");
+        }
     }
     public void OnClick()// ボタンがおされた時の処理　※必ずpublicにします
     {
+
         SceneManager.LoadScene("HiroppeGame");// Mainシーンに変える
     }
 }
