@@ -10,15 +10,25 @@ public class PlayerScript : MonoBehaviour
     public float jumpPower = 5.0f;
     private Rigidbody rb;
     private bool isGrounded = true;
+    public bool moveOK;
+
+    public GameObject hukidasiHiroppe;
+    StoryGameController storyGameController;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        storyGameController = GameObject.Find("StoryGameController").GetComponent<StoryGameController>();
+        hukidasiHiroppe.SetActive(false);
+        moveOK = true;
     }
 
     void Update()
     {
-        move();
+        if (moveOK)
+        {
+            move();
+        } 
         // Debug.Log(isGrounded);
     }
 
@@ -54,6 +64,31 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "NextStage")
+        {
+            if (!storyGameController.hiroppeClear)
+            {
+                hukidasiHiroppe.SetActive(true);
+                moveOK = false;
+                StartCoroutine("rt");
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "NextStage")
+        {
+            if (!storyGameController.hiroppeClear)
+            {
+                hukidasiHiroppe.SetActive(false);
+                moveOK = true;
+            }
+        }
+    }
+
     private void OnCollisionStay(Collision other) {
         if(other.gameObject.tag == "Ground"){
             isGrounded = true;
@@ -63,6 +98,25 @@ public class PlayerScript : MonoBehaviour
     private void OnCollisionExit(Collision other) {
         if(other.gameObject.tag == "Ground"){
             isGrounded = false;
+        }
+    }
+
+    IEnumerator rt()
+    {
+        int i = 0;
+        while (i < 720)
+        {
+            i++;
+            this.transform.Rotate(0, 0.25f, 0);
+            yield return null;
+        }
+
+        int j = 0;
+        while (j < 100)
+        {
+            j++;
+            this.transform.position += transform.forward * Time.deltaTime;
+            yield return null;
         }
     }
 }

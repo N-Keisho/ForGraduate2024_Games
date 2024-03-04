@@ -241,6 +241,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136f25fdf5773b642a410afd0a31f775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nomalSpeed: 10
   speed: 10
   rotationSpeed: 500
   jumpPower: 5
+  hukidasiHiroppe: {fileID: 0}
