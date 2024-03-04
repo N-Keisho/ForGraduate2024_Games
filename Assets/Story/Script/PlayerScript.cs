@@ -13,6 +13,7 @@ public class PlayerScript : MonoBehaviour
     public bool moveOK;
 
     public GameObject hukidasiHiroppe;
+    public GameObject hukidasiSiba;
     StoryGameController storyGameController;
 
     void Start()
@@ -20,6 +21,7 @@ public class PlayerScript : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         storyGameController = GameObject.Find("StoryGameController").GetComponent<StoryGameController>();
         hukidasiHiroppe.SetActive(false);
+        hukidasiSiba.SetActive(false);
         moveOK = true;
     }
 
@@ -71,9 +73,13 @@ public class PlayerScript : MonoBehaviour
             if (!storyGameController.hiroppeClear)
             {
                 hukidasiHiroppe.SetActive(true);
-                moveOK = false;
-                StartCoroutine("rt");
             }
+            else if (!storyGameController.sibaClear)
+            {
+                hukidasiSiba.SetActive(true);
+            }
+            moveOK = false;
+            StartCoroutine("rt");
         }
     }
 
@@ -84,8 +90,12 @@ public class PlayerScript : MonoBehaviour
             if (!storyGameController.hiroppeClear)
             {
                 hukidasiHiroppe.SetActive(false);
-                moveOK = true;
             }
+            else if (!storyGameController.sibaClear)
+            {
+                hukidasiSiba.SetActive(false);
+            }
+            moveOK = true;
         }
     }
 

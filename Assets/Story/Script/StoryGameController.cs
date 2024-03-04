@@ -9,6 +9,12 @@ public class StoryGameController : MonoBehaviour
     public bool keichanClear;
     public bool tukkunClear;
     public bool wattaClear;
+
+    public GameObject nextStageWall1;
+    public GameObject nextStageWall2;
+    public GameObject nextStageWall3;
+    public GameObject nextStageWall4;
+    public GameObject nextStageWall5;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +24,9 @@ public class StoryGameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (hiroppeClear)
+        {
+            nextStageWall1.SetActive(false);
+        }
     }
 }
