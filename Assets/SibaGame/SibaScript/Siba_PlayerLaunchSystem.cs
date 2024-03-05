@@ -12,14 +12,14 @@ public class Siba_PlayerLaunchSystem : MonoBehaviour
 
     void Update()
     {
-        if(ShibaGM.ShibaisAttackTrigger1)
+        if(ShibaGM.ShibaisAttackTrigger1 && ShibaGM.ShibaBarrageGaugeValue1 > 60)
         {
             PlayerAttack();
         }
     }
     void PlayerAttack()
     {
-        if(ShibaGM.ShibaBarrageGaugeValue1 > 60 && ShibaGM.ShibaBarrageGaugeValue1 <= 90)
+        if(ShibaGM.ShibaBarrageGaugeValue1 <= 90)
         {
             GameObject sakura = Instantiate(ShibaSakuraPrefab) as GameObject;
             sakura.transform.position = ShibaMuzzle.transform.position;
