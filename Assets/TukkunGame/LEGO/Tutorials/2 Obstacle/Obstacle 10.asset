@@ -103,7 +103,7 @@ MonoBehaviour:
       m_TutorialButtonText: 
     - m_Type: 0
       Title:
-        m_Untranslated: 
+        m_Untranslated: Add a platform
       Text:
         m_Untranslated: "First, let\u2019s add a platform to your game.\n\nGo deeper:\n\n\u2022
           The <b>Project window</b> is where you can find all the files (assets)
@@ -119,7 +119,7 @@ MonoBehaviour:
       m_MaskingSettings:
         m_MaskingEnabled: 0
         m_UnmaskedViews: []
-      m_Summary: Add a platform
+      m_Summary: 
       m_Description: "First, let\u2019s add a platform to your game.\n\nGo deeper:\n\n\u2022
         The <b>Project window</b> is where you can find all the files (assets) used
         for the Unity project.\n\n\u2022 It works like a file explorer, and is organized
