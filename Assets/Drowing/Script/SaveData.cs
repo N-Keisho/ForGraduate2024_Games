@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Results
 {
-    // 0: yet 1: win 2: lose
+    // 0: yet, 1: win, 2: lose, 3: draw, -1: now
 	public int Hiroppe;
     public int Siba;
     public int Keichan;
@@ -29,11 +29,6 @@ public class GraduateMembers
 public class NormalMembers
 {
     // -1：不参加：, 0以上：ゲーム参加回数
-    public int Hiroppe;
-    public int Siba;
-    public int Keichan;
-    public int Tukkun;
-    public int Wattah;
     public int Ron;
     public int Riry;
     public int Kirari;
@@ -59,7 +54,7 @@ public class SaveData
 {
     // ゲームの結果
     public Results results = new Results(){
-        // 0: yet 1: win 2: lose
+        // 0: yet, 1: win, 2: lose, 3: draw, -1: now
         Hiroppe = 0,
         Siba = 0,
         Keichan = 0,
@@ -82,11 +77,6 @@ public class SaveData
     // 通常メンターの参加回数
     public NormalMembers normalMembers = new NormalMembers(){
         // -1：不参加：, 0以上：ゲーム参加回数
-        Hiroppe = -1,
-        Siba = -1,
-        Keichan = -1,
-        Tukkun = -1,
-        Wattah = -1,
         Ron = -1,
         Riry = -1,
         Kirari = -1,
