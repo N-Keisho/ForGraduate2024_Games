@@ -25,6 +25,7 @@ public class Siba_PlayerLaunchSystem : MonoBehaviour
             sakura.transform.position = ShibaMuzzle.transform.position;
             Vector3 force = new Vector3(0.0f, 5.0f, 50.0f);
             sakura.GetComponent<Rigidbody> ().AddForce (force, ForceMode.Impulse);
+            ShibaGM.ShibaisAttackTrigger1 = false;
         }
         if(ShibaGM.ShibaBarrageGaugeValue1 > 90)
         {
@@ -32,7 +33,8 @@ public class Siba_PlayerLaunchSystem : MonoBehaviour
             heart.transform.position = ShibaMuzzle.transform.position;
             Vector3 force = new Vector3(0.0f, 5.0f, 50.0f);
             heart.GetComponent<Rigidbody> ().AddForce (force, ForceMode.Impulse);
+
+            ShibaGM.ShibaisAttackTrigger1 = false;
         }
-        ShibaGM.ShibaisAttackTrigger1 = false;
     }
 }
