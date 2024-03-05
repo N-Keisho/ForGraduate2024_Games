@@ -1,7 +1,7 @@
 using System.IO;
 using UnityEngine;
 
-public class DataManager : MonoBehaviour 
+public class DataManager : MonoBehaviour
 {
     [HideInInspector] private SaveData data;     // json変換するデータのクラス
     string filepath;                            // jsonファイルのパス
@@ -12,22 +12,23 @@ public class DataManager : MonoBehaviour
     void Awake()
     {
         // パス名取得
-        filepath = Application.dataPath + "/Drowing/Script/" + fileName;       
+        filepath = Application.dataPath + "/Drowing/Script/" + fileName;
 
         // ファイルがないとき、ファイル作成
-        if (!File.Exists(filepath)) {
+        if (!File.Exists(filepath))
+        {
             data = new SaveData();
             Debug.Log("ファイルがないので作成しました。");
-            Save(data);
+            Save();
         }
 
         // ファイルを読み込んでdataに格納
-        data = Load(filepath);          
+        data = Load(filepath);
     }
 
     //-------------------------------------------------------------------
     // jsonとしてデータを保存
-    void Save(SaveData data)
+    public void Save()
     {
         string json = JsonUtility.ToJson(data);                 // jsonとして変換
         StreamWriter wr = new StreamWriter(filepath, false);    // ファイル書き込み指定
@@ -41,7 +42,7 @@ public class DataManager : MonoBehaviour
         StreamReader rd = new StreamReader(path);               // ファイル読み込み指定
         string json = rd.ReadToEnd();                           // ファイル内容全て読み込む
         rd.Close();                                             // ファイル閉じる
-                                                                
+
         return JsonUtility.FromJson<SaveData>(json);            // jsonファイルを型に戻して返す
     }
 
@@ -49,88 +50,104 @@ public class DataManager : MonoBehaviour
     // ゲーム終了時に保存
     void OnDestroy()
     {
-        Save(data);
+        Save();
     }
 
 
     // 外部参照用関数群
     //--------------------------------------------------------------------
-    // Resultのセット
-    public void SetResults(int hiroppe = 0, int siba = 0, int keichan = 0, int tukkun = 0, int wattah = 0, int ron = 0){
-        if (hiroppe != 0) data.results.Hiroppe = hiroppe;
-        if (siba != 0) data.results.Siba = siba;
-        if (keichan != 0) data.results.Keichan = keichan;
-        if (tukkun != 0) data.results.Tukkun = tukkun;
-        if (wattah != 0) data.results.Wattah = wattah;
-        if (ron != 0) data.results.Ron = ron;
-    }
 
-    //--------------------------------------------------------------------
-    // GraduateMembersのセット
-    public void SetGraduateMembers(bool hiroppe = false, bool siba = false, bool keichan = false, bool tukkun = false, bool wattah = false){
-        if (hiroppe) data.graduateMembers.Hiroppe = hiroppe;
-        if (siba) data.graduateMembers.Siba = siba;
-        if (keichan) data.graduateMembers.Keichan = keichan;
-        if (tukkun) data.graduateMembers.Tukkun = tukkun;
-        if (wattah) data.graduateMembers.Wattah = wattah;
-    }
-
-    //--------------------------------------------------------------------
-    // NormalMembersのセット
-    public void SetNormalMembers(
-                                    int Ron = -1,
-                                    int Riry = -1,
-                                    int Kirari = -1,
-                                    int Ebityan = -1,
-                                    int Bikky = -1,
-                                    int Kawasan = -1,
-                                    int Yuripen = -1,
-                                    int Sotoumi = -1,
-                                    int Ke_sho_ = -1,
-                                    int Ti_zu = -1,
-                                    int Tomo = -1,
-                                    int Kisumi = -1,
-                                    int Mattu = -1,
-                                    int Mosyu = -1,
-                                    int Syake = -1,
-                                    int Ponyo = -1,
-                                    int Daodao = -1
-                                )
+    /// <summary>
+    /// ゲームの結果をセットする．指定がない場合は結果を変更しない．
+    /// </summary>
+    public void SetResults(int hiroppe = 0, int siba = 0, int keichan = 0, int tukkun = 0, int wattah = 0, int ron = 0)
     {
-        if (Ron != -1) data.normalMembers.Ron = Ron;
-        if (Riry != -1) data.normalMembers.Riry = Riry;
-        if (Kirari != -1) data.normalMembers.Kirari = Kirari;
-        if (Ebityan != -1) data.normalMembers.Ebityan = Ebityan;
-        if (Bikky != -1) data.normalMembers.Bikky = Bikky;
-        if (Kawasan != -1) data.normalMembers.Kawasan = Kawasan;
-        if (Yuripen != -1) data.normalMembers.Yuripen = Yuripen;
-        if (Sotoumi != -1) data.normalMembers.Sotoumi = Sotoumi;
-        if (Ke_sho_ != -1) data.normalMembers.Ke_sho_ = Ke_sho_;
-        if (Ti_zu != -1) data.normalMembers.Ti_zu = Ti_zu;
-        if (Tomo != -1) data.normalMembers.Tomo = Tomo;
-        if (Kisumi != -1) data.normalMembers.Kisumi = Kisumi;
-        if (Mattu != -1) data.normalMembers.Mattu = Mattu;
-        if (Mosyu != -1) data.normalMembers.Mosyu = Mosyu;
-        if (Syake != -1) data.normalMembers.Syake = Syake;
-        if (Ponyo != -1) data.normalMembers.Ponyo = Ponyo;
-        if (Daodao != -1) data.normalMembers.Daodao = Daodao;
+        if (hiroppe != 0) data.results.value[0] = hiroppe;
+        if (siba != 0) data.results.value[1] = siba;
+        if (keichan != 0) data.results.value[2] = keichan;
+        if (tukkun != 0) data.results.value[3] = tukkun;
+        if (wattah != 0) data.results.value[4] = wattah;
+        if (ron != 0) data.results.value[5] = ron;
     }
 
     //--------------------------------------------------------------------
-    // Dataの取得
-    public Results GetData(){
+
+    /// <summary>
+    /// 卒業生のメンバーの出席状況をセットする．指定がない場合は変更しない．
+    /// </summary>
+    public void SetGraduateMembers(bool hiroppe = false, bool siba = false, bool keichan = false, bool tukkun = false, bool wattah = false)
+    {
+        if (hiroppe) data.graduateMembers.value[0] = hiroppe;
+        if (siba) data.graduateMembers.value[1] = siba;
+        if (keichan) data.graduateMembers.value[2] = keichan;
+        if (tukkun) data.graduateMembers.value[3] = tukkun;
+        if (wattah) data.graduateMembers.value[4] = wattah;
+    }
+
+    //--------------------------------------------------------------------
+
+    /// <summary>
+    /// // 通常生のメンバーの出席状況とゲーム参加回数をセットする．指定がない場合は変更しない．
+    /// </summary>
+    /// <param name="x">int[20]</param>
+    public void SetNormalMembers(int[] x)
+    {
+        for (int i = 0; i < x.Length; i++)
+        {
+            if (x[i] != -1) data.normalMembers.value[i] = x[i];
+        }
+
+    }
+
+    //--------------------------------------------------------------------
+
+    /// <summary>
+    /// 通常生のメンバーのゲーム参加回数を加算する
+    /// </summary>
+    /// <param name="index">int</param>
+    public void AddNormalMembers(int index)
+    {
+        data.normalMembers.value[index]++;
+    }
+
+    //--------------------------------------------------------------------
+
+    /// <summary>
+    /// 通常メンバーのゲーム参加回数を減産する
+    /// </summary>
+    /// <param name="index">int</param>
+    public void SubNormalMembers(int index)
+    {
+        data.normalMembers.value[index]--;
+    }
+
+    //--------------------------------------------------------------------
+
+    /// <summary>
+    ///  ゲームの結果を取得
+    /// </summary>
+    public Results GetResults()
+    {
         return data.results;
     }
 
     //--------------------------------------------------------------------
-    // GraduateMembersの取得
-    public GraduateMembers GetGraduateMembers(){
+
+    /// <summary>
+    /// 卒業生のメンバーの出席状況を取得
+    /// </summary>
+    public GraduateMembers GetGraduateMembers()
+    {
         return data.graduateMembers;
     }
 
     //--------------------------------------------------------------------
-    // NormalMembersの取得
-    public NormalMembers GetNormalMembers(){
+
+    /// <summary>
+    /// 通常生のメンバーの出席状況とゲーム参加回数を取得
+    /// </summary>
+    public NormalMembers GetNormalMembers()
+    {
         return data.normalMembers;
     }
 }
