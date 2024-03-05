@@ -7,18 +7,22 @@ public class KeichanGameStartControll : MonoBehaviour
     SpriteRenderer sprite;
     public Sprite ready;
     public Sprite go;
+    public bool spriteOn;
 
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
         sprite.sprite = ready;
-        StartCoroutine("startGame");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (spriteOn)
+        {
+            spriteOn = false;
+            StartCoroutine("startGame");
+        }
     }
 
     IEnumerator startGame()
