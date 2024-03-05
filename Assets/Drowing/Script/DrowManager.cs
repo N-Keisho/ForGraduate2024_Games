@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class DrowManager : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class DrowManager : MonoBehaviour
     private DataManager dataManager;
     public TextMeshProUGUI enemyNameText;
     public TextMeshProUGUI challengerNameText;
+
+    public Image enemyImage;
+
+    public Sprite[] enemyImages;
 
     public GameObject[] explainTexts;
     public bool isDrwoing = false;
@@ -54,6 +59,7 @@ public class DrowManager : MonoBehaviour
         Results results = dataManager.GetResults();
         NormalMembers normalMembers = dataManager.GetNormalMembers();
         string enemyName = "";
+        int enemyIndex = 0;
         string challengerName = "";
         challengerNameText.fontSize = 100;
 
@@ -64,6 +70,7 @@ public class DrowManager : MonoBehaviour
             {
                 enemyName = results.namesJp[i];
                 challengerName = results.namesJp[i];
+                enemyIndex = i;
                 break;
             }
         }
@@ -101,6 +108,7 @@ public class DrowManager : MonoBehaviour
         }
 
         enemyNameText.text = enemyName;
+        enemyImage.sprite = enemyImages[enemyIndex];
         StartCoroutine(rouletteAnimation(challengerName));
 
     }
@@ -130,7 +138,7 @@ public class DrowManager : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         challengerNameText.text = name;
-        challengerNameText.fontSize = 130;
+        challengerNameText.fontSize = 150;
         yield return new WaitForSeconds(0.3f);
         for (int i = 0; i < explainTexts.Length; i++)
         {

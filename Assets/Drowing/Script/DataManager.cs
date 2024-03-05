@@ -75,13 +75,10 @@ public class DataManager : MonoBehaviour
     /// <summary>
     /// 卒業生のメンバーの出席状況をセットする．指定がない場合は変更しない．
     /// </summary>
-    public void SetGraduateMembers(bool hiroppe = false, bool siba = false, bool keichan = false, bool tukkun = false, bool wattah = false)
+    public void SetGraduateMembers(GraduateMembers graduateMembers)
     {
-        if (hiroppe) data.graduateMembers.value[0] = hiroppe;
-        if (siba) data.graduateMembers.value[1] = siba;
-        if (keichan) data.graduateMembers.value[2] = keichan;
-        if (tukkun) data.graduateMembers.value[3] = tukkun;
-        if (wattah) data.graduateMembers.value[4] = wattah;
+        data.graduateMembers = graduateMembers;
+        Save();
     }
 
     //--------------------------------------------------------------------
@@ -89,14 +86,10 @@ public class DataManager : MonoBehaviour
     /// <summary>
     /// // 通常生のメンバーの出席状況とゲーム参加回数をセットする．指定がない場合は変更しない．
     /// </summary>
-    /// <param name="x">int[20]</param>
-    public void SetNormalMembers(int[] x)
+    public void SetNormalMembers(NormalMembers normalMembers)
     {
-        for (int i = 0; i < x.Length; i++)
-        {
-            if (x[i] != -1) data.normalMembers.value[i] = x[i];
-        }
-
+        data.normalMembers = normalMembers;
+        Save();
     }
 
     //--------------------------------------------------------------------
