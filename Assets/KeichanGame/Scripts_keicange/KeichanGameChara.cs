@@ -12,6 +12,7 @@ public class KeichanGameChara : MonoBehaviour
     public KeyCode rightKey;
 
     public bool rideRhythm;
+    int keisoku;
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
@@ -24,11 +25,24 @@ public class KeichanGameChara : MonoBehaviour
         {
             if (Input.GetKeyDown(leftKey))
             {
-                StartCoroutine(changeSprite(leftMove));
+                //StartCoroutine(changeSprite(leftMove));
+                sprite.sprite = leftMove;
+                keisoku = 0;
             }
             if (Input.GetKeyDown(rightKey))
             {
-                StartCoroutine(changeSprite(rightMove));
+                //StartCoroutine(changeSprite(rightMove));
+                sprite.sprite = rightMove;
+                keisoku = 0;
+            }
+            if (!Input.anyKeyDown)
+            {
+                keisoku++;
+            }
+
+            if (keisoku > 300)
+            {
+                sprite.sprite = normal;
             }
         }
     }
