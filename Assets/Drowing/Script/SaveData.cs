@@ -26,9 +26,9 @@ public class NormalMembers
 {
     // 一般メンバーの参加回数
     // -1：不参加：, 0以上：ゲーム参加回数
-    public int[] value = new int[20] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-    public string[] names = new string[20] { "Ron", "Riry", "Kirari", "Ebityan", "Bikky", "Kawasan", "Yuripen", "Sotoumi", "Ke_sho_", "Ti_zu", "Tomo", "Kisumi", "Mattu_", "Mosyu", "Syake", "Ponyo", "Daodao", "Hori", "Kisshi", "Sotoumi"};
-    public string[] namesJp = new string[20] { "ろん", "りりー", "きらり", "えびちゃん", "びっきー", "かわさん", "ゆりぺん", "そとうみ", "けーしょー", "ちーず", "とも", "きすみ", "まっつ_", "もしゅ", "しゃけ", "ぽにょ", "だおだお", "ほりー","きっしー", "そとうみ" };
+    public int[] value = new int[19] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    public string[] names = new string[19] { "Ron", "Riry", "Kirari", "Ebityan", "Bikky", "Kawasan", "Yuripen", "Sotoumi", "Ke-sho", "Ti-zu", "Tomo", "Kisumi", "Mattu", "Mosyu", "Syake", "Ponyo", "Daodao", "Hori", "Kisshy"};
+    public string[] namesJp = new string[19] { "ろん", "りりー", "きらり", "えびちゃん", "びっきー", "かわさん", "ゆりぺん", "そとうみ", "けーしょー", "ちーず", "とも", "きすみ", "まっつー", "もしゅ", "しゃけ", "ぽにょ", "だおだお", "ほりー","きっしー"};
 }
 
 [System.Serializable]
