@@ -10,7 +10,6 @@ public class Siba_PlayerController : MonoBehaviour
 
     public Siba_GameManager ShibaGM;
 
-
     void Update()
     {
         if(ShibaGM.ShibaisPlayerMove1)

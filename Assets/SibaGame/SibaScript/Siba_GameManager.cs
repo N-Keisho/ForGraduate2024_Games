@@ -7,6 +7,8 @@ using TMPro;
 public class Siba_GameManager : MonoBehaviour
 {
     [SerializeField] Slider ShibaBarrageGauge;// 連打ゲージのスライダー
+    [SerializeField] TextMeshProUGUI SibaBarrageText,PlayerBarrageText;// スライダーの文字パーセント
+    [SerializeField] GameObject GaugeBG;// 連打ゲージの背景画像
     [SerializeField] TextMeshProUGUI ShibaBarrageTimeText;// 連打の制限時間テキスト
     [SerializeField] TextMeshProUGUI ShibaGameTimeText;// ゲーム制限時間のテキスト
     [SerializeField] TextMeshProUGUI ShibaAreaJudgementText;// 連打エリアに入ると表示されるテキスト
@@ -25,6 +27,7 @@ public class Siba_GameManager : MonoBehaviour
     
     void Start()
     {
+        GaugeBG.gameObject.SetActive(false); //連打ゲージの背景
         ShibaBarrageGauge.gameObject.SetActive(false); //Slider_連打ゲージ
         ShibaAreaJudgementText.gameObject.SetActive(false); //Text_「何かのキー」
         ShibaBarrageTimeText.gameObject.SetActive(false); //Text_連打時間
@@ -38,6 +41,8 @@ public class Siba_GameManager : MonoBehaviour
     {
         bool ShibaisGaugeArea; //プレイヤーが連打エリアに入ってるかのbool
         ShibaBarrageGauge.value = ShibaBarrageGaugeValue; // ゲージの値がShibaBarrageGaugeValueによって変化する
+        SibaBarrageText.text = (ShibaBarrageGauge.value / 120 * 100).ToString("f0") + "%";
+        PlayerBarrageText.text = (100 - (ShibaBarrageGauge.value / 120) * 100).ToString("f0") + "%";
         ShibaisGaugeArea  = GaugeAreaJudgement(); // GaugeAreaJudgement()関数で、連打エリアに入ってるかを確認
         if (Input.GetKeyDown(KeyCode.Space) 
             && 
@@ -87,6 +92,7 @@ public class Siba_GameManager : MonoBehaviour
     {
         float ShibaBarrageLimitTime = 10;
         ShibaBarrageGaugeValue = 60;
+        GaugeBG.gameObject.SetActive(true); //連打ゲージの背景
         ShibaBarrageGauge.gameObject.SetActive(true); //Slider_連打ゲージ
         ShibaBarrageTimeText.gameObject.SetActive(true); //Text_連打時間
         ShibaGameTimeText.gameObject.SetActive(false); //Text_ゲーム制限時間
@@ -94,11 +100,12 @@ public class Siba_GameManager : MonoBehaviour
         ShibaisPlayerMove = false;
         while (ShibaBarrageLimitTime > -1)
         {
-            ShibaBarrageTimeText.text = "れんだじかん  " + ShibaBarrageLimitTime.ToString("f1") + "s";
+            ShibaBarrageTimeText.text = ShibaBarrageLimitTime.ToString("f0") + "s";
             yield return new WaitForSeconds(1.0f);
             ShibaBarrageLimitTime -= 1.0f;
             ShibaGameLimitTime += 1.0f;
         }
+        GaugeBG.gameObject.SetActive(false); //連打ゲージの背景
         ShibaBarrageGauge.gameObject.SetActive(false); //Slider_連打ゲージ
         ShibaBarrageTimeText.gameObject.SetActive(false); //Text_連打時間
         ShibaGameTimeText.gameObject.SetActive(true);  //Text_ゲーム制限時間
@@ -111,7 +118,7 @@ public class Siba_GameManager : MonoBehaviour
     {
         while (ShibaGameLimitTime > -1)
         {
-            ShibaGameTimeText.text = "のこりじかん" + ShibaGameLimitTime.ToString("f1") + "s";
+            ShibaGameTimeText.text = ShibaGameLimitTime.ToString("f0");
             yield return new WaitForSeconds(1.0f);
             ShibaGameLimitTime -= 1.0f;
         }

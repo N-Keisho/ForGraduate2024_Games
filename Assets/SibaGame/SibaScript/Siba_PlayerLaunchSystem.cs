@@ -31,7 +31,7 @@ public class Siba_PlayerLaunchSystem : MonoBehaviour
         {
             GameObject heart = Instantiate(ShibaHeartPrefab) as GameObject;
             heart.transform.position = ShibaMuzzle.transform.position;
-            Vector3 force = new Vector3(0.0f, 5.0f, 50.0f);
+            Vector3 force = new Vector3(0.0f, 10.0f, 30.0f);
             heart.GetComponent<Rigidbody> ().AddForce (force, ForceMode.Impulse);
 
             ShibaGM.ShibaisAttackTrigger1 = false;

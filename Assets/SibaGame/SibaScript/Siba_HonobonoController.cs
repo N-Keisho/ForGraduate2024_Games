@@ -6,7 +6,10 @@ public class Siba_HonobonoController : MonoBehaviour
 {
     [SerializeField]GameObject SibaObject;
     [SerializeField]GameObject SibaPlayer;
+    [SerializeField]GameObject Flower;
     [SerializeField]float HonobonoDistance;
+    [SerializeField]Siba_SibaController SibaCon;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +23,11 @@ public class Siba_HonobonoController : MonoBehaviour
         transform.LookAt(SibaPlayer.transform);
     }
     IEnumerator Healing(){
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
+        Flower.SetActive(true);
+        yield return new WaitForSeconds(2);
+        SibaCon.SibaEnemyHP +=20f;//しばを回復
+        yield return new WaitForSeconds(2);
+        Destroy(this.gameObject);
     }
 }

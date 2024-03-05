@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 789313a84f5341a43a0149f575b5c07f, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 789313a84f5341a43a0149f575b5c07f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -62,11 +62,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4083501151425157549, guid: 789313a84f5341a43a0149f575b5c07f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4083501151425157549, guid: 789313a84f5341a43a0149f575b5c07f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4083501151425157549, guid: 789313a84f5341a43a0149f575b5c07f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -133,11 +133,11 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1
+  m_Radius: 1.3205293
+  m_Height: 2.6410587
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -9.187216e-17, z: -0.11853504}

@@ -6,6 +6,9 @@ TagManager:
   tags:
   - sakura
   - heart
+  - Ground
+  - Siba
+  - Item
   layers:
   - Default
   - TransparentFX
