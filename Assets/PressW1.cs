@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class Scenetrace1 : MonoBehaviour
+public class PressW1 : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -14,10 +13,10 @@ public class Scenetrace1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    public void OnClickStartButton()
-    {
-        SceneManager.LoadScene("KeichanGameTutorial2");
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            gameObject.SetActive(false);
+        }
+
     }
 }

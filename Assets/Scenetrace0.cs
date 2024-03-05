@@ -18,6 +18,6 @@ public class Scenetrace0 : MonoBehaviour
     }
     public void OnClickStartButton()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("KeichanGame");
     }
 }
