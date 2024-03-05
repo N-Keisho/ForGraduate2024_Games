@@ -34,62 +34,45 @@ public class Player2_Hiroppe : MonoBehaviour
         if (Input.GetKey(KeyCode.UpArrow)){
             transform.position += transform.TransformDirection(Vector3.forward * moveSpeed_hiroppe * Time.deltaTime);
             anim2.SetBool("Walk2", true);
-            anim2.SetBool("Running2", true);
+            //anim2.SetBool("Running2", true);
         }
         if (Input.GetKey(KeyCode.LeftArrow)){
-            transform.Rotate(new Vector3(0, -2, 0));
+            transform.Rotate(new Vector3(0, -1, 0));
         }
         if (Input.GetKey(KeyCode.DownArrow)){
             transform.position += transform.TransformDirection(Vector3.back * moveSpeed_hiroppe * Time.deltaTime);
             anim2.SetBool("Walk2", true);
-            anim2.SetBool("Running2", true);
+            //anim2.SetBool("Running2", true);
         }
         if (Input.GetKey(KeyCode.RightArrow)){
-            transform.Rotate(new Vector3(0, 2, 0));
+            transform.Rotate(new Vector3(0, 1, 0));
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (grounded_hiroppe == true)
-            {
-                rb_hiroppe.AddForce(Vector3.up * jumpPower_hiroppe);
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    if (grounded_hiroppe == true)
+        //    {
+        //        rb_hiroppe.AddForce(Vector3.up * jumpPower_hiroppe);
+        //    }
+        //}
 
-        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))// もしWSADキーのいずれかが離されたら、
+        if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow))// もしWSADキーのいずれかが離されたら、
         {
-            anim2.SetBool("Walk2", true);
+            anim2.SetBool("Walk2", false);
             anim2.SetBool("Running2", false);// AnimatorのRunningをfalseにする
         }
 
-        if (Input.GetKey(KeyCode.O))
+        if (Input.GetKeyDown(KeyCode.X)) //強攻撃
         {
-            //100までの中でランダムの数字を生成してその数字によって何の武器が飛んでいくのかを決める
-            int attackNumber = Random.Range(0, 100);
-            if (attackNumber > -1 && attackNumber < 20)
-            {
-                num = 1;
-                Attack(num);
-                anim2.SetBool("WeAttack2", true);// AnimatorのAttackをtrueにする
-            }
-            else if (attackNumber < 40)
-            {
-                num = 2;
-                Attack(num);
-                anim2.SetBool("WeAttack2", true);// AnimatorのAttackをtrueにする
-            }
-            else if (attackNumber < 50)
-            {
-                num = 3;
-                Attack(num);
-                anim2.SetBool("WeAttack2", true);// AnimatorのAttackをtrueにする
-            }
-            else
-            {
-                num = 4;
-                Attack(num);
-                anim2.SetBool("StAttack2", true);// AnimatorのAttackをtrueにする
-            }
+            InputCommand(40, 60, 80);
+            StartCoroutine("StrongAttack2_hiroppe");
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.C)) //弱攻撃
+        {
+            InputCommand(30, 90, 100);
+            StartCoroutine("WeakAttack2_hiroppe");
         }
 
         //if (Input.GetKey(KeyCode.O))
@@ -112,6 +95,34 @@ public class Player2_Hiroppe : MonoBehaviour
             anim2.SetBool("Dying2", true);
         }
     }
+
+    private void InputCommand(int i1, int i2, int i3)
+    {
+        //100までの中でランダムの数字を生成してその数字によって何の武器が飛んでいくのかを決める
+        int attackNumber = Random.Range(0, 100);
+        if (attackNumber > -1 && attackNumber < i1)
+        {
+            num = 1;
+            Attack(num);
+        }
+        else if (attackNumber < i2)
+        {
+            num = 2;
+            Attack(num);
+        }
+        else if (attackNumber < i3)
+        {
+            num = 3;
+            Attack(num);
+        }
+        else
+        {
+            num = 4;
+            Attack(num);
+        }
+    }
+
+
 
     private void Attack(int num)
     {
@@ -145,5 +156,25 @@ public class Player2_Hiroppe : MonoBehaviour
         {
             grounded_hiroppe = false;
         }
+    }
+
+    IEnumerator StrongAttack2_hiroppe() //X
+    {
+        yield return new WaitForSeconds(0.2f);
+        anim2.SetBool("StAttack2", true);
+        yield return new WaitForSeconds(1.2f);
+        anim2.SetBool("StAttack2", false);
+
+        yield break;
+    }
+
+    IEnumerator WeakAttack2_hiroppe() //C
+    {
+        yield return new WaitForSeconds(0.1f);
+        anim2.SetBool("WeAttack2", true);
+        yield return new WaitForSeconds(0.5f);
+        anim2.SetBool("WeAttack2", false);
+
+        yield break;
     }
 }
