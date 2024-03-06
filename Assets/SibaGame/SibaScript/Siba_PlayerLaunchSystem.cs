@@ -9,6 +9,7 @@ public class Siba_PlayerLaunchSystem : MonoBehaviour
     [SerializeField] private GameObject ShibaSakuraPrefab;
     [SerializeField] private GameObject ShibaHeartPrefab;
     [SerializeField] private GameObject ShibaMuzzle;
+    [SerializeField] private GameObject ShibaObject;
 
     void Update()
     {
@@ -21,18 +22,29 @@ public class Siba_PlayerLaunchSystem : MonoBehaviour
     {
         if(ShibaGM.ShibaBarrageGaugeValue1 <= 90)
         {
-            GameObject sakura = Instantiate(ShibaSakuraPrefab) as GameObject;
-            sakura.transform.position = ShibaMuzzle.transform.position;
-            Vector3 force = new Vector3(0.0f, 5.0f, 50.0f);
-            sakura.GetComponent<Rigidbody> ().AddForce (force, ForceMode.Impulse);
+            GameObject Item = Instantiate(ShibaSakuraPrefab) as GameObject;
+            Item.transform.position = ShibaMuzzle.transform.position;
+            // Itemをしばの方向に向けるベクトル
+            Vector3 targetDirection = ShibaObject.transform.position - Item.transform.position;
+            targetDirection.Normalize(); // 方向ベクトルを正規化
+
+            float forceMagnitude = 50.0f; 
+            Vector3 force = targetDirection * forceMagnitude;
+            Item.GetComponent<Rigidbody>().AddForce(force, ForceMode.Impulse);
             ShibaGM.ShibaisAttackTrigger1 = false;
         }
         if(ShibaGM.ShibaBarrageGaugeValue1 > 90)
         {
             GameObject heart = Instantiate(ShibaHeartPrefab) as GameObject;
             heart.transform.position = ShibaMuzzle.transform.position;
-            Vector3 force = new Vector3(0.0f, 10.0f, 30.0f);
-            heart.GetComponent<Rigidbody> ().AddForce (force, ForceMode.Impulse);
+
+            // sakuraをしばの方向に向けるベクトル
+            Vector3 targetDirection = ShibaObject.transform.position - heart.transform.position;
+            targetDirection.Normalize(); // 方向ベクトルを正規化
+
+            float forceMagnitude = 50.0f; 
+            Vector3 force = targetDirection * forceMagnitude;
+            heart.GetComponent<Rigidbody>().AddForce(force, ForceMode.Impulse);
             ShibaGM.ShibaisAttackTrigger1 = false;
         }
     }

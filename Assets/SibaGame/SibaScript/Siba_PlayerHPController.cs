@@ -19,7 +19,7 @@ public class Siba_PlayerHPController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other) 
     {
-        if(other.gameObject.tag == "sakura")
+        if(other.gameObject.tag == "sakura" || other.gameObject.tag == "Item")
         {
             SibaPlayerHP -= 20f;
             Destroy(other.gameObject);//当たったさくらのプレファブを消す

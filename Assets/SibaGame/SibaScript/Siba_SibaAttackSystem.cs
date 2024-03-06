@@ -9,7 +9,8 @@ public class Siba_SibaAttackSystem : MonoBehaviour
     [SerializeField] private GameObject ShibaSakuraManager,
                                         ShibaSakuraPrefab,
                                         Honobono1,
-                                        Honobono2;
+                                        Honobono2,
+                                        ShibaPlayer;
     // Start is called before the first frame update
     void Update()
     {
@@ -27,8 +28,16 @@ public class Siba_SibaAttackSystem : MonoBehaviour
             {
                 GameObject sakura = Instantiate(ShibaSakuraPrefab) as GameObject;
                 sakura.transform.position = ShibaSakuraManager.transform.position;
-                Vector3 force = new Vector3(0, 0, -30.0f);
-                sakura.GetComponent<Rigidbody> ().AddForce (force, ForceMode.Impulse);
+                // sakuraをしばの方向に向けるベクトル
+                Vector3 targetDirection = ShibaPlayer.transform.position - sakura.transform.position;
+                targetDirection.Normalize(); // 方向ベクトルを正規化
+
+                float forceMagnitude = 80.0f; 
+                Vector3 force = targetDirection * forceMagnitude;
+                sakura.GetComponent<Rigidbody>().AddForce(force, ForceMode.Impulse);
+                ShibaGM.ShibaisAttackTrigger1 = false;
+                //Vector3 force = new Vector3(0, 0, -30.0f);
+                //sakura.GetComponent<Rigidbody> ().AddForce (force, ForceMode.Impulse);
                 Debug.Log("sibaattack");
             }
             ShibaGM.ShibaisAttackTrigger1 = false;
