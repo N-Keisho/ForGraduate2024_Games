@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Siba
   - Item
+  - HiroppeSord
   layers:
   - Default
   - TransparentFX

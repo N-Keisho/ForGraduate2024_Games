@@ -11,15 +11,19 @@ public class Siba_PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(ShibaGM.ShibaisPlayerMove1)
+        if(!ShibaGM.ShibaisBarrageTimerQuit1)
         {
-            PlayerMove();
-            //ShibaPLayerAnim.SetBool("Swing_bool",false);
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                Shiba_PlayerAnim.SetBool("isPlayerWalking", false);
+                Shiba_PlayerAnim.SetBool("isPlayerFighting", true);
+            } 
         }
-        //else
-        //{
-            //BarrageMove();
-        //}
+        else
+        {
+            Shiba_PlayerAnim.SetBool("isPlayerFighting", false);
+            PlayerMove(); 
+        }
     }
     // PlayerMove 移動とアニメーション
     void PlayerMove()
@@ -63,18 +67,4 @@ public class Siba_PlayerController : MonoBehaviour
             transform.position += transform.TransformDirection(Vector3.forward * moveSpeed1 * Time.deltaTime);// 右へ進む
         }
     }
-    // BarrageMove 連打の時のアニメーション
-    // void BarrageMove()
-    // {
-    //     float Horizontalvalue;
-    //     Horizontalvalue = Input.GetAxis("Horizontal");
-    //     if (Horizontalvalue  > 0.0f || Horizontalvalue < 0.0f)
-    //     {
-    //         ShibaPLayerAnim.SetBool("Swing_bool",true);
-    //     }
-    //     else
-    //     {
-    //         ShibaPLayerAnim.SetBool("Swing_bool",false);
-    //     }
-    // }
 }

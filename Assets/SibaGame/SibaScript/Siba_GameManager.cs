@@ -15,8 +15,7 @@ public class Siba_GameManager : MonoBehaviour
     [SerializeField] float ShibaBarrageGaugeValue;// 連打ゲージの値を管理する
     public float ShibaBarrageGaugeValue1{ get{ return ShibaBarrageGaugeValue;}}
     [SerializeField] float ShibaGameLimitTime;// ゲーム制限時間をインスペクターで操作できるようにした
-    [SerializeField] bool ShibaisPlayerMove;// Playerが動けることができるかのbool変数
-    public bool ShibaisPlayerMove1{ get{ return ShibaisPlayerMove;} }
+    public float ShibaGameLimitTime1{ get{ return ShibaGameLimitTime;}}
     [SerializeField] bool ShibaisBarrageTimerQuit;// 連打時間が終わったらtrueを返すbool変数
     public bool ShibaisBarrageTimerQuit1{ get{ return ShibaisBarrageTimerQuit;} }
     [SerializeField] GameObject ShibaBarrageObject;// 連打すると攻撃できるゲームオブジェクト
@@ -32,7 +31,6 @@ public class Siba_GameManager : MonoBehaviour
         ShibaBarrageGauge.gameObject.SetActive(false); //Slider_連打ゲージ
         ShibaAreaJudgementText.gameObject.SetActive(false); //Text_「何かのキー」
         ShibaBarrageTimeText.gameObject.SetActive(false); //Text_連打時間
-        ShibaisPlayerMove = true; //Playerが動けるかのbool
         ShibaisBarrageTimerQuit = true; //連打時間が終わったのかのbool
         ShibaisAttackTrigger = false; //連打後のアタック可能かのbool
         StartCoroutine(GameLimitTimer()); //ゲーム制限時間のコルーチン
@@ -100,8 +98,7 @@ public class Siba_GameManager : MonoBehaviour
         ShibaBarrageGauge.gameObject.SetActive(true); //Slider_連打ゲージ
         ShibaBarrageTimeText.gameObject.SetActive(true); //Text_連打時間
         ShibaGameTimeText.gameObject.SetActive(false); //Text_ゲーム制限時間
-        ShibaisBarrageTimerQuit = false; 
-        ShibaisPlayerMove = false;
+        ShibaisBarrageTimerQuit = false;
         while (ShibaBarrageLimitTime > -1)
         {
             ShibaBarrageTimeText.text = ShibaBarrageLimitTime.ToString("f0") + "s";
@@ -113,9 +110,8 @@ public class Siba_GameManager : MonoBehaviour
         ShibaBarrageGauge.gameObject.SetActive(false); //Slider_連打ゲージ
         ShibaBarrageTimeText.gameObject.SetActive(false); //Text_連打時間
         ShibaGameTimeText.gameObject.SetActive(true);  //Text_ゲーム制限時間
-        ShibaisAttackTrigger = true;  
+        ShibaisAttackTrigger = true; 
         ShibaisBarrageTimerQuit = true;
-        ShibaisPlayerMove = true;
     }
     // GameLimitTimer()は、ゲーム制限時間を１秒ごとに減らすコルーチン
     IEnumerator GameLimitTimer()
