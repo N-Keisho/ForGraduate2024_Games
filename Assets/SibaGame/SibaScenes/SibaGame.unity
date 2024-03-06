@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -421,6 +421,88 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &143534231
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: c042e4a40b4f8f94f9a4a81b5ca02a0f, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c042e4a40b4f8f94f9a4a81b5ca02a0f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c042e4a40b4f8f94f9a4a81b5ca02a0f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c042e4a40b4f8f94f9a4a81b5ca02a0f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c042e4a40b4f8f94f9a4a81b5ca02a0f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c042e4a40b4f8f94f9a4a81b5ca02a0f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c042e4a40b4f8f94f9a4a81b5ca02a0f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.52
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c042e4a40b4f8f94f9a4a81b5ca02a0f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c042e4a40b4f8f94f9a4a81b5ca02a0f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c042e4a40b4f8f94f9a4a81b5ca02a0f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c042e4a40b4f8f94f9a4a81b5ca02a0f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c042e4a40b4f8f94f9a4a81b5ca02a0f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c042e4a40b4f8f94f9a4a81b5ca02a0f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c042e4a40b4f8f94f9a4a81b5ca02a0f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c042e4a40b4f8f94f9a4a81b5ca02a0f, type: 3}
+      propertyPath: m_Name
+      value: Player_Hiroppe
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c042e4a40b4f8f94f9a4a81b5ca02a0f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 480372343}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c042e4a40b4f8f94f9a4a81b5ca02a0f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 480372342}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c042e4a40b4f8f94f9a4a81b5ca02a0f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 480372341}
+  m_SourcePrefab: {fileID: 100100000, guid: c042e4a40b4f8f94f9a4a81b5ca02a0f, type: 3}
 --- !u!1 &144862368
 GameObject:
   m_ObjectHideFlags: 0
@@ -1313,6 +1395,62 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &480372339 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c042e4a40b4f8f94f9a4a81b5ca02a0f, type: 3}
+  m_PrefabInstance: {fileID: 143534231}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &480372341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480372339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4608979e336e4ce68a4f55493a7c0e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SibaPlayerHP: 100
+  SibaPlayerHPText: {fileID: 377038040}
+  SibaPlayerHPGauge: {fileID: 1541812497}
+--- !u!114 &480372342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480372339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f0064c1420211341830f098d41e782b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Shiba_PlayerAnim: {fileID: 480372343}
+  moveSpeed1: 10
+  ShibaGM: {fileID: 1291396263}
+--- !u!95 &480372343
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480372339}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6c372592f67dd084d9572c2d27363ad2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &503610318
 GameObject:
   m_ObjectHideFlags: 0
@@ -3084,11 +3222,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!4 &1148757373 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 270187bcc3aa6294cbcfade1bbdabaa2, type: 3}
-  m_PrefabInstance: {fileID: 182035363}
-  m_PrefabAsset: {fileID: 0}
 --- !u!65 &1148757374
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3271,7 +3404,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ce2b2778f3414408090a6a77fc074e02, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ce2b2778f3414408090a6a77fc074e02, type: 3}
       propertyPath: m_LocalScale.x
@@ -3598,7 +3731,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1291396264}
   - component: {fileID: 1291396263}
-  - component: {fileID: 1291396265}
   - component: {fileID: 1291396266}
   m_Layer: 0
   m_Name: GameManager
@@ -3631,8 +3763,10 @@ MonoBehaviour:
   ShibaisPlayerMove: 0
   ShibaisBarrageTimerQuit: 0
   ShibaBarrageObject: {fileID: 1068375613}
-  ShibaPlayer2: {fileID: 1148757371}
+  ShibaPlayer2: {fileID: 480372339}
   ShibaisAttackTrigger: 0
+  Shiba_PlayerAlternateCheck: 0
+  Shiba_ShibaAlternateCheck: 0
 --- !u!4 &1291396264
 Transform:
   m_ObjectHideFlags: 0
@@ -3648,22 +3782,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1291396265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1291396262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f0064c1420211341830f098d41e782b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShibaPlayer: {fileID: 1148757371}
-  ShibaPLayerAnim: {fileID: 1148757372}
-  speed: 3
-  ShibaGM: {fileID: 1291396263}
 --- !u!114 &1291396266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3946,7 +4064,7 @@ Transform:
   - {fileID: 473765110}
   - {fileID: 155851263}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1448887470
 MonoBehaviour:
@@ -4324,7 +4442,7 @@ Transform:
   - {fileID: 539136671}
   - {fileID: 1075431370}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1602781580 stripped
 GameObject:
@@ -4594,7 +4712,7 @@ Transform:
   - {fileID: 121678708}
   - {fileID: 1602781583}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1672508007
 PrefabInstance:
@@ -5062,7 +5180,7 @@ RectTransform:
   - {fileID: 144862369}
   - {fileID: 1314531315}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5546,6 +5664,7 @@ GameObject:
   - component: {fileID: 1948385107}
   - component: {fileID: 1948385106}
   - component: {fileID: 1948385105}
+  - component: {fileID: 1948385108}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5619,14 +5738,27 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1948385104}
-  m_LocalRotation: {x: -0.05982572, y: 0.000000014901161, z: 0.01603027, w: 0.9980802}
-  m_LocalPosition: {x: 1, y: 1.59, z: -3}
+  m_LocalRotation: {x: -0.061406266, y: -0.13027564, z: 0.008084302, w: 0.9895414}
+  m_LocalPosition: {x: 3.2623832, y: 1.5899999, z: 1.7410419}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1148757373}
-  m_RootOrder: -1
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -6.859, y: -0.111, z: 1.847}
+--- !u!114 &1948385108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948385104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de7fbccadca7ccb44997d6c36618ffa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShibaPlayer3: {fileID: 480372339}
 --- !u!1 &1954694032
 GameObject:
   m_ObjectHideFlags: 0
