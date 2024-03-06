@@ -1314,6 +1314,50 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0197582, y: 1.9, z: 1}
   m_Center: {x: 0.098786354, y: 0.96, z: 0}
+--- !u!1 &468816872
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 468816874}
+  - component: {fileID: 468816873}
+  m_Layer: 0
+  m_Name: JoyStick
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &468816873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468816872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88b6deeee54c10b4c9a6e3449105aa8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &468816874
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468816872}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 959.0183, y: 1019.958, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &473765109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1415,7 +1459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4608979e336e4ce68a4f55493a7c0e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SibaPlayerHP: 10
+  SibaPlayerHP: 100
   SibaPlayerHPText: {fileID: 377038040}
   SibaPlayerHPGauge: {fileID: 1541812497}
   Siba_PlayerAnim1: {fileID: 480372343}

@@ -23,44 +23,42 @@ public class Siba_SibaController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!ShibaGM.ShibaisBarrageTimerQuit1){
-            if (Input.GetKey(KeyCode.A)){
+        if(!ShibaGM.ShibaisBarrageTimerQuit1)
+        {
+            if (Input.GetKey(KeyCode.Joystick2Button2))
+            {
                 Siba_sibaAnim.SetBool("isSibaWalking", false);
                 Siba_sibaAnim.SetBool("isFighting", true);
             }
         }
-        else {
+        else 
+        {
             Siba_sibaAnim.SetBool("isFighting", false);
+            // Joyconのスティックの入力を取得
+            float horizontal_2 = Input.GetAxis("Horizontal_4");
+            float vertical_2 = Input.GetAxis("Vertical_4");
+            // メモ$は、文字列中に変数の値を埋め込むための簡単な方法
+            Debug.Log($"Horizontal_2: {horizontal_2}, Vertical_2: {vertical_2}");
 
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+            // スティックの入力があるかどうかを判断
+            if (Mathf.Abs(horizontal_2) > 0.1f || Mathf.Abs(vertical_2) > 0.1f)
             {
-                Siba_sibaAnim.SetBool("isSibaWalking",true);
+                Siba_sibaAnim.SetBool("isSibaWalking", true);
             }
-            else if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+            else
             {
                 Siba_sibaAnim.SetBool("isSibaWalking", false);
             }
 
-            if (Input.GetKey(KeyCode.W))
+            // ここでスティックの入力に基づいて移動などを制御する
+            // ベクトル化
+            Vector3 moveDirection = new Vector3(-horizontal_2, 0, -vertical_2).normalized;
+            if (moveDirection.magnitude > 0.1f)
             {
-                transform.rotation = Quaternion.Euler(0, 0, 0);
-                transform.position += transform.TransformDirection(Vector3.forward * moveSpeed * Time.deltaTime);// 前へ進む
-            }
-            if (Input.GetKey(KeyCode.S))
-            {
-                transform.rotation = Quaternion.Euler(0, 180, 0);
-                transform.position += transform.TransformDirection(Vector3.forward * moveSpeed * Time.deltaTime);// 後ろへ進む
-            }
-            if (Input.GetKey(KeyCode.A))
-            {
-                transform.rotation = Quaternion.Euler(0, -90, 0);
-                transform.position += transform.TransformDirection(Vector3.forward * moveSpeed * Time.deltaTime);// 左へ進む
-            }
-            if (Input.GetKey(KeyCode.D))// もしDキーがおされたら
-            {
-                transform.rotation = Quaternion.Euler(0, 90, 0);
-                transform.position += transform.TransformDirection(Vector3.forward * moveSpeed * Time.deltaTime);// 右へ進む
-            }
+                Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, Time.deltaTime * 500);
+                transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+            } 
         }
         SibaHPGauge.value = SibaEnemyHP;
         SibaHPText.text = SibaEnemyHP.ToString("f0");

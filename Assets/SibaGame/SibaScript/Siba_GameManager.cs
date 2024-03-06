@@ -46,7 +46,7 @@ public class Siba_GameManager : MonoBehaviour
         SibaBarrageText.text = (ShibaBarrageGauge.value / 120 * 100).ToString("f0") + "%";
         PlayerBarrageText.text = (100 - (ShibaBarrageGauge.value / 120) * 100).ToString("f0") + "%";
         ShibaisGaugeArea  = GaugeAreaJudgement(); // GaugeAreaJudgement()関数で、連打エリアに入ってるかを確認
-        if (Input.GetKeyDown(KeyCode.Space) 
+        if (Input.GetKeyDown(KeyCode.Joystick1Button3) 
             && 
             ShibaisGaugeArea
             &&
@@ -136,7 +136,7 @@ public class Siba_GameManager : MonoBehaviour
         bool isAkeyPush = false;
 
         // プレイヤーが右キーを押したらゲージがたまる条件
-        if (Input.GetKeyDown(KeyCode.RightArrow) 
+        if (Input.GetKeyDown(KeyCode.Joystick1Button0) 
             && 
             !isLeftkeyPush 
             && 
@@ -146,13 +146,13 @@ public class Siba_GameManager : MonoBehaviour
             ShibaBarrageGaugeValue += 6.0f;
             Shiba_PlayerAlternateCheck = false;
         }
-        if(Input.GetKeyUp(KeyCode.RightArrow))
+        if(Input.GetKeyUp(KeyCode.Joystick1Button0))
         {
             isRightkeyPush = false;
         }
 
         // プレイヤーが左キーを押したら、ゲージがたまる条件
-        if (Input.GetKeyDown(KeyCode.LeftArrow) 
+        if (Input.GetKeyDown(KeyCode.Joystick1Button2) 
             && 
             !isRightkeyPush 
             && 
@@ -162,13 +162,13 @@ public class Siba_GameManager : MonoBehaviour
             ShibaBarrageGaugeValue += 6.0f;
             Shiba_PlayerAlternateCheck = true;
         }
-        if(Input.GetKeyUp(KeyCode.LeftArrow))
+        if(Input.GetKeyUp(KeyCode.Joystick1Button2))
         {
             isLeftkeyPush = false;
         }
         
         // しばがDキーを押したらゲージを減らす条件
-        if (Input.GetKeyDown(KeyCode.D) 
+        if (Input.GetKeyDown(KeyCode.Joystick2Button0) 
             && 
             !isAkeyPush 
             && 
@@ -178,9 +178,13 @@ public class Siba_GameManager : MonoBehaviour
             ShibaBarrageGaugeValue -= 6.0f;
             Shiba_ShibaAlternateCheck = false;
         }
+        if (Input.GetKeyUp(KeyCode.Joystick2Button0))
+        {
+            isDkeyPush = false;
+        }
 
         // しばがAキーを押したら、ゲージを減らす条件
-        if (Input.GetKeyDown(KeyCode.A) 
+        if (Input.GetKeyDown(KeyCode.Joystick2Button2) 
             && 
             !isDkeyPush 
             && 
@@ -190,7 +194,7 @@ public class Siba_GameManager : MonoBehaviour
             ShibaBarrageGaugeValue -= 6.0f;
             Shiba_ShibaAlternateCheck = true;
         }
-        if(Input.GetKeyUp(KeyCode.A))
+        if(Input.GetKeyUp(KeyCode.Joystick2Button2))
         {
             isAkeyPush = false;
         }

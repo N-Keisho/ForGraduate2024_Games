@@ -13,7 +13,7 @@ public class Siba_PlayerController : MonoBehaviour
     {
         if(!ShibaGM.ShibaisBarrageTimerQuit1)
         {
-            if (Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetKey(KeyCode.Joystick1Button0))
             {
                 Shiba_PlayerAnim.SetBool("isPlayerWalking", false);
                 Shiba_PlayerAnim.SetBool("isPlayerFighting", true);
@@ -22,49 +22,39 @@ public class Siba_PlayerController : MonoBehaviour
         else
         {
             Shiba_PlayerAnim.SetBool("isPlayerFighting", false);
-            PlayerMove(); 
-        }
-    }
-    // PlayerMove 移動とアニメーション
-    void PlayerMove()
-    {
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
-        {
-            Shiba_PlayerAnim.SetBool("isPlayerWalking",true);
-        }
-        else if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
-        {
-            Shiba_PlayerAnim.SetBool("isPlayerWalking", false);
-        }
+            if (Input.GetKey(KeyCode.Joystick1Button1))//xボタン
+            {
+                Shiba_PlayerAnim.SetBool("isPlayerAttack",true);
+            }
+            else if(Input.GetKeyUp(KeyCode.Joystick1Button1))//xボタン
+            {   
+                Shiba_PlayerAnim.SetBool("isPlayerAttack",false);
+            }
+            // Joyconのスティックの入力を取得
+            float horizontal_1 = Input.GetAxis("Horizontal_3");
+            float vertical_1 = Input.GetAxis("Vertical_3");
+            // メモ$は、文字列中に変数の値を埋め込むための簡単な方法
+            Debug.Log($"Horizontal_1: {horizontal_1}, Vertical_1: {vertical_1}");
 
-        if (Input.GetKey(KeyCode.M))
-        {
-            Shiba_PlayerAnim.SetBool("isPlayerAttack",true);
-        }
-        else if(Input.GetKeyUp(KeyCode.M))
-        {
-            Shiba_PlayerAnim.SetBool("isPlayerAttack",false);
-        }
+            // スティックの入力があるかどうかを判断
+            if (Mathf.Abs(horizontal_1) > 0.1f || Mathf.Abs(vertical_1) > 0.1f)
+            {
+                Shiba_PlayerAnim.SetBool("isPlayerWalking", true);
+            }
+            else
+            {
+                Shiba_PlayerAnim.SetBool("isPlayerWalking", false);
+            }
 
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-            transform.position += transform.TransformDirection(Vector3.forward * moveSpeed1 * Time.deltaTime);// 前へ進む
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            transform.rotation = Quaternion.Euler(0, 180, 0);
-            transform.position += transform.TransformDirection(Vector3.forward * moveSpeed1 * Time.deltaTime);// 後ろへ進む
-        }
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.rotation = Quaternion.Euler(0, -90, 0);
-            transform.position += transform.TransformDirection(Vector3.forward * moveSpeed1 * Time.deltaTime);// 左へ進む
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.rotation = Quaternion.Euler(0, 90, 0);
-            transform.position += transform.TransformDirection(Vector3.forward * moveSpeed1 * Time.deltaTime);// 右へ進む
+            // ここでスティックの入力に基づいて移動などを制御する
+            // ベクトル化
+            Vector3 moveDirection = new Vector3(-horizontal_1, 0, vertical_1).normalized;
+            if (moveDirection.magnitude > 0.1f)
+            {
+                Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, Time.deltaTime * 500);
+                transform.Translate(Vector3.forward * moveSpeed1 * Time.deltaTime);
+            }
         }
     }
 }
