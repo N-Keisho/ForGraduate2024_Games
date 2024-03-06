@@ -1,0 +1,4 @@
+repository "ShibaGame@holyyyyy@cloud"
+  path "/"
+    br "/main"
+    co "/main"
