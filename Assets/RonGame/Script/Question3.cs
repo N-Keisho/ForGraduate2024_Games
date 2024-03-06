@@ -4,31 +4,29 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Question1 : MonoBehaviour
+public class Question3 : MonoBehaviour
 {
-    [SerializeField] Image[] chars = new Image[6];
+    [SerializeField] Image[] chars = new Image[2];
     [SerializeField] Image[] minhaya = new Image[5];
     [SerializeField] GameObject Minhaya;
     [SerializeField] TMP_Text[] minhayaTexts = new TMP_Text[5];
     [SerializeField] GameObject answerText;
-    private CharsManager[] charsManager = new CharsManager[6];
-    private int[] sequences = new int[6] { 0, 0, 0, 0, 0, 0 }; //表裏の状態を管理する変数. 0:未回答, 1:解答済み, 2:正解
-    private string[] answers = new string[6] { "", "", "", "", "", "" }; //回答の文字列
-    private string[] correctAnswers = new string[6] { "や", "ま", "な", "し", "り", "こ" }; //正解の文字列
+    private CharsManager[] charsManager = new CharsManager[2];
+    private int[] sequences = new int[2] { 0, 0}; //表裏の状態を管理する変数. 0:未回答, 1:解答済み, 2:正解
+    private string[] answers = new string[2] { "", "" }; //回答の文字列
+    private string[] correctAnswers = new string[2] { "5", "5" }; //正解の文字列
                                                                                      
-    private string[][] minhayaStringsOrigin = new string[6][] //問題の文字列
-    {
-        new string[5]{"や", "な", "さ", "す", "し"},
-        new string[5]{"ま", "が", "と", "ず", "ば"},
-        new string[5]{"な", "い", "う", "き", "た"},
-        new string[5]{"し", "は", "の", "ゆ", "ね"},
-        new string[5]{"り", "や", "ぞ", "な", "む"},
-        new string[5]{"こ", "と", "む", "こ", "か"},
-    };
+    // private string[][] minhayaStringsOrigin = new string[3][] //問題の文字列
+    // {
+    //     new string[5]{"1", "2", "3", "4", "5"},
+    //     new string[5]{"1", "2", "3", "4", "5"},
+    //     new string[5]{"1", "2", "3", "4", "5"}
+    // };
 
-    private string[][] minhayaStrings = new string[6][] //問題の文字列
+    private string[][] minhayaStrings = new string[2][] //問題の文字列
     {
-        new string[5], new string[5], new string[5], new string[5], new string[5], new string[5]
+        new string[5]{"2", "3", "4", "5", "6"},
+        new string[5]{"2", "3", "4", "5", "6"}
     };
 
     public int number = 0; //選択中の文字の番号
@@ -48,24 +46,24 @@ public class Question1 : MonoBehaviour
         }
 
 
-        // 文字列をシャッフルする
-        for (int i = 0; i < minhayaStrings.Length; i++)
-        {
-            List<int> indexes = new List<int>();
-            for (int j = 0; j < minhayaStringsOrigin[i].Length; j++)
-            {
-                while (true)
-                {
-                    int index = Random.Range(0, minhayaStringsOrigin[i].Length);
-                    if (!indexes.Contains(index))
-                    {
-                        indexes.Add(index);
-                        minhayaStrings[i][j] = minhayaStringsOrigin[i][index];
-                        break;
-                    }
-                }
-            }
-        }
+        // // 文字列をシャッフルする
+        // for (int i = 0; i < minhayaStrings.Length; i++)
+        // {
+        //     List<int> indexes = new List<int>();
+        //     for (int j = 0; j < minhayaStringsOrigin[i].Length; j++)
+        //     {
+        //         while (true)
+        //         {
+        //             int index = Random.Range(0, minhayaStringsOrigin[i].Length);
+        //             if (!indexes.Contains(index))
+        //             {
+        //                 indexes.Add(index);
+        //                 minhayaStrings[i][j] = minhayaStringsOrigin[i][index];
+        //                 break;
+        //             }
+        //         }
+        //     }
+        // }
     }
 
     // Update is called once per frame

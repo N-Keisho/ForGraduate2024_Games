@@ -4,31 +4,28 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Question1 : MonoBehaviour
+public class Question2 : MonoBehaviour
 {
-    [SerializeField] Image[] chars = new Image[6];
+    [SerializeField] Image[] chars = new Image[3];
     [SerializeField] Image[] minhaya = new Image[5];
     [SerializeField] GameObject Minhaya;
     [SerializeField] TMP_Text[] minhayaTexts = new TMP_Text[5];
     [SerializeField] GameObject answerText;
-    private CharsManager[] charsManager = new CharsManager[6];
-    private int[] sequences = new int[6] { 0, 0, 0, 0, 0, 0 }; //表裏の状態を管理する変数. 0:未回答, 1:解答済み, 2:正解
-    private string[] answers = new string[6] { "", "", "", "", "", "" }; //回答の文字列
-    private string[] correctAnswers = new string[6] { "や", "ま", "な", "し", "り", "こ" }; //正解の文字列
+    private CharsManager[] charsManager = new CharsManager[3];
+    private int[] sequences = new int[3] { 0, 0, 0}; //表裏の状態を管理する変数. 0:未回答, 1:解答済み, 2:正解
+    private string[] answers = new string[3] { "", "", "" }; //回答の文字列
+    private string[] correctAnswers = new string[3] { "チ", "ョ", "コ" }; //正解の文字列
                                                                                      
-    private string[][] minhayaStringsOrigin = new string[6][] //問題の文字列
+    private string[][] minhayaStringsOrigin = new string[3][] //問題の文字列
     {
-        new string[5]{"や", "な", "さ", "す", "し"},
-        new string[5]{"ま", "が", "と", "ず", "ば"},
-        new string[5]{"な", "い", "う", "き", "た"},
-        new string[5]{"し", "は", "の", "ゆ", "ね"},
-        new string[5]{"り", "や", "ぞ", "な", "む"},
-        new string[5]{"こ", "と", "む", "こ", "か"},
+        new string[5]{"チ", "バ", "コ", "バ", "プ"},
+        new string[5]{"ョ", "ニ", "コ", "タ", "ー"},
+        new string[5]{"コ", "ラ", "ア", "ー", "ズ"}
     };
 
-    private string[][] minhayaStrings = new string[6][] //問題の文字列
+    private string[][] minhayaStrings = new string[3][] //問題の文字列
     {
-        new string[5], new string[5], new string[5], new string[5], new string[5], new string[5]
+        new string[5], new string[5], new string[5]
     };
 
     public int number = 0; //選択中の文字の番号
@@ -80,7 +77,7 @@ public class Question1 : MonoBehaviour
             }
 
         }
-        else if(!isResult)
+        else if (!isResult)
         {
             // 文字列を常に更新する
             for (int i = 0; i < minhaya.Length; i++)
@@ -124,7 +121,7 @@ public class Question1 : MonoBehaviour
                 {
                     isResult = true;
                     StartCoroutine(Fin());
-                }
+                }   
             }
         }
 

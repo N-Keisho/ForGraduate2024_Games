@@ -5,7 +5,8 @@ using UnityEngine;
 public class QuestionManager : MonoBehaviour
 {
     [SerializeField] GameObject[] questions = new GameObject[6];
-    public int currentQuestion = 0;
+    public int currentQuestion = -1;
+    public bool[] correct = new bool[6] { false, false, false, false, false, false };
     void Start()
     {
         for (int i = 0; i < questions.Length; i++)
@@ -17,7 +18,7 @@ public class QuestionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton5))
         {
             NextQuestion();
         }
@@ -33,6 +34,11 @@ public class QuestionManager : MonoBehaviour
                 questions[currentQuestion - 1].SetActive(false);
             }
             questions[currentQuestion].SetActive(true);
+        }
+        else if (currentQuestion == questions.Length)
+        {
+            questions[currentQuestion - 1].SetActive(false);
+            // Debug.Log("Finish");
         }
     }
 }
