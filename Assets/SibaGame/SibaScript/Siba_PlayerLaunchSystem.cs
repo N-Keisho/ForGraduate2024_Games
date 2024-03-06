@@ -12,14 +12,14 @@ public class Siba_PlayerLaunchSystem : MonoBehaviour
 
     void Update()
     {
-        if(ShibaGM.ShibaisAttackTrigger1)
+        if(ShibaGM.ShibaisAttackTrigger1 && ShibaGM.ShibaBarrageGaugeValue1 > 60)
         {
             PlayerAttack();
         }
     }
     void PlayerAttack()
     {
-        if(ShibaGM.ShibaBarrageGaugeValue1 > 60 && ShibaGM.ShibaBarrageGaugeValue1 <= 90)
+        if(ShibaGM.ShibaBarrageGaugeValue1 <= 90)
         {
             GameObject sakura = Instantiate(ShibaSakuraPrefab) as GameObject;
             sakura.transform.position = ShibaMuzzle.transform.position;
@@ -33,7 +33,6 @@ public class Siba_PlayerLaunchSystem : MonoBehaviour
             heart.transform.position = ShibaMuzzle.transform.position;
             Vector3 force = new Vector3(0.0f, 10.0f, 30.0f);
             heart.GetComponent<Rigidbody> ().AddForce (force, ForceMode.Impulse);
-
             ShibaGM.ShibaisAttackTrigger1 = false;
         }
     }

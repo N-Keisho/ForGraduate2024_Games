@@ -23,7 +23,8 @@ public class Siba_GameManager : MonoBehaviour
     [SerializeField] GameObject ShibaPlayer2;// Playerのゲームオブジェクト
     [SerializeField] bool ShibaisAttackTrigger;// 連打後のアタック可能かのbool変数
     public bool ShibaisAttackTrigger1{ get{ return ShibaisAttackTrigger;} set{ ShibaisAttackTrigger = value;} }
-
+    [SerializeField] bool Shiba_PlayerAlternateCheck;//プレイヤー連打の右、左の切り替え判定
+    [SerializeField] bool Shiba_ShibaAlternateCheck;//しば連打のD、Aの切り替え判定
     
     void Start()
     {
@@ -34,7 +35,10 @@ public class Siba_GameManager : MonoBehaviour
         ShibaisPlayerMove = true; //Playerが動けるかのbool
         ShibaisBarrageTimerQuit = true; //連打時間が終わったのかのbool
         ShibaisAttackTrigger = false; //連打後のアタック可能かのbool
-        StartCoroutine(GameLimitTimer()); //ゲーム制限時間のコルーチン 
+        StartCoroutine(GameLimitTimer()); //ゲーム制限時間のコルーチン
+
+        Shiba_PlayerAlternateCheck = true; //プレイヤー連打ボタン切り替えのbool
+        Shiba_ShibaAlternateCheck = true; //しば連打ボタン切り替えのbool
     }
 
     void Update()
@@ -130,42 +134,25 @@ public class Siba_GameManager : MonoBehaviour
         // プレイヤーの連打に関する変数
         bool isRightkeyPush = false;
         bool isLeftkeyPush = false;
-        bool AlternateCheck = true;
+        
         //　しばの連打に関する変数
         bool isDkeyPush = false;
         bool isAkeyPush = false;
-        bool ShibaAlternateCheck = true;
 
         // プレイヤーが右キーを押したらゲージがたまる条件
         if (Input.GetKeyDown(KeyCode.RightArrow) 
             && 
             !isLeftkeyPush 
             && 
-            AlternateCheck)
+            Shiba_PlayerAlternateCheck)
         {
             isRightkeyPush = true;
             ShibaBarrageGaugeValue += 6.0f;
-            AlternateCheck = false;
+            Shiba_PlayerAlternateCheck = false;
         }
-        else if(Input.GetKeyUp(KeyCode.RightArrow))
+        if(Input.GetKeyUp(KeyCode.RightArrow))
         {
             isRightkeyPush = false;
-        }
-
-        // しばがDキーを押したらゲージを減らす条件
-        if (Input.GetKeyDown(KeyCode.D) 
-            && 
-            !isAkeyPush 
-            && 
-            ShibaAlternateCheck)
-        {
-            isDkeyPush = true;
-            ShibaBarrageGaugeValue -= 6.0f;
-            ShibaAlternateCheck = false;
-        }
-        else if(Input.GetKeyUp(KeyCode.RightArrow))
-        {
-            isDkeyPush = false;
         }
 
         // プレイヤーが左キーを押したら、ゲージがたまる条件
@@ -173,15 +160,27 @@ public class Siba_GameManager : MonoBehaviour
             && 
             !isRightkeyPush 
             && 
-            !AlternateCheck)
+            !Shiba_PlayerAlternateCheck)
         {
             isLeftkeyPush = true;
             ShibaBarrageGaugeValue += 6.0f;
-            AlternateCheck = true;
+            Shiba_PlayerAlternateCheck = true;
         }
-        else if(Input.GetKeyUp(KeyCode.LeftArrow))
+        if(Input.GetKeyUp(KeyCode.LeftArrow))
         {
             isLeftkeyPush = false;
+        }
+        
+        // しばがDキーを押したらゲージを減らす条件
+        if (Input.GetKeyDown(KeyCode.D) 
+            && 
+            !isAkeyPush 
+            && 
+            Shiba_ShibaAlternateCheck)
+        {
+            isDkeyPush = true;
+            ShibaBarrageGaugeValue -= 6.0f;
+            Shiba_ShibaAlternateCheck = false;
         }
 
         // しばがAキーを押したら、ゲージを減らす条件
@@ -189,13 +188,13 @@ public class Siba_GameManager : MonoBehaviour
             && 
             !isDkeyPush 
             && 
-            !ShibaAlternateCheck)
+            !Shiba_ShibaAlternateCheck)
         {
             isAkeyPush = true;
             ShibaBarrageGaugeValue -= 6.0f;
-            ShibaAlternateCheck = true;
+            Shiba_ShibaAlternateCheck = true;
         }
-        else if(Input.GetKeyUp(KeyCode.A))
+        if(Input.GetKeyUp(KeyCode.A))
         {
             isAkeyPush = false;
         }
