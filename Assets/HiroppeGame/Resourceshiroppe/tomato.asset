@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f11da734e31e84802b1800b5a792afae, type: 3}
-  m_Name: Beer
+  m_Name: tomato
   m_EditorClassIdentifier: 
-  item_hiroppe: {fileID: 150443332911185637, guid: f9660eeab077e4030b394f024adc6cbc, type: 3}
-  damage_hiroppe: -1
+  item_hiroppe: {fileID: 521328606213972255, guid: abf6d8681df8842ceba181f235ebba4e, type: 3}
+  damage_hiroppe: 10

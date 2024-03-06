@@ -17,10 +17,10 @@ public class Player1_Hiroppe : MonoBehaviour
     public float bulletSpeed_hiroppe = 5000;
 
     private GameObject obj;
-    private int HP_hiroppe1;
+    public int HP_hiroppe1;
     private int Buki_hiroppe;
     public TextMeshProUGUI P1_hiroppe;
-    private int num;
+    public int numhiro1;
     private Animator anim1;// Animatorを使うための変数
     public bool gameStartHiroppe; //２人とも戦闘開始ボタンをおしたかどうかを判定する
     public int prepare_hiroppe; //戦闘開始ボタンを押された数をカウントする
@@ -95,36 +95,33 @@ public class Player1_Hiroppe : MonoBehaviour
     private void InputCommand(int i1, int i2, int i3)
     {
         // //100までの中でランダムの数字を生成してその数字によって何の武器が飛んでいくのかを決める
-        int attarckNumbe = Random.Range(0, len(paramsSOhiroppes));
+        int attarckNumber = Random.Range(0, 100);
 
-        GameObject bullets_hiroppe = Instantiate(paramsSOhiroppes[attarckNumbe].item_hiroppe) as GameObject;
-        Attack(num);
-        // else if (attackNumber < i3)
-        // {
-        //     num = 3;
-        //     GameObject bullets_hiroppe = Instantiate(ParamsSOhiroppe3.Entity.tomato_hiroppe) as GameObject;
-        //     Attack(num);
-        //     bullets_hiroppe.tag = "P1Bullet_hiroppe";
-        //     bullets_hiroppe.transform.position = this.transform.position;
-        //     force_hiroppe = this.gameObject.transform.forward * bulletSpeed_hiroppe;
-        //     bullets_hiroppe.GetComponent<Rigidbody>().AddForce(force_hiroppe);
-        //     Destroy(bullets_hiroppe.gameObject, 4);
-        // }
-        // else
-        // {
-        //     num = 4;
-        //     GameObject bullets_hiroppe = Instantiate(ParamsSOhiroppe4.Entity.sword_hiroppe) as GameObject;
-        //     Attack(num);
-        //     bullets_hiroppe.tag = "P1Bullet_hiroppe";
-        //     bullets_hiroppe.transform.position = this.transform.position;
-        //     force_hiroppe = this.gameObject.transform.forward * bulletSpeed_hiroppe;
-        //     bullets_hiroppe.GetComponent<Rigidbody>().AddForce(force_hiroppe);
-        //     Destroy(bullets_hiroppe.gameObject, 4);
-        // }
+        if(attarckNumber > -1 && attarckNumber <i1)
+        {
+            numhiro1 = 0;
+            Attack(numhiro1);
+        }
+        else if(attarckNumber < i2)
+        {
+            numhiro1 = 1;
+            Attack(numhiro1);
+        }
+        else if (attarckNumber < i3)
+        {
+            numhiro1 = 2;
+            Attack(numhiro1);
+        }
+        else
+        {
+            numhiro1 = 3;
+        }
+ 
     }
 
-    void Attack(int num)
+    void Attack(int numhiro1)
     {
+        GameObject bullets_hiroppe = Instantiate(paramsSOhiroppes[numhiro1].item_hiroppe) as GameObject;
         bullets_hiroppe.tag = "P1Bullet_hiroppe";
         bullets_hiroppe.transform.position = this.transform.position;
         force_hiroppe = this.gameObject.transform.forward * bulletSpeed_hiroppe;
@@ -137,7 +134,8 @@ public class Player1_Hiroppe : MonoBehaviour
         {
             if (collision.gameObject.tag == "P2Bullet_hiroppe")
             {
-                HP_hiroppe1 += 1;
+                Player2_Hiroppe p2h = GameObject.Find("Player2_Hiroppe").GetComponent<Player2_Hiroppe>();
+                HP_hiroppe1 += p2h.paramsSOhiroppes2[p2h.numhiro2].damage_hiroppe;
 
             }
 
