@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: c8dab6519335445f999e8b2c5ba7e65c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - sword_hiroppe: {fileID: 919132149155446097, guid: 804149dc9208a46f483629f83365097c, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

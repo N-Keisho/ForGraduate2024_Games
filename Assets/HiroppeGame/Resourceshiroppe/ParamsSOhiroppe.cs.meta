@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: f11da734e31e84802b1800b5a792afae
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - beer_hiroppe: {fileID: 1924871794205278373, guid: ad411caa1dc9245f8b04e7ec2242c47e, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

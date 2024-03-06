@@ -40,14 +40,14 @@ public class ButtonHiroppe1 : MonoBehaviour
     public void Destroyhiroppe()
     {
         Player1_Hiroppe bh
-            = GameObject.Find("Player1_Hiroppe.vox").GetComponent<Player1_Hiroppe>();
+            = GameObject.Find("Player1_Hiroppe").GetComponent<Player1_Hiroppe>();
         bh.prepare_hiroppe += 1;
 
         if(bh.prepare_hiroppe == 2)
         {
 
             Player1_Hiroppe ph1
-                = GameObject.Find("Player1_Hiroppe.vox").GetComponent<Player1_Hiroppe>();
+                = GameObject.Find("Player1_Hiroppe").GetComponent<Player1_Hiroppe>();
             ph1.gameStartHiroppe = true;
         }
 

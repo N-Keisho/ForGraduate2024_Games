@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 44bd408ad4d8c4997894673899cc28b1
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - tomato_hiroppe: {fileID: 3671785368696767048, guid: a4175e900bec74a038661a145c6d3b38, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

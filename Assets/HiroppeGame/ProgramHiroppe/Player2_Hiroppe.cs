@@ -6,7 +6,7 @@ using TMPro;
 public class Player2_Hiroppe : MonoBehaviour
 {
     private Rigidbody rb_hiroppe;
-    private float moveSpeed_hiroppe = 10;
+    private float moveSpeed_hiroppe = 20;
     private float jumpPower_hiroppe = 800;
     private bool grounded_hiroppe;
     public GameObject bullet_hiroppe;
@@ -48,13 +48,13 @@ public class Player2_Hiroppe : MonoBehaviour
             transform.Rotate(new Vector3(0, 1, 0));
         }
 
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    if (grounded_hiroppe == true)
-        //    {
-        //        rb_hiroppe.AddForce(Vector3.up * jumpPower_hiroppe);
-        //    }
-        //}
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (grounded_hiroppe == true)
+            {
+                rb_hiroppe.AddForce(Vector3.up * jumpPower_hiroppe);
+            }
+        }
 
         if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow))// もしWSADキーのいずれかが離されたら、
         {
