@@ -18,6 +18,7 @@ public class CatchArrowControll : MonoBehaviour
     {
         if (Input.GetKeyDown(key))
         {
+            //Debug.Log(key);
             sprite.sprite = high;
             StartCoroutine("ColorBack");
         }
