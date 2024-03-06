@@ -34,6 +34,15 @@ public class Siba_PlayerController : MonoBehaviour
             Shiba_PlayerAnim.SetBool("isPlayerWalking", false);
         }
 
+        if (Input.GetKey(KeyCode.M))
+        {
+            Shiba_PlayerAnim.SetBool("isPlayerAttack",true);
+        }
+        else if(Input.GetKeyUp(KeyCode.M))
+        {
+            Shiba_PlayerAnim.SetBool("isPlayerAttack",false);
+        }
+
         if (Input.GetKey(KeyCode.UpArrow))
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
