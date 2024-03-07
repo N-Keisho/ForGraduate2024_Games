@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 704755646195739234}
   - component: {fileID: 8268120028160027793}
-  - component: {fileID: 6192900872263420664}
+  - component: {fileID: -4022341998801849347}
   m_Layer: 0
   m_Name: RArrow_E
   m_TagString: Untagged
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6192900872263420664
+--- !u!114 &-4022341998801849347
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,10 +94,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2325650781377837035}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2d8890b8c1054c4c971f3f473a0172e, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c8a23f762a9a81408d20ff3ba2869bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 100
   startPos: -4.5
   enemy: 1
+  hpChange: 0
   effect: {fileID: 4109374556008493743, guid: a704cf5a42711ce4188adcefd9930ccd, type: 3}
