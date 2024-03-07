@@ -10,7 +10,7 @@ public class Player1_Hiroppe : MonoBehaviour
     private Rigidbody rb_hiroppe;
     private float moveSpeed_hiroppe = 20;
     //private float jumpPower_hiroppe = 800;
-    //private bool grounded_hiroppe;
+    private bool grounded_hiroppe;
 
     public GameObject bullet_hiroppe;
     private Vector3 force_hiroppe;
@@ -132,17 +132,22 @@ public class Player1_Hiroppe : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
         {
-            if (collision.gameObject.tag == "P2Bullet_hiroppe")
+
+            if (collision.gameObject.tag == "Ground_hiroppe")
             {
-                Player2_Hiroppe p2h = GameObject.Find("Player2_Hiroppe").GetComponent<Player2_Hiroppe>();
-                HP_hiroppe1 += p2h.paramsSOhiroppes2[p2h.numhiro2].damage_hiroppe;
+                grounded_hiroppe = true;
+            }
+        }
+    void OnTriggerEnter(Collider collision) {
+         if (collision.gameObject.tag == "P2Bullet_hiroppe")
+            {
+                if (0 < HP_hiroppe1){
+                    Player2_Hiroppe p2h = GameObject.Find("Player2_Hiroppe").GetComponent<Player2_Hiroppe>();
+                    HP_hiroppe1 += p2h.paramsSOhiroppes2[p2h.numhiro2].damage_hiroppe;
+                }
             }
 
-            //if (collision.gameObject.tag == "Ground_hiroppe")
-            //{
-            //    grounded_hiroppe = true;
-            //}
-        }
+    }
 
     private void OnCollisionExit(Collision collision)
         {

@@ -131,16 +131,6 @@ public class Player2_Hiroppe : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-
-        Debug.Log("Hit");
-
-        if (collision.gameObject.tag == "P1Bullet_hiroppe")
-        {
-            Player1_Hiroppe p1h = GameObject.Find("Player1_Hiroppe").GetComponent<Player1_Hiroppe>();
-            HP_hiroppe2 += -10;
-            //HP_hiroppe2 += p1h.paramsSOhiroppes[p1h.numhiro1].damage_hiroppe;
-        
-        }
         if (collision.gameObject.tag == "Ground_hiroppe")
         {
             grounded_hiroppe = true;
@@ -152,6 +142,17 @@ public class Player2_Hiroppe : MonoBehaviour
         if (collision.gameObject.tag == "Ground_hiroppe")
         {
             grounded_hiroppe = false;
+        }
+    }
+
+    void OnTriggerEnter(Collider collision) {
+        if (collision.gameObject.tag == "P1Bullet_hiroppe")
+        {
+            if (0 < HP_hiroppe2){
+                Player1_Hiroppe p1h = GameObject.Find("Player1_Hiroppe").GetComponent<Player1_Hiroppe>();
+                HP_hiroppe2 += p1h.paramsSOhiroppes[p1h.numhiro1].damage_hiroppe;
+            }
+        
         }
     }
 
