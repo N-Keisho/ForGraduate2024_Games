@@ -58,7 +58,7 @@ public class wattahgame_ArrowInputRecorder : MonoBehaviour
             LoadRetryScene();
         }
 
-        if (roundsSurvived >= 5)
+        if (roundsSurvived >= 10)
         {
             LoadClearScene();
         }
