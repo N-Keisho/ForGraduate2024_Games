@@ -30,7 +30,7 @@ public class HukidasiScript : MonoBehaviour
             transform.forward = lookDir.normalized;
         }
 
-        if (Input.GetKeyDown(KeyCode.JoystickButton11))
+        if (Input.GetKeyDown(KeyCode.JoystickButton11) | Input.GetKeyDown(KeyCode.Space))
         {
             LoadStage();
         }
