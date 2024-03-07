@@ -177,20 +177,24 @@ public class Player1_Hiroppe : MonoBehaviour
 
     void Attack(int numhiro1)
     {
-        GameObject bullets_hiroppe = Instantiate(paramsSOhiroppes[numhiro1].item_hiroppe) as GameObject;
-        if (numhiro1 == 0)
+        if (0 <= HP_hiroppe1)
         {
-            bullets_hiroppe.tag = "P1Beer_hiroppe";
-        }
-        else
-        {
-            bullets_hiroppe.tag = "P1Bullet_hiroppe";
-        }
+            GameObject bullets_hiroppe = Instantiate(paramsSOhiroppes[numhiro1].item_hiroppe) as GameObject;
+            if (numhiro1 == 0)
+            {
+                bullets_hiroppe.tag = "P1Beer_hiroppe";
+            }
+            else
+            {
+                bullets_hiroppe.tag = "P1Bullet_hiroppe";
+            }
 
-        bullets_hiroppe.transform.position = this.transform.position;
-        force_hiroppe = this.gameObject.transform.forward * bulletSpeed_hiroppe;
-        bullets_hiroppe.GetComponent<Rigidbody>().AddForce(force_hiroppe);
-        Destroy(bullets_hiroppe.gameObject, 4);
+            bullets_hiroppe.transform.position = this.transform.position;
+            force_hiroppe = this.gameObject.transform.forward * bulletSpeed_hiroppe;
+            bullets_hiroppe.GetComponent<Rigidbody>().AddForce(force_hiroppe);
+            Destroy(bullets_hiroppe.gameObject, 4);
+        }
+        
 
 
     }
@@ -213,7 +217,7 @@ public class Player1_Hiroppe : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider collision) {
-        if (0 < HP_hiroppe1){
+        if (0 <= HP_hiroppe1){
             if (collision.gameObject.tag == "P2Bullet_hiroppe")
             {
                 Player2_Hiroppe p2h = GameObject.Find("Player2_Hiroppe").GetComponent<Player2_Hiroppe>();
