@@ -39,16 +39,16 @@ public class ButtonHiroppe1 : MonoBehaviour
 
     public void Destroyhiroppe()
     {
-        Player1_Hiroppe bh
-            = GameObject.Find("Player1_Hiroppe").GetComponent<Player1_Hiroppe>();
-        bh.prepare_hiroppe += 1;
+        Player2_Hiroppe bh
+            = GameObject.Find("Player2_Hiroppe").GetComponent<Player2_Hiroppe>();
+        bh.prepare_hiroppe1 += 1;
 
-        if(bh.prepare_hiroppe == 2)
+        if(bh.prepare_hiroppe1 == 2)
         {
 
-            Player1_Hiroppe ph1
-                = GameObject.Find("Player1_Hiroppe").GetComponent<Player1_Hiroppe>();
-            ph1.gameStartHiroppe = true;
+            Player2_Hiroppe ph2
+                = GameObject.Find("Player2_Hiroppe").GetComponent<Player2_Hiroppe>();
+            ph2.gameStartHiroppe1 = true;
         }
 
         Destroy(GameObject.Find("HowtoPlay1"));

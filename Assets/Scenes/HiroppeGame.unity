@@ -423,7 +423,6 @@ MonoBehaviour:
   numhiro1: 0
   gameStartHiroppe: 0
   prepare_hiroppe: 0
-  drunkFlag: 0
 --- !u!65 &51216657
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -453,7 +452,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 51216653}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 3
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -8468,7 +8467,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 53e319d4a599e4b7095d01a36d1686b5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 560
+      value: 450
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 53e319d4a599e4b7095d01a36d1686b5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -11129,7 +11128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3772accc53d4b4d02a61ab477bf39ac7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 522.27
+      value: 521.66
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3772accc53d4b4d02a61ab477bf39ac7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11137,7 +11136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3772accc53d4b4d02a61ab477bf39ac7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 592.98
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3772accc53d4b4d02a61ab477bf39ac7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13126,7 +13125,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1883387920}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 3
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -13172,6 +13171,8 @@ MonoBehaviour:
   numhiro2: 0
   HP_hiroppe2: 0
   P2_hiroppe: {fileID: 1415936979}
+  gameStartHiroppe1: 0
+  prepare_hiroppe1: 0
 --- !u!1001 &1890686516
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15582,7 +15583,7 @@ GameObject:
   - component: {fileID: 2140791547}
   m_Layer: 0
   m_Name: TerrainHiroppe
-  m_TagString: Untagged
+  m_TagString: Ground_Hiroppe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647

@@ -9,7 +9,7 @@ public class Player1_Hiroppe : MonoBehaviour
 
     private Rigidbody rb_hiroppe;
     private float moveSpeed_hiroppe = 20;
-    //private float jumpPower_hiroppe = 800;
+    private float jumpPower_hiroppe = 800;
     private bool grounded_hiroppe;
 
     public GameObject bullet_hiroppe;
@@ -24,7 +24,6 @@ public class Player1_Hiroppe : MonoBehaviour
     private Animator anim1;// Animatorを使うための変数
     public bool gameStartHiroppe; //２人とも戦闘開始ボタンをおしたかどうかを判定する
     public int prepare_hiroppe; //戦闘開始ボタンを押された数をカウントする
-    public int drunkFlag; //お酒がぶつかった時に左右前後反転するための変数
 
     private float movementInputValue;
     private float turnInputValue;
@@ -39,61 +38,69 @@ public class Player1_Hiroppe : MonoBehaviour
         HP_hiroppe1 = 50;
         anim1 = GetComponent<Animator>();// animにAnimatorの値を取得して代入
         prepare_hiroppe = 0;
-        drunkFlag = 1;
     }
 
     // Update is called once per frame
     void Update()
-    {
+    {    
+        if (gameStartHiroppe == true)
+        {
+            Player2_Hiroppe ph2
+                = GameObject.Find("Player2_Hiroppe").GetComponent<Player2_Hiroppe>();
+            if (ph2.gameStartHiroppe1 == true)
+            {
+
+                P1_hiroppe.text = "HP:" + HP_hiroppe1.ToString();
+
+                if (Input.GetKey(KeyCode.W))
+                {
+                    anim1.SetBool("Running1", true);
+                    transform.position += transform.TransformDirection(Vector3.forward * moveSpeed_hiroppe * Time.deltaTime);
+                }
+                if (Input.GetKey(KeyCode.A))
+                {
+                    transform.Rotate(new Vector3(0, -1, 0));
+                }
+                if (Input.GetKey(KeyCode.S))
+                {
+                    anim1.SetBool("Running1", true);
+                    transform.position += transform.TransformDirection(Vector3.back * moveSpeed_hiroppe * Time.deltaTime);
+                }
+                if (Input.GetKey(KeyCode.D))
+                {
+                    transform.Rotate(new Vector3(0, 1, 0));
+                }
+
+                if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyDown(KeyCode.Joystick2Button10))// もしWSADキーのいずれかが離されたら、
+                {
+                    anim1.SetBool("Running1", false);// AnimatorのRunningをfalseにする
+                }
+
+                if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Joystick2Button3)) //今回はジャンプはなくてもいいかも？
+                {
+                    if (grounded_hiroppe == true)
+                    {
+                        rb_hiroppe.AddForce(Vector3.up * jumpPower_hiroppe);
+                    }
+                }
+
+                if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Joystick2Button0) )//強攻撃
+                {
+                    InputCommand(30, 60, 80);
+                    StartCoroutine("StrongAttack1_hiroppe");
+
+                }
+
+                if (Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.Joystick2Button2)) //弱攻撃
+                {
+                    InputCommand(20, 80, 85);
+                    StartCoroutine("WeakAttack1_hiroppe");
+                }
+                PlayerMove();
+            }
+        }
         //Debug.Log(gameStartHiroppe); //gameStartHiroppe=2となるとゲームスタート（OKボタンを２人とも押す）
 
-        P1_hiroppe.text = "HP:" + HP_hiroppe1.ToString();
-
-        if (Input.GetKey(KeyCode.W) || Input.GetKeyDown(KeyCode.Joystick2Button10))
-        {
-            anim1.SetBool("Running1", true);
-            transform.position += transform.TransformDirection(Vector3.forward * moveSpeed_hiroppe * Time.deltaTime * drunkFlag);
-        }
-        if (Input.GetKey(KeyCode.A) || Input.GetKeyDown(KeyCode.Joystick2Button10))
-        {
-            transform.Rotate(new Vector3(0, -1, 0));
-        }
-        if (Input.GetKey(KeyCode.S) || Input.GetKeyDown(KeyCode.Joystick2Button10))
-        {
-            anim1.SetBool("Running1", true);
-            transform.position += transform.TransformDirection(Vector3.back * moveSpeed_hiroppe * Time.deltaTime * drunkFlag);
-        }
-        if (Input.GetKey(KeyCode.D) || Input.GetKeyDown(KeyCode.Joystick2Button10))
-        {
-            transform.Rotate(new Vector3(0, 1, 0));
-        }
-
-        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyDown(KeyCode.Joystick2Button10))// もしWSADキーのいずれかが離されたら、
-        {
-            anim1.SetBool("Running1", false);// AnimatorのRunningをfalseにする
-        }
-
-        //if (Input.GetKeyDown(KeyCode.X)) //今回はジャンプはなくてもいいかも？
-        //{
-        //    if (grounded_hiroppe == true)
-        //    {
-        //        rb_hiroppe.AddForce(Vector3.up * jumpPower_hiroppe);
-        //    }
-        //}
-
-        if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Joystick2Button0) )//強攻撃
-        {
-            InputCommand(30, 60, 80);
-            StartCoroutine("StrongAttack1_hiroppe");
-
-        }
-
-        if (Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.Joystick2Button2)) //弱攻撃
-        {
-            InputCommand(20, 80, 85);
-            StartCoroutine("WeakAttack1_hiroppe");
-        }
-        PlayerMove();
 
     }
     void PlayerMove()
@@ -180,13 +187,22 @@ public class Player1_Hiroppe : MonoBehaviour
     }
 
     public void OnCollisionEnter(Collision collision)
-        {
+    {
 
-            if (collision.gameObject.tag == "Ground_hiroppe")
-            {
-                grounded_hiroppe = true;
-            }
+        if (collision.gameObject.tag == "Ground_Hiroppe")
+        {
+            grounded_hiroppe = true;
         }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Ground_Hiroppe")
+        {
+            grounded_hiroppe = false;
+        }
+    }
+
     void OnTriggerEnter(Collider collision) {
         if (0 < HP_hiroppe1){
             if (collision.gameObject.tag == "P2Bullet_hiroppe")
@@ -203,14 +219,6 @@ public class Player1_Hiroppe : MonoBehaviour
         }
 
     }
-
-    private void OnCollisionExit(Collision collision)
-        {
-            //if (collision.gameObject.tag == "Ground_hiroppe")
-            //{
-            //    grounded_hiroppe = false;
-            //}
-        }
 
     IEnumerator StrongAttack1_hiroppe()
         {
