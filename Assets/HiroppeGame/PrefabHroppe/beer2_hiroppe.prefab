@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6c7554bc3a8fb41cab74a49beaaf361b, type: 3}
       propertyPath: m_TagString
-      value: P2Bullet_hiroppe
+      value: P2Beer_hiroppe
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -7,6 +7,9 @@ TagManager:
   - Ground_Hiroppe
   - P1Bullet_hiroppe
   - P2Bullet_hiroppe
+  - Undefined
+  - P1Bell_hiroppe
+  - P2Bell_hiroppe
   layers:
   - Default
   - TransparentFX

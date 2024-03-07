@@ -28,6 +28,7 @@ public class Player1_Hiroppe : MonoBehaviour
 
     private float movementInputValue;
     private float turnInputValue;
+    private bool reverse = false;
 
 
     // Start is called before the first frame update
@@ -97,9 +98,19 @@ public class Player1_Hiroppe : MonoBehaviour
     }
     void PlayerMove()
     {
-        movementInputValue = Input.GetAxis("Vertical2");
-        Vector3 movement = transform.forward * movementInputValue * 30 * Time.deltaTime;
-        rb_hiroppe.MovePosition(rb_hiroppe.position + movement);
+        if (reverse == false)
+        {
+            movementInputValue = Input.GetAxis("Vertical2");
+            Vector3 movement = transform.forward * movementInputValue * 30 * Time.deltaTime;
+            rb_hiroppe.MovePosition(rb_hiroppe.position + movement);
+        }
+        else
+        {
+            movementInputValue = Input.GetAxis("Vertical2-2");
+            Vector3 movement = transform.forward * movementInputValue * 30 * Time.deltaTime;
+            rb_hiroppe.MovePosition(rb_hiroppe.position + movement);
+            Invoke("reverse_data", 50f);
+        }
 
         turnInputValue = Input.GetAxis("Horizontal2");
         float turn = turnInputValue * 100 * Time.deltaTime;
@@ -115,6 +126,10 @@ public class Player1_Hiroppe : MonoBehaviour
             anim1.SetBool("Running1", false);
         }
         
+    }
+    private void reverse_data()
+    {
+        reverse = false;
     }
 
     private void InputCommand(int i1, int i2, int i3)
@@ -140,6 +155,7 @@ public class Player1_Hiroppe : MonoBehaviour
         else
         {
             numhiro1 = 3;
+            Attack(numhiro1);
             
         }
  
@@ -148,7 +164,14 @@ public class Player1_Hiroppe : MonoBehaviour
     void Attack(int numhiro1)
     {
         GameObject bullets_hiroppe = Instantiate(paramsSOhiroppes[numhiro1].item_hiroppe) as GameObject;
-        bullets_hiroppe.tag = "P1Bullet_hiroppe";
+        if (numhiro1 == 0)
+        {
+            bullets_hiroppe.tag = "P1Beer_hiroppe";
+        }
+        else
+        {
+            bullets_hiroppe.tag = "P1Bullet_hiroppe";
+        }
         bullets_hiroppe.transform.position = this.transform.position;
         force_hiroppe = this.gameObject.transform.forward * bulletSpeed_hiroppe;
         bullets_hiroppe.GetComponent<Rigidbody>().AddForce(force_hiroppe);
@@ -165,13 +188,19 @@ public class Player1_Hiroppe : MonoBehaviour
             }
         }
     void OnTriggerEnter(Collider collision) {
-         if (collision.gameObject.tag == "P2Bullet_hiroppe")
+        if (0 < HP_hiroppe1){
+            if (collision.gameObject.tag == "P2Bullet_hiroppe")
             {
-                if (0 < HP_hiroppe1){
-                    Player2_Hiroppe p2h = GameObject.Find("Player2_Hiroppe").GetComponent<Player2_Hiroppe>();
-                    HP_hiroppe1 += p2h.paramsSOhiroppes2[p2h.numhiro2].damage_hiroppe;
-                }
+                Player2_Hiroppe p2h = GameObject.Find("Player2_Hiroppe").GetComponent<Player2_Hiroppe>();
+                HP_hiroppe1 += p2h.paramsSOhiroppes2[p2h.numhiro2].damage_hiroppe;
             }
+            else if (collision.gameObject.tag == "P2Beer_hiroppe")
+            {
+                Player2_Hiroppe p2h = GameObject.Find("Player2_Hiroppe").GetComponent<Player2_Hiroppe>();
+                HP_hiroppe1 += p2h.paramsSOhiroppes2[p2h.numhiro2].damage_hiroppe;
+                reverse = true;
+            }
+        }
 
     }
 
