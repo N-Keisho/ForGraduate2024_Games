@@ -13,9 +13,9 @@ public class Explain : MonoBehaviour
     [SerializeField] GameObject answerText;
     private CharsManager[] charsManager = new CharsManager[2];
     private int[] sequences = new int[2] { 0, 0 }; //表裏の状態を管理する変数. 0:未回答, 1:解答済み, 2:正解
-    private string[] answers = new string[2] { "", ""}; //回答の文字列
-    private string[] correctAnswers = new string[2] { "リ", "コ"}; //正解の文字列
-                                                                                     
+    private string[] answers = new string[2] { "", "" }; //回答の文字列
+    private string[] correctAnswers = new string[2] { "リ", "コ" }; //正解の文字列
+
     private string[][] minhayaStringsOrigin = new string[2][] //問題の文字列
     {
         new string[3]{"リ", "ス", "ト"},
@@ -73,10 +73,12 @@ public class Explain : MonoBehaviour
             {
                 Animator anim = GetComponent<Animator>();
                 anim.SetBool("fin", true);
+                RonGameManager rgm = GameObject.Find("_GameManager_").GetComponent<RonGameManager>();
+                rgm.questionEnd[0] = true;
             }
 
         }
-        else if(!isResult)
+        else if (!isResult)
         {
             // 文字列を常に更新する
             for (int i = 0; i < minhaya.Length; i++)
@@ -151,10 +153,6 @@ public class Explain : MonoBehaviour
         //     if (!charsManager[i].isCorrect)
         //         allCorrect = false;
         // }
-        // QuestionManager questionManager = GameObject.Find("_QuestionManager_").GetComponent<QuestionManager>();
-        // questionManager.correct[questionManager.currentQuestion] = allCorrect;
-
-
         isFin = true;
     }
 }

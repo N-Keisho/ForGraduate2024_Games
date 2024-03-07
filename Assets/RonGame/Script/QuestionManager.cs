@@ -18,10 +18,10 @@ public class QuestionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton5))
-        {
-            NextQuestion();
-        }
+        // if(Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton5))
+        // {
+        //     NextQuestion();
+        // }
     }
 
     public void NextQuestion()
