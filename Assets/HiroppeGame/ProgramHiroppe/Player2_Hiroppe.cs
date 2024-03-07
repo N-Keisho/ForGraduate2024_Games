@@ -18,6 +18,9 @@ public class Player2_Hiroppe : MonoBehaviour
     public int numhiro2;
     public int HP_hiroppe2;
     public TextMeshProUGUI P2_hiroppe;
+
+    private float movementInputValue;
+    private float turnInputValue;
     // Start is called before the first frame update
     void Start()
     {
@@ -74,7 +77,7 @@ public class Player2_Hiroppe : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.L) || Input.GetKey(KeyCode.Joystick1Button1)) //弱攻撃
+        if (Input.GetKeyDown(KeyCode.L) || Input.GetKey(KeyCode.Joystick1Button2)) //弱攻撃
         {
             InputCommand(30, 90, 100);
             StartCoroutine("WeakAttack2_hiroppe");
@@ -90,6 +93,19 @@ public class Player2_Hiroppe : MonoBehaviour
         {
             anim2.SetBool("Dying2", true);
         }
+        PlayerMove();
+    }
+
+    void PlayerMove()
+    {
+        movementInputValue = Input.GetAxis("Vertical1");
+        Vector3 movement = transform.forward * movementInputValue * 30 * Time.deltaTime;
+        rb_hiroppe.MovePosition(rb_hiroppe.position + movement);
+
+        turnInputValue = Input.GetAxis("Horizontal1");
+        float turn = turnInputValue * 100 * Time.deltaTime;
+        Quaternion turnRotation = Quaternion.Euler(0, turn, 0);
+        rb_hiroppe.MoveRotation(rb_hiroppe.rotation * turnRotation);
     }
 
     private void InputCommand(int i1, int i2, int i3)

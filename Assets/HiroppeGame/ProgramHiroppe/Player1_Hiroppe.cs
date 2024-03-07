@@ -26,6 +26,9 @@ public class Player1_Hiroppe : MonoBehaviour
     public int prepare_hiroppe; //戦闘開始ボタンを押された数をカウントする
     public int drunkFlag; //お酒がぶつかった時に左右前後反転するための変数
 
+    private float movementInputValue;
+    private float turnInputValue;
+
 
     // Start is called before the first frame update
     void Start()
@@ -77,19 +80,41 @@ public class Player1_Hiroppe : MonoBehaviour
         //    }
         //}
 
-        if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Joystick2Button1) )//強攻撃
+        if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Joystick2Button0) )//強攻撃
         {
             InputCommand(30, 60, 80);
             StartCoroutine("StrongAttack1_hiroppe");
 
         }
 
-        if (Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.Joystick2Button3)) //弱攻撃
+        if (Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.Joystick2Button2)) //弱攻撃
         {
             InputCommand(20, 80, 85);
             StartCoroutine("WeakAttack1_hiroppe");
         }
+        PlayerMove();
 
+    }
+    void PlayerMove()
+    {
+        movementInputValue = Input.GetAxis("Vertical2");
+        Vector3 movement = transform.forward * movementInputValue * 30 * Time.deltaTime;
+        rb_hiroppe.MovePosition(rb_hiroppe.position + movement);
+
+        turnInputValue = Input.GetAxis("Horizontal2");
+        float turn = turnInputValue * 100 * Time.deltaTime;
+        Quaternion turnRotation = Quaternion.Euler(0, turn, 0);
+        rb_hiroppe.MoveRotation(rb_hiroppe.rotation * turnRotation);
+
+        if (movementInputValue == 1 || movementInputValue == -1)
+        {
+            anim1.SetBool("Running1", true);
+        }
+        else
+        {
+            anim1.SetBool("Running1", false);
+        }
+        
     }
 
     private void InputCommand(int i1, int i2, int i3)
@@ -115,6 +140,7 @@ public class Player1_Hiroppe : MonoBehaviour
         else
         {
             numhiro1 = 3;
+            
         }
  
     }
