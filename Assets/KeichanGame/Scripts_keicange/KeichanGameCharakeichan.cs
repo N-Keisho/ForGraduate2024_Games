@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeichanGameChara : MonoBehaviour
+public class KeichanGameCharakeichan : MonoBehaviour
 {
     SpriteRenderer sprite;
     public Sprite normal;
@@ -21,13 +21,13 @@ public class KeichanGameChara : MonoBehaviour
     {
         if (rideRhythm)
         {
-            if (Input.GetKeyDown(KeyCode.Joystick1Button2))
+            if (Input.GetKeyDown(KeyCode.Joystick2Button2))
             {
                 //StartCoroutine(changeSprite(leftMove));
                 sprite.sprite = leftMove;
                 keisoku = 0;
             }
-            if (Input.GetKeyDown(KeyCode.Joystick1Button1))
+            if (Input.GetKeyDown(KeyCode.Joystick2Button1))
             {
                 //StartCoroutine(changeSprite(rightMove));
                 sprite.sprite = rightMove;
