@@ -24,6 +24,7 @@ public class Siba_GameManager : MonoBehaviour
     public bool ShibaisAttackTrigger1{ get{ return ShibaisAttackTrigger;} set{ ShibaisAttackTrigger = value;} }
     [SerializeField] bool Shiba_PlayerAlternateCheck;//プレイヤー連打の右、左の切り替え判定
     [SerializeField] bool Shiba_ShibaAlternateCheck;//しば連打のD、Aの切り替え判定
+    [SerializeField] Siba_SibaController Siba_SC;
     
     void Start()
     {
@@ -121,6 +122,10 @@ public class Siba_GameManager : MonoBehaviour
             ShibaGameTimeText.text = ShibaGameLimitTime.ToString("f0");
             yield return new WaitForSeconds(1.0f);
             ShibaGameLimitTime -= 1.0f;
+            if (Siba_SC.ShibaGameTimerStop1)
+            {
+                break;
+            }
         }
     }
 

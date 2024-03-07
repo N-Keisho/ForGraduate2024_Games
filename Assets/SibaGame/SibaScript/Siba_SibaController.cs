@@ -14,11 +14,15 @@ public class Siba_SibaController : MonoBehaviour
     [SerializeField] Slider SibaHPGauge;// しばHPのスライダー
     public float SibaEnemyHP1{ get{ return SibaEnemyHP;}}
     [SerializeField] GameObject ClearImage;
+    [SerializeField] GameObject NextButtun;
+    [SerializeField] bool ShibaGameTimerStop;// ゲームクリアのときゲーム時間を終了する
+    public bool ShibaGameTimerStop1 { get{ return ShibaGameTimerStop;}}
     // Start is called before the first frame update
     void Start()
     {
         Siba_sibaAnim = GetComponent<Animator>();
         SibaHPText.text = SibaEnemyHP.ToString("f0");
+        ShibaGameTimerStop = false;
     }
 
     // Update is called once per frame
@@ -63,8 +67,10 @@ public class Siba_SibaController : MonoBehaviour
         }
         SibaHPGauge.value = SibaEnemyHP;
         SibaHPText.text = SibaEnemyHP.ToString("f0");
-        if(SibaEnemyHP <= 0){
+        if(SibaEnemyHP <= 0)
+        {
             ClearImage.SetActive(true);
+            ShibaGameTimerStop = true;
         }
     }
     private void OnCollisionEnter(Collision other) {

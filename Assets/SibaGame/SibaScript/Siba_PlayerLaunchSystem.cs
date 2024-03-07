@@ -28,7 +28,7 @@ public class Siba_PlayerLaunchSystem : MonoBehaviour
             Vector3 targetDirection = ShibaObject.transform.position - Item.transform.position;
             targetDirection.Normalize(); // 方向ベクトルを正規化
 
-            float forceMagnitude = 50.0f; 
+            float forceMagnitude = 90.0f; 
             Vector3 force = targetDirection * forceMagnitude;
             Item.GetComponent<Rigidbody>().AddForce(force, ForceMode.Impulse);
             ShibaGM.ShibaisAttackTrigger1 = false;
@@ -42,7 +42,7 @@ public class Siba_PlayerLaunchSystem : MonoBehaviour
             Vector3 targetDirection = ShibaObject.transform.position - heart.transform.position;
             targetDirection.Normalize(); // 方向ベクトルを正規化
 
-            float forceMagnitude = 50.0f; 
+            float forceMagnitude = 90.0f; 
             Vector3 force = targetDirection * forceMagnitude;
             heart.GetComponent<Rigidbody>().AddForce(force, ForceMode.Impulse);
             ShibaGM.ShibaisAttackTrigger1 = false;
