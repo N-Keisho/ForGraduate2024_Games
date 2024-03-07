@@ -76,7 +76,7 @@ public class Player1_Hiroppe : MonoBehaviour
                     anim1.SetBool("Running1", false);// AnimatorのRunningをfalseにする
                 }
 
-                if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Joystick2Button3)) //今回はジャンプはなくてもいいかも？
+                if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.Joystick2Button3)) //今回はジャンプはなくてもいいかも？
                 {
                     if (grounded_hiroppe == true)
                     {
@@ -110,19 +110,26 @@ public class Player1_Hiroppe : MonoBehaviour
             movementInputValue = Input.GetAxis("Vertical2");
             Vector3 movement = transform.forward * movementInputValue * 30 * Time.deltaTime;
             rb_hiroppe.MovePosition(rb_hiroppe.position + movement);
+
+            turnInputValue = Input.GetAxis("Horizontal2");
+            float turn = turnInputValue * 100 * Time.deltaTime;
+            Quaternion turnRotation = Quaternion.Euler(0, turn, 0);
+            rb_hiroppe.MoveRotation(rb_hiroppe.rotation * turnRotation);
         }
         else
         {
             movementInputValue = Input.GetAxis("Vertical2-2");
             Vector3 movement = transform.forward * movementInputValue * 30 * Time.deltaTime;
             rb_hiroppe.MovePosition(rb_hiroppe.position + movement);
-            Invoke("reverse_data", 50f);
+
+            turnInputValue = Input.GetAxis("Horizontal2-2");
+            float turn = turnInputValue * 100 * Time.deltaTime;
+            Quaternion turnRotation = Quaternion.Euler(0, turn, 0);
+            rb_hiroppe.MoveRotation(rb_hiroppe.rotation * turnRotation);
+            Invoke("reverse_data", 10f);
         }
 
-        turnInputValue = Input.GetAxis("Horizontal2");
-        float turn = turnInputValue * 100 * Time.deltaTime;
-        Quaternion turnRotation = Quaternion.Euler(0, turn, 0);
-        rb_hiroppe.MoveRotation(rb_hiroppe.rotation * turnRotation);
+       
 
         if (movementInputValue == 1 || movementInputValue == -1)
         {
@@ -179,10 +186,12 @@ public class Player1_Hiroppe : MonoBehaviour
         {
             bullets_hiroppe.tag = "P1Bullet_hiroppe";
         }
+
         bullets_hiroppe.transform.position = this.transform.position;
         force_hiroppe = this.gameObject.transform.forward * bulletSpeed_hiroppe;
         bullets_hiroppe.GetComponent<Rigidbody>().AddForce(force_hiroppe);
         Destroy(bullets_hiroppe.gameObject, 4);
+
 
     }
 

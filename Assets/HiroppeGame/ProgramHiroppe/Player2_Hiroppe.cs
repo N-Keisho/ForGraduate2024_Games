@@ -118,19 +118,26 @@ public class Player2_Hiroppe : MonoBehaviour
             movementInputValue = Input.GetAxis("Vertical1");
             Vector3 movement = transform.forward * movementInputValue * 30 * Time.deltaTime;
             rb_hiroppe.MovePosition(rb_hiroppe.position + movement);
+
+            turnInputValue = Input.GetAxis("Horizontal1");
+            float turn = turnInputValue * 100 * Time.deltaTime;
+            Quaternion turnRotation = Quaternion.Euler(0, turn, 0);
+            rb_hiroppe.MoveRotation(rb_hiroppe.rotation * turnRotation);
         }
         else
         {
             movementInputValue = Input.GetAxis("Vertical1-2");
             Vector3 movement = transform.forward * movementInputValue * 30 * Time.deltaTime;
             rb_hiroppe.MovePosition(rb_hiroppe.position + movement);
-            Invoke("reverse_data", 50f);
+
+            turnInputValue = Input.GetAxis("Horizontal1-2");
+            float turn = turnInputValue * 100 * Time.deltaTime;
+            Quaternion turnRotation = Quaternion.Euler(0, turn, 0);
+            rb_hiroppe.MoveRotation(rb_hiroppe.rotation * turnRotation);
+            Invoke("reverse_data", 10f);
         }
 
-        turnInputValue = Input.GetAxis("Horizontal1");
-        float turn = turnInputValue * 100 * Time.deltaTime;
-        Quaternion turnRotation = Quaternion.Euler(0, turn, 0);
-        rb_hiroppe.MoveRotation(rb_hiroppe.rotation * turnRotation);
+        
 
          if (movementInputValue == 1 || movementInputValue == -1)
         {
@@ -230,7 +237,7 @@ public class Player2_Hiroppe : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         anim2.SetBool("StAttack2", true);
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(1.4f);
         anim2.SetBool("StAttack2", false);
 
         yield break;
@@ -240,7 +247,7 @@ public class Player2_Hiroppe : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         anim2.SetBool("WeAttack2", true);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1);
         anim2.SetBool("WeAttack2", false);
 
         yield break;

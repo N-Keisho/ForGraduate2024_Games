@@ -44,7 +44,7 @@ public class ButtonHiroppe1 : MonoBehaviour
         bh.prepare_hiroppe1 += 1;
 
         if(bh.prepare_hiroppe1 == 2)
-        {
+        { 
 
             Player2_Hiroppe ph2
                 = GameObject.Find("Player2_Hiroppe").GetComponent<Player2_Hiroppe>();
