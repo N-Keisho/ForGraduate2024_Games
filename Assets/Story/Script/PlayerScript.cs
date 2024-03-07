@@ -14,6 +14,9 @@ public class PlayerScript : MonoBehaviour
 
     public GameObject hukidasiHiroppe;
     public GameObject hukidasiSiba;
+    public GameObject hukidasiKeichan;
+    public GameObject hukidasiTukkun;
+    public GameObject hukidasiWatta;
     StoryGameController storyGameController;
 
     void Start()
@@ -22,6 +25,9 @@ public class PlayerScript : MonoBehaviour
         storyGameController = GameObject.Find("StoryGameController").GetComponent<StoryGameController>();
         hukidasiHiroppe.SetActive(false);
         hukidasiSiba.SetActive(false);
+        hukidasiKeichan.SetActive(false);
+        hukidasiTukkun.SetActive(false);
+        hukidasiWatta.SetActive(false);
         moveOK = true;
     }
 
@@ -30,36 +36,38 @@ public class PlayerScript : MonoBehaviour
         if (moveOK)
         {
             move();
-        } 
+        }
+        
         // Debug.Log(isGrounded);
     }
 
     private void move(){
         // 前後左右移動
-        if(Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.JoystickButton3))
         {
             transform.position += transform.forward * speed * Time.deltaTime;
         }
-        if(Input.GetKey(KeyCode.S))
+        if(Input.GetKey(KeyCode.JoystickButton0))
         {
             transform.position += -transform.forward * speed * Time.deltaTime;
         }
-        if(Input.GetKey(KeyCode.A))
+        if(Input.GetKey(KeyCode.JoystickButton2))
         {
             transform.Rotate(Vector3.up, -rotationSpeed * Time.deltaTime);
         }
-        if(Input.GetKey(KeyCode.D))
+        if(Input.GetKey(KeyCode.JoystickButton1))
         {
             transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
         }
 
         // ジャンプ
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded){
+        if(Input.GetKeyDown(KeyCode.JoystickButton5) && isGrounded){
             rb.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
         }
 
         // ダッシュ
-        if(Input.GetKey(KeyCode.LeftShift)){
+        if(Input.GetKey(KeyCode.JoystickButton4)){
+            Debug.Log("Pusg");
             speed = nomalSpeed * 1.5f;
         }else {
             speed = nomalSpeed;
@@ -78,6 +86,18 @@ public class PlayerScript : MonoBehaviour
             {
                 hukidasiSiba.SetActive(true);
             }
+            else if (!storyGameController.keichanClear)
+            {
+                hukidasiKeichan.SetActive(true);
+            }
+            else if (!storyGameController.tukkunClear)
+            {
+                hukidasiTukkun.SetActive(true);
+            }
+            else if (!storyGameController.wattaClear)
+            {
+                hukidasiWatta.SetActive(true);
+            }
             moveOK = false;
             StartCoroutine("rt");
         }
@@ -94,6 +114,18 @@ public class PlayerScript : MonoBehaviour
             else if (!storyGameController.sibaClear)
             {
                 hukidasiSiba.SetActive(false);
+            }
+            else if (!storyGameController.keichanClear)
+            {
+                hukidasiKeichan.SetActive(false);
+            }
+            else if (!storyGameController.tukkunClear)
+            {
+                hukidasiTukkun.SetActive(false);
+            }
+            else if (!storyGameController.wattaClear)
+            {
+                hukidasiWatta.SetActive(false);
             }
             moveOK = true;
         }

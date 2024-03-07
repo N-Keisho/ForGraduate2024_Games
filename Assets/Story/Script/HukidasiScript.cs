@@ -9,7 +9,6 @@ public class HukidasiScript : MonoBehaviour
     Transform mainCameraTransform;
     public TransitionSettings transition;
     public string nextScene;
-    public KeyCode pushKey;
     void Start()
     {
         mainCameraTransform = Camera.main.transform;
@@ -31,7 +30,7 @@ public class HukidasiScript : MonoBehaviour
             transform.forward = lookDir.normalized;
         }
 
-        if (Input.GetKeyDown(pushKey))
+        if (Input.GetKeyDown(KeyCode.JoystickButton11))
         {
             LoadStage();
         }

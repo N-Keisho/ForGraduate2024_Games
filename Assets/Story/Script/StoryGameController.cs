@@ -28,5 +28,21 @@ public class StoryGameController : MonoBehaviour
         {
             nextStageWall1.SetActive(false);
         }
+        if (sibaClear)
+        {
+            nextStageWall2.SetActive(false);
+        }
+        if(keichanClear)
+        {
+            nextStageWall3.SetActive(false);
+        }
+        if (wattaClear)
+        {
+            nextStageWall4.SetActive(false);
+        }
+        if (tukkunClear)
+        {
+            nextStageWall5.SetActive(false);
+        }
     }
 }

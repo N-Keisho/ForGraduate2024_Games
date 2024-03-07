@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EasyTransition;
+using System;
 
 public class StoryScript : MonoBehaviour
 {
@@ -26,10 +27,10 @@ public class StoryScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (ok && Input.GetKeyDown(pushKey))
+        if (ok && Input.GetKeyDown(KeyCode.JoystickButton0))
         {
             i++;
-            if (i == 15)
+            if (i == serifs.Length)
             {
                 LoadStage();
             }
@@ -37,6 +38,19 @@ public class StoryScript : MonoBehaviour
             serifs[i - 1].SetActive(false);
             serifs[i].SetActive(true);
             
+        }
+
+        if (Input.anyKey)
+        {
+            foreach (KeyCode code in Enum.GetValues(typeof(KeyCode)))
+            {
+                if (Input.GetKeyDown(code))
+                {
+                    //èàóùÇèëÇ≠
+                    Debug.Log(code);
+                    break;
+                }
+            }
         }
     }
 
