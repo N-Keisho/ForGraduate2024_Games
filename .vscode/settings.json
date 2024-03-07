@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "ForGraduate2024_Games.sln"
+    "dotnet.defaultSolution": "ShibaGame.sln"
 }
