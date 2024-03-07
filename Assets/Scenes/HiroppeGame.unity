@@ -1723,13 +1723,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: '<How to Play>
 
-    A (or L key): Attack
+    A (or L key): Attack1
 
-    Arrow Key : Move
+    B (or K key): Attack2
+
+    Arrow
+    (Key) : Move
 
 
-    <How
-    to Win>
+    <How to Win>
 
     ChallenGER HP = Zero
 
@@ -2533,7 +2535,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 173e1931780a04dad8be76b7ca45cf4d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.301
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4785,7 +4787,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 479, y: -27.755127}
-  m_SizeDelta: {x: 1000, y: 1000}
+  m_SizeDelta: {x: 1050, y: 1050}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &643015654
 MonoBehaviour:
@@ -8702,7 +8704,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 0.123
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -12254,7 +12256,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 173e1931780a04dad8be76b7ca45cf4d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.299
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -12601,13 +12603,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: '<How to Play>
 
-    A (or G key): Attack
+    A (or C key): Attack1
 
-    Arrow Key : Move
+    B (or X key): Attack2
+
+    Arrow
+    or WASD key : Move
 
 
-    <How
-    to Win>
+    <How to Win>
 
     Hiroppe HP = Zero
 
@@ -15044,6 +15048,7 @@ GameObject:
   - component: {fileID: 2110025025}
   - component: {fileID: 2110025024}
   - component: {fileID: 2110025023}
+  - component: {fileID: 2110025027}
   m_Layer: 5
   m_Name: NextHiroppe
   m_TagString: Untagged
@@ -15152,8 +15157,20 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -300}
-  m_SizeDelta: {x: 500, y: 300}
+  m_SizeDelta: {x: 350, y: 170}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2110025027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110025022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29f443ebdf16a41b39c1b69b26c975da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2110118877
 GameObject:
   m_ObjectHideFlags: 0
@@ -15166,6 +15183,7 @@ GameObject:
   - component: {fileID: 2110118880}
   - component: {fileID: 2110118879}
   - component: {fileID: 2110118878}
+  - component: {fileID: 2110118882}
   m_Layer: 5
   m_Name: RetryHiroppe
   m_TagString: Untagged
@@ -15216,7 +15234,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2110118879}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2110118882}
+        m_TargetAssemblyTypeName: RetryHiroppe, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2110118879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15274,8 +15304,20 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -300}
-  m_SizeDelta: {x: 500, y: 300}
+  m_SizeDelta: {x: 350, y: 170}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2110118882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110118877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6807e03de94004cf18803074ed4f768b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2117295826
 GameObject:
   m_ObjectHideFlags: 0
@@ -15487,7 +15529,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -477, y: -27.755127}
-  m_SizeDelta: {x: 1000, y: 1000}
+  m_SizeDelta: {x: 1050, y: 1050}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2139626266
 MonoBehaviour:

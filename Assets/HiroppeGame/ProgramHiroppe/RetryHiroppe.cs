@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;// シーンを変える時に追記
 
 public class RetryHiroppe : MonoBehaviour
 {
@@ -14,5 +15,10 @@ public class RetryHiroppe : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OnClick()
+    {
+        SceneManager.LoadScene("HiroppeGame");
     }
 }

@@ -14,7 +14,7 @@ public class TitleHiroppe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.A))
+        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.Joystick1Button1))
         {
             SceneManager.LoadScene("HiroppeGame");
         }
@@ -22,6 +22,6 @@ public class TitleHiroppe : MonoBehaviour
     public void OnClick()// ボタンがおされた時の処理　※必ずpublicにします
     {
 
-        SceneManager.LoadScene("HiroppeGame");// Mainシーンに変える
+        SceneManager.LoadScene("HiroppeGame");
     }
 }

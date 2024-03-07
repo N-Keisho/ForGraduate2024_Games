@@ -17,7 +17,7 @@ public class ButtonHiroppe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.A))
+        if(Input.GetKeyDown(KeyCode.A) || Input.GetKey(KeyCode.Joystick2Button3))
         {
             StartCoroutine("Cor");
         }

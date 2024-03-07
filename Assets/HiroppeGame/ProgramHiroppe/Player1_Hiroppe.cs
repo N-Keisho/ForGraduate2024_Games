@@ -45,26 +45,26 @@ public class Player1_Hiroppe : MonoBehaviour
 
         P1_hiroppe.text = "HP:" + HP_hiroppe1.ToString();
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) || Input.GetKeyDown(KeyCode.Joystick2Button10))
         {
             anim1.SetBool("Running1", true);
             transform.position += transform.TransformDirection(Vector3.forward * moveSpeed_hiroppe * Time.deltaTime * drunkFlag);
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) || Input.GetKeyDown(KeyCode.Joystick2Button10))
         {
             transform.Rotate(new Vector3(0, -1, 0));
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) || Input.GetKeyDown(KeyCode.Joystick2Button10))
         {
             anim1.SetBool("Running1", true);
             transform.position += transform.TransformDirection(Vector3.back * moveSpeed_hiroppe * Time.deltaTime * drunkFlag);
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) || Input.GetKeyDown(KeyCode.Joystick2Button10))
         {
             transform.Rotate(new Vector3(0, 1, 0));
         }
 
-        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))// もしWSADキーのいずれかが離されたら、
+        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyDown(KeyCode.Joystick2Button10))// もしWSADキーのいずれかが離されたら、
         {
             anim1.SetBool("Running1", false);// AnimatorのRunningをfalseにする
         }
@@ -77,14 +77,14 @@ public class Player1_Hiroppe : MonoBehaviour
         //    }
         //}
 
-        if (Input.GetKeyDown(KeyCode.X)) //強攻撃
+        if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Joystick2Button1) )//強攻撃
         {
             InputCommand(30, 60, 80);
             StartCoroutine("StrongAttack1_hiroppe");
 
         }
 
-        if (Input.GetKeyDown(KeyCode.C)) //弱攻撃
+        if (Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.Joystick2Button3)) //弱攻撃
         {
             InputCommand(20, 80, 85);
             StartCoroutine("WeakAttack1_hiroppe");
@@ -130,13 +130,12 @@ public class Player1_Hiroppe : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.tag == "P2Bullet_hiroppe")
             {
                 Player2_Hiroppe p2h = GameObject.Find("Player2_Hiroppe").GetComponent<Player2_Hiroppe>();
                 HP_hiroppe1 += p2h.paramsSOhiroppes2[p2h.numhiro2].damage_hiroppe;
-
             }
 
             //if (collision.gameObject.tag == "Ground_hiroppe")
