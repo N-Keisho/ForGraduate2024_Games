@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CatchArrowControll : MonoBehaviour
+public class CatchArrowControllER : MonoBehaviour
 {
     SpriteRenderer sprite;
     public Sprite low;
     public Sprite high;
-    public KeyCode key;
     void Start()
     {
         sprite= GetComponent<SpriteRenderer>();
@@ -16,8 +15,9 @@ public class CatchArrowControll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(key))
+        if (Input.GetKeyDown(KeyCode.Joystick2Button1))
         {
+            //Debug.Log(key);
             sprite.sprite = high;
             StartCoroutine("ColorBack");
         }

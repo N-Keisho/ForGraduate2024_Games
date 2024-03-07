@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -25,11 +26,6 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            startMusic = true;
-        }
-
         if (startMusic && musicGo)
         {
             musicGo = false;
@@ -48,6 +44,18 @@ public class GameController : MonoBehaviour
             }
             yield return new WaitForSeconds(0.05f);
             //Debug.Log(i);
+
+            if (i == notes.Length - 1)
+            {
+                if (hp > 50)
+                {
+                    SceneManager.LoadScene("KeichanGamekeichanWin");
+                }
+                else
+                {
+                    SceneManager.LoadScene("KeichanGameplayerWin");
+                }
+            }
         }
     }
 }

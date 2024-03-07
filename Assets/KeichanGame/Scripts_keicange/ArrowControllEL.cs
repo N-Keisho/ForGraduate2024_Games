@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArrowControll : MonoBehaviour
+public class ArrowControllEL : MonoBehaviour
 {
     GameController gameController;
-    public KeyCode key;
     public float startPos;
     public bool enemy;
     public bool hpChange;
@@ -30,7 +29,7 @@ public class ArrowControll : MonoBehaviour
             hpChange = true;
         }
 
-        if (Input.GetKeyDown(key))
+        if (Input.GetKeyDown(KeyCode.Joystick2Button2))
         {
             //Debug.Log(key);
             if (transform.position.y >= 4.5f && transform.position.y <= 5.5f)
