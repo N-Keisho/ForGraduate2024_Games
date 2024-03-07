@@ -2,7 +2,6 @@ using EasyTransition;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using EasyTransition;
 using System.Security.Cryptography.X509Certificates;
 
 public class HukidasiScript : MonoBehaviour
@@ -10,6 +9,7 @@ public class HukidasiScript : MonoBehaviour
     Transform mainCameraTransform;
     public TransitionSettings transition;
     public string nextScene;
+    public KeyCode pushKey;
     void Start()
     {
         mainCameraTransform = Camera.main.transform;
@@ -31,7 +31,7 @@ public class HukidasiScript : MonoBehaviour
             transform.forward = lookDir.normalized;
         }
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(pushKey))
         {
             LoadStage();
         }
