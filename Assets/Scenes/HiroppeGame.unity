@@ -417,7 +417,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ad46bfae4e5dd436a8283ccc41dea3e6, type: 2}
   - {fileID: 11400000, guid: 38d19dde5603543e4b2d790a1d42d5bb, type: 2}
   bullet_hiroppe: {fileID: 0}
-  bulletSpeed_hiroppe: 5000
+  bulletSpeed_hiroppe: 2500
   HP_hiroppe1: 0
   P1_hiroppe: {fileID: 328808108}
   numhiro1: 0
@@ -1720,24 +1720,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<How to Play>
-
-    A (or L key): Attack1
-
-    B (or K key): Attack2
-
-    Arrow
-    (Key) : Move
-
-
-    <How to Win>
-
-    ChallenGER HP = Zero
-
-
-
-
-'
+  m_text: "<How to Play>\n\u2193 (or L key): Attack1\n\u2190 (or K key): Attack2\n\u2191(or
+    space key): jump\nstick: Move\n\n<How to Win>\nChallenGER HP = Zero\n\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -12606,13 +12590,16 @@ MonoBehaviour:
 
     B (or X key): Attack2
 
-    Arrow
-    or WASD key : Move
+    Y
+    (or D key): Jump
+
+    Arrow or WASD key : Move
 
 
     <How to Win>
 
-    Hiroppe HP = Zero
+    Hiroppe
+    HP = Zero
 
 
 
@@ -13167,7 +13154,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ad46bfae4e5dd436a8283ccc41dea3e6, type: 2}
   - {fileID: 11400000, guid: 38d19dde5603543e4b2d790a1d42d5bb, type: 2}
   bullet_hiroppe: {fileID: 0}
-  bulletSpeed_hiroppe: 5000
+  bulletSpeed_hiroppe: 2500
   numhiro2: 0
   HP_hiroppe2: 0
   P2_hiroppe: {fileID: 1415936979}
