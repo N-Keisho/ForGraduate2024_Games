@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class KeichanGameLose : MonoBehaviour
+public class KeichanGameWin : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -16,7 +16,7 @@ public class KeichanGameLose : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Joystick1Button0))
         {
-            SceneManager.LoadScene("KeichanGame");
+            SceneManager.LoadScene("Story");
         }
     }
 }
