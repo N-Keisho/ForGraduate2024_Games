@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,9 +18,12 @@ public class wattahgame_ArrowInputRecorder : MonoBehaviour
 
     public int wattahgamecurrentPlayer = 1; // wattahgamecurrentPlayer をクラス内に移動
 
-    private int inputCount = 0;
-    private int mismatches = 0;
+    [SerializeField] private int inputCount = 0;
+    public int mismatches = 0;
     private int roundsSurvived = 0;
+
+    public wattahgame_riryPlayerMove wattahgame_riryPlayerMove; 
+    public wattahgame_wattahPlayerMove wattahgame_wattahPlayerMove;
 
     void Update()
     {
@@ -82,6 +86,7 @@ public class wattahgame_ArrowInputRecorder : MonoBehaviour
             wattahgamecurrentPlayer = (wattahgamecurrentPlayer == 1) ? 2 : 1;
             inputCount = 0;
             roundsSurvived++;
+            wattahgame_riryPlayerMove.wattahgame_AnimReset();
         }
     }
 

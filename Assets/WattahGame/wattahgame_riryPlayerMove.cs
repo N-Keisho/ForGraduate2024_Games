@@ -9,7 +9,7 @@ public class wattahgame_riryPlayerMove : MonoBehaviour
     private wattahgame_ArrowInputRecorder arrowInputRecorder; // wattahgame_ArrowInputRecorder の参照
 
     private bool isDancing;
-    private bool isUpperPosing; // 上キーで動いているかどうかを示すフラグ
+    public bool isUpperPosing; // 上キーで動いているかどうかを示すフラグ
     private bool isLeftPosing;
     private bool isRightPosing;
     private bool isDownPosing;
@@ -30,13 +30,10 @@ public class wattahgame_riryPlayerMove : MonoBehaviour
             isDancing = true;
         }
 
-
         if (isDancing || Input.GetKeyDown(KeyCode.Joystick2Button3) || Input.GetKeyDown(KeyCode.Joystick2Button0) || Input.GetKeyDown(KeyCode.Joystick2Button2) || Input.GetKeyDown(KeyCode.Joystick2Button1))
         {
             if (arrowInputRecorder != null && arrowInputRecorder.wattahgamecurrentPlayer == 2)
             {
-             
-
                 if (Input.GetKeyDown(KeyCode.Joystick2Button3) && !isUpperPosing)
                 {
                     anim.SetBool("isDancing", false);
@@ -48,9 +45,7 @@ public class wattahgame_riryPlayerMove : MonoBehaviour
                 {
                     anim.SetBool("isUpperPosing", false);
                     isUpperPosing = false;
-                    
                 }
-
                 else if (Input.GetKeyDown(KeyCode.Joystick2Button2) && !isLeftPosing)
                 {
                     anim.SetBool("isDancing", false);
@@ -76,7 +71,6 @@ public class wattahgame_riryPlayerMove : MonoBehaviour
                     anim.SetBool("isRightPosing", false);
                     isRightPosing = false;
                 }
-
                 else if (Input.GetKeyDown(KeyCode.Joystick2Button0) && !isDownPosing)
                 {
                     anim.SetBool("isDancing", false);
@@ -88,9 +82,8 @@ public class wattahgame_riryPlayerMove : MonoBehaviour
                 {
                     anim.SetBool("isDownPosing", false);
                     isDownPosing = false;
-                }
+                }                
             }
-
         }
 
         if (isDancing)
@@ -101,9 +94,19 @@ public class wattahgame_riryPlayerMove : MonoBehaviour
             isRightPosing = false;
             isDownPosing = false;
         }
+    }
+    
+    public void wattahgame_AnimReset()
+    {
+        StartCoroutine("wattahgame_turnchanger");
+    }
 
-        if(Input.GetKeyDown(KeyCode.Joystick1Button0)) Debug.Log("test_1");  //Right
-        if(Input.GetKeyDown(KeyCode.Joystick2Button0)) Debug.Log("test_2");  //Left
-        
+    IEnumerator wattahgame_turnchanger()
+    {
+        yield return new WaitForSeconds(0.3f);
+        anim.SetBool("isUpperPosing", false);
+        anim.SetBool("isLeftPosing", false);
+        anim.SetBool("isRightPosing", false);
+        anim.SetBool("isDownPosing", false);
     }
 }

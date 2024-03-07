@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class wattahgame_WattahPlayerMove : MonoBehaviour
+public class wattahgame_wattahPlayerMove : MonoBehaviour
 {
 
     private Animator anim; // Animatorの機能を使うための変数
@@ -13,35 +13,22 @@ public class wattahgame_WattahPlayerMove : MonoBehaviour
     private bool isRightPosing;
     private bool isDownPosing;
 
-    private float startTime;
-
+    
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>(); // animにAnimatorの値を代入する
-        isDancing = false;
-        startTime = Time.time;
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!isDancing && Time.time - startTime > 1f)
+        if (!isDancing)
         {
             isDancing = true;
         }
 
-        if (isDancing)
-        {
-            anim.SetBool("isDancing", true);
-            isUpperPosing = false;
-            isLeftPosing = false;
-            isRightPosing = false;
-            isDownPosing = false;
-        }
-
-        if (isDancing || Input.GetKeyDown(KeyCode.UpArrow))
+        if (isDancing || Input.GetKeyDown(KeyCode.Joystick1Button3) || Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.Joystick1Button1))
         {
 
             if (Input.GetKeyDown(KeyCode.Joystick1Button3) && !isUpperPosing)
@@ -56,7 +43,6 @@ public class wattahgame_WattahPlayerMove : MonoBehaviour
                 anim.SetBool("isUpperPosing", false);
                 isUpperPosing = false;
             }
-
             else if (Input.GetKeyDown(KeyCode.Joystick1Button2) && !isLeftPosing)
             {
                 anim.SetBool("isDancing", false);
@@ -82,7 +68,6 @@ public class wattahgame_WattahPlayerMove : MonoBehaviour
                 anim.SetBool("isRightPosing", false);
                 isRightPosing = false;
             }
-
             else if (Input.GetKeyDown(KeyCode.Joystick1Button0) && !isDownPosing)
             {
                 anim.SetBool("isDancing", false);
@@ -95,11 +80,19 @@ public class wattahgame_WattahPlayerMove : MonoBehaviour
                 anim.SetBool("isDownPosing", false);
                 isDownPosing = false;
             }
-
+        
         }
 
-        if(Input.GetKeyDown(KeyCode.Joystick1Button0)) Debug.Log("test_Right");  //Right
-        if(Input.GetKeyDown(KeyCode.Joystick3Button0)) Debug.Log("test_Left");  //Left
-        
+        if (isDancing)
+        {
+            anim.SetBool("isDancing", true);
+            isUpperPosing = false;
+            isLeftPosing = false;
+            isRightPosing = false;
+            isDownPosing = false;
+        }
     }
+
+
+
 }
