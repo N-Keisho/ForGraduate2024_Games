@@ -878,19 +878,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 178862336}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 205150675}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: 
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &178862336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -999,8 +987,7 @@ MonoBehaviour:
   SibaHPText: {fileID: 1592235430}
   SibaHPGauge: {fileID: 1246010300}
   ClearImage: {fileID: 1126510632}
-  NextButtun: {fileID: 178862333}
-  ShibaGameTimerStop: 0
+  NextButtun: {fileID: 0}
 --- !u!1 &257911846
 GameObject:
   m_ObjectHideFlags: 0
@@ -3111,7 +3098,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &780861989
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4450,7 +4437,6 @@ GameObject:
   - component: {fileID: 1291396263}
   - component: {fileID: 1291396266}
   - component: {fileID: 1291396267}
-  - component: {fileID: 1291396268}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -4485,8 +4471,6 @@ MonoBehaviour:
   ShibaisAttackTrigger: 0
   Shiba_PlayerAlternateCheck: 0
   Shiba_ShibaAlternateCheck: 0
-  Siba_SC: {fileID: 205150679}
-  sound1: {fileID: 8300000, guid: 05501ae575cf4ee43a0e65ef2f8ebbf4, type: 3}
 --- !u!4 &1291396264
 Transform:
   m_ObjectHideFlags: 0
@@ -4536,102 +4520,6 @@ MonoBehaviour:
   ShibaGameOver: {fileID: 1982120303}
   Shiba_PlayerAnim2: {fileID: 480372343}
   ShibaRetryButtun: {fileID: 1411221711}
---- !u!82 &1291396268
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1291396262}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 05501ae575cf4ee43a0e65ef2f8ebbf4, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &1314531314
 GameObject:
   m_ObjectHideFlags: 0
@@ -4729,7 +4617,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1411221712
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7063,7 +6951,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1982120302
 RectTransform:
   m_ObjectHideFlags: 0

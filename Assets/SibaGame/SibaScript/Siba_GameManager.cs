@@ -25,13 +25,9 @@ public class Siba_GameManager : MonoBehaviour
     [SerializeField] bool Shiba_PlayerAlternateCheck;//プレイヤー連打の右、左の切り替え判定
     [SerializeField] bool Shiba_ShibaAlternateCheck;//しば連打のD、Aの切り替え判定
     [SerializeField] Siba_SibaController Siba_SC;
-
-    [SerializeField] AudioClip sound1;
-    AudioSource audioSource;
     
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         GaugeBG.gameObject.SetActive(false); //連打ゲージの背景
         ShibaBarrageGauge.gameObject.SetActive(false); //Slider_連打ゲージ
         ShibaAreaJudgementText.gameObject.SetActive(false); //Text_「何かのキー」
@@ -97,7 +93,6 @@ public class Siba_GameManager : MonoBehaviour
     // IEnumerator LimitTimer()は、連打の制限時間を1秒ごとに減らしてくれるコルーチン
     IEnumerator BarrageLimitTimer()
     {
-        audioSource.PlayOneShot(sound1);
         float ShibaBarrageLimitTime = 10;
         ShibaBarrageGaugeValue = 60;
         GaugeBG.gameObject.SetActive(true); //連打ゲージの背景

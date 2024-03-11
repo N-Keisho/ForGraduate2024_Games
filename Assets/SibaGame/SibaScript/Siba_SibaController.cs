@@ -87,8 +87,7 @@ public class Siba_SibaController : MonoBehaviour
             StartCoroutine("isAttackedStop");
         }
     }
-    IEnumerator isAttackedStop()
-    {
+    IEnumerator isAttackedStop(){
         yield return new WaitForSeconds(1.7f);
         Siba_sibaAnim.SetBool("isAttacked", false);
     }
