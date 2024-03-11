@@ -26,5 +26,4 @@ public class HPManager : MonoBehaviour
             hpSliders[i].value = HPs[i];
         }
     }
-
 }

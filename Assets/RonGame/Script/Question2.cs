@@ -74,8 +74,6 @@ public class Question2 : MonoBehaviour
             {
                 Animator anim = GetComponent<Animator>();
                 anim.SetBool("fin", true);
-                RonGameManager rgm = GameObject.Find("_GameManager_").GetComponent<RonGameManager>();
-                rgm.questionEnd[2] = true;
             }
 
         }

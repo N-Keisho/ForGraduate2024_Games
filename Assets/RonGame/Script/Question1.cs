@@ -23,7 +23,7 @@ public class Question1 : MonoBehaviour
         new string[5]{"な", "い", "う", "き", "た"},
         new string[5]{"し", "は", "の", "ゆ", "ね"},
         new string[5]{"り", "や", "ぞ", "な", "む"},
-        new string[5]{"こ", "と", "む", "き", "か"},
+        new string[5]{"こ", "と", "む", "こ", "か"},
     };
 
     private string[][] minhayaStrings = new string[6][] //問題の文字列
@@ -77,8 +77,6 @@ public class Question1 : MonoBehaviour
             {
                 Animator anim = GetComponent<Animator>();
                 anim.SetBool("fin", true);
-                RonGameManager rgm = GameObject.Find("_GameManager_").GetComponent<RonGameManager>();
-                rgm.questionEnd[1] = true;
             }
 
         }
