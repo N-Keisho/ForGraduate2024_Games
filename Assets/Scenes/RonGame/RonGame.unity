@@ -916,7 +916,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &50382807
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1921,7 +1921,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<color #499EFF>\u3051\u3044\u3061\u3083</color>\n\u3064\u3063\u304F\u3093\n\u308F\u3063\u305F\u30FC"
+  m_text: "\u3051\u3044\u3061\u3083\u3093\n\u3064\u3063\u304F\u3093\n\u308F\u3063\u305F\u30FC"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 04770fbcdbddc84409c2b710fd6c6ac3, type: 2}
   m_sharedMaterial: {fileID: -5947467642310049853, guid: 04770fbcdbddc84409c2b710fd6c6ac3, type: 2}
@@ -5351,7 +5351,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 991444e992aea54469e5240a378f6b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextSceneName: Ending
   characters:
   - {fileID: 1916666030}
   - {fileID: 632937905}
@@ -9164,7 +9163,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &653236107
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16513,7 +16512,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1249026106
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16990,7 +16989,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1291817486
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20914,7 +20913,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1696071105
 RectTransform:
   m_ObjectHideFlags: 0

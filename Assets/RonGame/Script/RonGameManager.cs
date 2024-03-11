@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class RonGameManager : MonoBehaviour
 {
-    [SerializeField] string NextSceneName = "Ending";
     // ひろっぺ，しば，けいちゃん，つっくん，わったー，ろん
     [SerializeField] GameObject[] characters = new GameObject[6];
     [SerializeField] private GameObject _QuestionManager_;
@@ -27,11 +26,7 @@ public class RonGameManager : MonoBehaviour
     };
 
     private string[] answererName = new string[]{
-        "<color #499EFF>ひろっぺ</color>", 
-        "<color #FF5DC6>しば</color>", 
-        "<color #84FF7B>けいちゃん</color>", 
-        "<color #FFF337>つっくん</color>", 
-        "<color #944DFF>わったー</color>"
+        "ひろっぺ", "しば", "けいちゃん", "つっくん", "わったー"
     };
 
     [SerializeField] private TMP_Text[] ansewererText = new TMP_Text[6];
@@ -79,7 +74,7 @@ public class RonGameManager : MonoBehaviour
                 characters[5].transform.Rotate(new Vector3(-1 * speed * Time.deltaTime, 0, 0));
             }
             else{
-                SceneManager.LoadScene(NextSceneName);
+                SceneManager.LoadScene("Ending");
                 // return;
             }
                 
