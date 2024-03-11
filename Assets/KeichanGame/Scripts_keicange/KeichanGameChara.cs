@@ -8,6 +8,8 @@ public class KeichanGameChara : MonoBehaviour
     public Sprite normal;
     public Sprite leftMove;
     public Sprite rightMove;
+    public KeyCode leftKey;
+    public KeyCode rightKey;
 
     public bool rideRhythm;
     int keisoku;
@@ -21,13 +23,13 @@ public class KeichanGameChara : MonoBehaviour
     {
         if (rideRhythm)
         {
-            if (Input.GetKeyDown(KeyCode.Joystick1Button2))
+            if (Input.GetKeyDown(leftKey))
             {
                 //StartCoroutine(changeSprite(leftMove));
                 sprite.sprite = leftMove;
                 keisoku = 0;
             }
-            if (Input.GetKeyDown(KeyCode.Joystick1Button1))
+            if (Input.GetKeyDown(rightKey))
             {
                 //StartCoroutine(changeSprite(rightMove));
                 sprite.sprite = rightMove;

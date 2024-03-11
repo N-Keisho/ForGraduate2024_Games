@@ -291,6 +291,8 @@ MonoBehaviour:
   normal: {fileID: 21300000, guid: 9cfa4e7dd8c432f4e9e56c94ed440d33, type: 3}
   leftMove: {fileID: 21300000, guid: c9dc52e3a645b6f4db20ab491bb2fe52, type: 3}
   rightMove: {fileID: 21300000, guid: c0a9a49d3888bd242bfa0cec15a8eace, type: 3}
+  leftKey: 276
+  rightKey: 275
   rideRhythm: 0
 --- !u!1 &271660496
 GameObject:
@@ -2797,12 +2799,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1081605597}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa4515c137729a242841128c2cc9749d, type: 3}
+  m_Script: {fileID: 11500000, guid: aa7e4e276d01cf34c85b715fd1ef324f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   normal: {fileID: 21300000, guid: a5a7732e79e786840bcd4a1479971134, type: 3}
   leftMove: {fileID: 21300000, guid: 8eeb7137b5147924e8ef3b3c0e0c3bee, type: 3}
   rightMove: {fileID: 21300000, guid: 8fab53999b3a10742a4bb74112f984e8, type: 3}
+  leftKey: 97
+  rightKey: 100
   rideRhythm: 0
 --- !u!1 &1203030280
 GameObject:
