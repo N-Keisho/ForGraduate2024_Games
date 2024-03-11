@@ -14,9 +14,11 @@ public class KeichanGameLose : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Joystick1Button0))
-        {
-            SceneManager.LoadScene("KeichanGame");
-        }
+        
+    }
+
+    public void OnPush()
+    {
+        SceneManager.LoadScene("KeichanGame");
     }
 }
