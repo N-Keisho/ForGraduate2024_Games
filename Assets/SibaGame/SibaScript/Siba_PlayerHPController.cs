@@ -22,13 +22,13 @@ public class Siba_PlayerHPController : MonoBehaviour
         SibaPlayerHPGauge.value = SibaPlayerHP;
         SibaPlayerHPText.text = SibaPlayerHP.ToString("f0");
     }
-    private void OnTriggerEnter(Collider other) 
+    private void OnCollisionEnter(Collision other) 
     {
         if(other.gameObject.tag == "sakura" || other.gameObject.tag == "Item")
         {
             ShibaisAttackedQuit = false;
             Siba_PlayerAnim1.SetBool("isAttacked1", true);
-            SibaPlayerHP -= 10f;
+            SibaPlayerHP -= 20f;
             Destroy(other.gameObject);//当たったさくらのプレファブを消す
             StartCoroutine("isAttackedStop1");
         }
