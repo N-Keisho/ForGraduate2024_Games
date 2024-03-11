@@ -13,7 +13,6 @@ public class Siba_SibaController : MonoBehaviour
     [SerializeField] TextMeshProUGUI SibaHPText; //しばHPの文字
     [SerializeField] Slider SibaHPGauge;// しばHPのスライダー
     public float SibaEnemyHP1{ get{ return SibaEnemyHP;}}
-    [SerializeField] GameObject ClearImage;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,9 +62,6 @@ public class Siba_SibaController : MonoBehaviour
         }
         SibaHPGauge.value = SibaEnemyHP;
         SibaHPText.text = SibaEnemyHP.ToString("f0");
-        if(SibaEnemyHP <= 0){
-            ClearImage.SetActive(true);
-        }
     }
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.tag == "heart"){
