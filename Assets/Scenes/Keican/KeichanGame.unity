@@ -291,8 +291,6 @@ MonoBehaviour:
   normal: {fileID: 21300000, guid: 9cfa4e7dd8c432f4e9e56c94ed440d33, type: 3}
   leftMove: {fileID: 21300000, guid: c9dc52e3a645b6f4db20ab491bb2fe52, type: 3}
   rightMove: {fileID: 21300000, guid: c0a9a49d3888bd242bfa0cec15a8eace, type: 3}
-  leftKey: 276
-  rightKey: 275
   rideRhythm: 0
 --- !u!1 &271660496
 GameObject:
@@ -558,7 +556,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2368,12 +2366,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 604791370}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 752463ea76861d1448c30a079ad0a00e, type: 3}
+  m_Script: {fileID: 11500000, guid: fd5e02af3e84f8242ad2730217ba462d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   low: {fileID: 21300000, guid: e42aebaeb592c7d45b967b765c8948df, type: 3}
   high: {fileID: 21300000, guid: c5b266e8f70c39b4fbbaec781d7791df, type: 3}
-  key: 100
 --- !u!1 &716061904
 GameObject:
   m_ObjectHideFlags: 0
@@ -2701,12 +2698,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1023058109}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 752463ea76861d1448c30a079ad0a00e, type: 3}
+  m_Script: {fileID: 11500000, guid: e016b7e6e2616324a87756330b43f1ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   low: {fileID: 21300000, guid: e42aebaeb592c7d45b967b765c8948df, type: 3}
   high: {fileID: 21300000, guid: c43988e937d007d438c4451cb113f94e, type: 3}
-  key: 97
 --- !u!1 &1081605597
 GameObject:
   m_ObjectHideFlags: 0
@@ -2801,14 +2797,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1081605597}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa7e4e276d01cf34c85b715fd1ef324f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa4515c137729a242841128c2cc9749d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   normal: {fileID: 21300000, guid: a5a7732e79e786840bcd4a1479971134, type: 3}
   leftMove: {fileID: 21300000, guid: 8eeb7137b5147924e8ef3b3c0e0c3bee, type: 3}
   rightMove: {fileID: 21300000, guid: 8fab53999b3a10742a4bb74112f984e8, type: 3}
-  leftKey: 97
-  rightKey: 100
   rideRhythm: 0
 --- !u!1 &1203030280
 GameObject:
@@ -3062,7 +3056,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 576992332d76fd84ca9f5400cbd1a100, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3245,7 +3239,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   low: {fileID: 21300000, guid: e42aebaeb592c7d45b967b765c8948df, type: 3}
   high: {fileID: 21300000, guid: c5b266e8f70c39b4fbbaec781d7791df, type: 3}
-  key: 275
 --- !u!1 &1678882303
 GameObject:
   m_ObjectHideFlags: 0
@@ -3557,12 +3550,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2015095382}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 752463ea76861d1448c30a079ad0a00e, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a948120fcfc5334dbade4f37bddc9af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   low: {fileID: 21300000, guid: e42aebaeb592c7d45b967b765c8948df, type: 3}
   high: {fileID: 21300000, guid: c43988e937d007d438c4451cb113f94e, type: 3}
-  key: 276
 --- !u!1 &2107080744
 GameObject:
   m_ObjectHideFlags: 0
