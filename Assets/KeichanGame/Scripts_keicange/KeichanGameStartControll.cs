@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KeichanGameStartControll : MonoBehaviour
 {
-    AudioSource audio;
+    AudioSource oto;
     public AudioClip keichanVoice;
     SpriteRenderer sprite;
     public Sprite ready;
@@ -14,7 +14,7 @@ public class KeichanGameStartControll : MonoBehaviour
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
-        audio= GetComponent<AudioSource>();
+        oto = GetComponent<AudioSource>();
         sprite.sprite = ready;
     }
 
@@ -25,7 +25,7 @@ public class KeichanGameStartControll : MonoBehaviour
         {
             spriteOn = false;
             StartCoroutine("startGame");
-            audio.PlayOneShot(keichanVoice);
+            oto.PlayOneShot(keichanVoice);
         }
     }
 

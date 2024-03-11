@@ -5,8 +5,6 @@ using UnityEngine;
 public class ArrowControllEL : MonoBehaviour
 {
     GameController gameController;
-    public float startPos;
-    public bool enemy;
     public bool hpChange;
 
     public GameObject effect;
@@ -14,7 +12,7 @@ public class ArrowControllEL : MonoBehaviour
     void Start()
     {
         gameController = GameObject.Find("GameManager").GetComponent<GameController>();
-        transform.position = new Vector3(startPos, -6.0f, 0);
+        transform.position = new Vector3(-7.5f, -6.0f, 0);
     }
 
     // Update is called once per frame
@@ -25,18 +23,17 @@ public class ArrowControllEL : MonoBehaviour
         if (transform.position.y >= 8)
         {
             Destroy(this.gameObject);
-            //transform.position = new Vector3(startPos, -6.0f, 0);
             hpChange = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Joystick2Button2))
+        if (Input.GetKeyDown(KeyCode.Joystick2Button2) | Input.GetKeyDown(KeyCode.A))
         {
             //Debug.Log(key);
             if (transform.position.y >= 4.5f && transform.position.y <= 5.5f)
             {
                 //Debug.Log("Great");
                 GameObject effects = Instantiate(effect) as GameObject;
-                effects.transform.position = new Vector3(startPos, 5, 0);
+                effects.transform.position = new Vector3(-7.5f, 5, 0);
                 Destroy(effects , 0.2f);
                 Destroy(this.gameObject);
             }
@@ -57,14 +54,10 @@ public class ArrowControllEL : MonoBehaviour
         if (hpChange)
         {
             hpChange = false;
-            if (enemy)
+            if (gameController.hp > 0)
             {
-                gameController.hp -= 1;
-            }
-            else
-            {
-                gameController.hp += 1;
-            }
+                gameController.hp -= 2;
+            } 
         }
 
 

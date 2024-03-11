@@ -15,10 +15,11 @@ public class CatchArrowControllEL : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Joystick2Button2))
+        if (Input.GetKeyDown(KeyCode.Joystick2Button2) | Input.GetKeyDown(KeyCode.A))
         {
             //Debug.Log(key);
             sprite.sprite = high;
+            transform.localScale = new Vector3(0.9f, 0.9f, 0.9f);
             StartCoroutine("ColorBack");
         }
     }
@@ -26,6 +27,7 @@ public class CatchArrowControllEL : MonoBehaviour
     IEnumerator ColorBack()
     {
         yield return new WaitForSeconds(0.2f);
+        transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
         sprite.sprite = low;
     }
 }

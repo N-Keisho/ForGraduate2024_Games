@@ -6,7 +6,6 @@ public class ArrowControllL : MonoBehaviour
 {
     GameController gameController;
     public float startPos;
-    public bool enemy;
     public bool hpChange;
 
     public GameObject effect;
@@ -29,7 +28,7 @@ public class ArrowControllL : MonoBehaviour
             hpChange = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Joystick1Button2))
+        if (Input.GetKeyDown(KeyCode.Joystick1Button2) | Input.GetKeyDown(KeyCode.LeftArrow))
         {
             //Debug.Log(key);
             if (transform.position.y >= 4.5f && transform.position.y <= 5.5f)
@@ -57,11 +56,7 @@ public class ArrowControllL : MonoBehaviour
         if (hpChange)
         {
             hpChange = false;
-            if (enemy)
-            {
-                gameController.hp -= 1;
-            }
-            else
+            if (gameController.hp < 100)
             {
                 gameController.hp += 1;
             }

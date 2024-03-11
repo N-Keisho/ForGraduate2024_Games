@@ -21,15 +21,13 @@ public class KeichanGameCharakeichan : MonoBehaviour
     {
         if (rideRhythm)
         {
-            if (Input.GetKeyDown(KeyCode.Joystick2Button2))
+            if (Input.GetKeyDown(KeyCode.Joystick2Button2) | Input.GetKeyDown(KeyCode.A))
             {
-                //StartCoroutine(changeSprite(leftMove));
                 sprite.sprite = leftMove;
                 keisoku = 0;
             }
-            if (Input.GetKeyDown(KeyCode.Joystick2Button1))
+            if (Input.GetKeyDown(KeyCode.Joystick2Button1) | Input.GetKeyDown(KeyCode.D))
             {
-                //StartCoroutine(changeSprite(rightMove));
                 sprite.sprite = rightMove;
                 keisoku = 0;
             }
@@ -43,12 +41,5 @@ public class KeichanGameCharakeichan : MonoBehaviour
                 sprite.sprite = normal;
             }
         }
-    }
-
-    IEnumerator changeSprite(Sprite changeImgae)
-    {
-        sprite.sprite = changeImgae;
-        yield return new WaitForSeconds(0.5f);
-        sprite.sprite = normal;
     }
 }
