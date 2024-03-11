@@ -9,21 +9,36 @@ EditorBuildSettings:
     path: Assets/Scenes/Title.unity
     guid: 027d50912f2dbd9468f9286a15248505
   - enabled: 1
-    path: Assets/Scenes/Story.unity
+    path: Assets/Scenes/StoryScene/Story.unity
     guid: 28b127e9bdf909c4fa478e3b3b41f045
+  - enabled: 1
+    path: Assets/Scenes/StoryScene/HiroppeStartStory.unity
+    guid: 98af9ecf56dd659409bce0f8da54bc8c
   - enabled: 1
     path: Assets/Scenes/WattahGame.unity
     guid: d444de210740e5d4b96b053c283391a1
   - enabled: 1
-    path: Assets/Scenes/SibaGame.unity
+    path: Assets/SibaGame/SibaScenes/SibaGame.unity
     guid: 57506a83472bbc24eafe86919e4d8f3c
   - enabled: 1
-    path: Assets/Scenes/KeichanGame.unity
+    path: Assets/Scenes/Keican/KeichanGame.unity
     guid: 7319ef55900804d4da6555fac61763b3
+  - enabled: 1
+    path: Assets/Scenes/StoryScene/SibaStartStory.unity
+    guid: 4d24381c6eb90b848b39cec98e853c35
   - enabled: 1
     path: Assets/Scenes/TukkunGame.unity
     guid: 24cbe5d446f473942bcbf1aae3f4c916
   - enabled: 1
     path: Assets/Scenes/HiroppeGame.unity
     guid: b4c1efb226144d040888cc49d24a3f85
+<<<<<<< HEAD
+  - enabled: 1
+    path: Assets/Scenes/Keican/KeichanGameplayerWin.unity
+    guid: 87e70720aae76194e97b32a0d6dd44d9
+  - enabled: 1
+    path: Assets/Scenes/Keican/KeichanGamekeichanWin.unity
+    guid: cce9dd87de3ce5641843afa42e499080
+=======
+>>>>>>> parent of 82739e9 (Merge branch 'SibaGame_holy' into SibaGame_bicky)
   m_configObjects: {}
