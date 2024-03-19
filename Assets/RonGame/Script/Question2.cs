@@ -14,11 +14,11 @@ public class Question2 : MonoBehaviour
     private CharsManager[] charsManager = new CharsManager[3];
     private int[] sequences = new int[3] { 0, 0, 0}; //表裏の状態を管理する変数. 0:未回答, 1:解答済み, 2:正解
     private string[] answers = new string[3] { "", "", "" }; //回答の文字列
-    private string[] correctAnswers = new string[3] { "チ", "ョ", "コ" }; //正解の文字列
+    private string[] correctAnswers = new string[3] { "バ", "二", "ラ" }; //正解の文字列
                                                                                      
     private string[][] minhayaStringsOrigin = new string[3][] //問題の文字列
     {
-        new string[5]{"チ", "バ", "コ", "バ", "プ"},
+        new string[5]{"チ", "バ", "コ", "レ", "プ"},
         new string[5]{"ョ", "ニ", "コ", "タ", "ー"},
         new string[5]{"コ", "ラ", "ア", "ー", "ズ"}
     };

@@ -32,11 +32,13 @@ public class Explain : MonoBehaviour
     private bool isFin = false;
     private bool isResult = false;
 
-
+    private SoundScript soundScript;
     void Start()
     {
+        this.gameObject.SetActive(true);
         Minhaya.SetActive(true);
         answerText.SetActive(false);
+        soundScript = GameObject.Find("SoundManager").GetComponent<SoundScript>();
 
         for (int i = 0; i < chars.Length; i++)
         {
@@ -62,6 +64,8 @@ public class Explain : MonoBehaviour
                 }
             }
         }
+
+        soundScript.PlaySound(0);
     }
 
     // Update is called once per frame
@@ -97,14 +101,17 @@ public class Explain : MonoBehaviour
             // 操作を受け付ける
             if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.JoystickButton2))
             {
+                soundScript.PlaySound(1);
                 selected = (selected + 2) % 3;
             }
             if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.JoystickButton1))
             {
+                soundScript.PlaySound(1);
                 selected = (selected + 1) % 3;
             }
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton10) || Input.GetKeyDown(KeyCode.JoystickButton11))
             {
+                soundScript.PlaySound(2);
                 answers[number] = minhayaStrings[number][selected];
                 charsManager[number].sequence = 1;
                 charsManager[number].answer = answers[number];
@@ -134,6 +141,8 @@ public class Explain : MonoBehaviour
         Minhaya.SetActive(false);
 
         yield return new WaitForSeconds(1.0f);
+
+        soundScript.PlaySound(3);
 
         // 一つずつ回答を表示する
         for (int i = 0; i < chars.Length; i++)
