@@ -42,12 +42,15 @@ public class RonGameManager : MonoBehaviour
     private bool death = false;
     [SerializeField] private float speed = 1;
 
+    private SoundScript soundScript;
+
     void Start()
     {
         questionManager = _QuestionManager_.GetComponent<QuestionManager>();
         hPManager = _HPManager_.GetComponent<HPManager>();
         questionNumberText = QuestionNumberText.GetComponent<TMP_Text>();
         QuestionNumberText.SetActive(false);
+        soundScript = GameObject.Find("_SoundManager_").GetComponent<SoundScript>();
 
         for (int i = 0; i < characters.Length; i++)
         {
@@ -112,10 +115,14 @@ public class RonGameManager : MonoBehaviour
                     yield return new WaitForSeconds(2f);
                 }
             }
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.2f);
 
             if(i != 6){
-                questionNumberText.text = "問" + (i+1);
+                soundScript.PlaySound(7);
+                if (i != 5)
+                    questionNumberText.text = "問" + (i+1);
+                else
+                    questionNumberText.text = "最終問題";
                 QuestionNumberText.SetActive(true);
                 yield return new WaitForSeconds(2.0f);
                 QuestionNumberText.SetActive(false);
@@ -139,6 +146,7 @@ public class RonGameManager : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         questionManager.NextQuestion();
         animators[5].SetBool("Question", false);
+        soundScript.PlaySound(0);
     }
 
     IEnumerator CharaAttack(int number)

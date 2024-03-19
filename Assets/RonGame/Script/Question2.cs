@@ -14,7 +14,7 @@ public class Question2 : MonoBehaviour
     private CharsManager[] charsManager = new CharsManager[3];
     private int[] sequences = new int[3] { 0, 0, 0}; //表裏の状態を管理する変数. 0:未回答, 1:解答済み, 2:正解
     private string[] answers = new string[3] { "", "", "" }; //回答の文字列
-    private string[] correctAnswers = new string[3] { "バ", "二", "ラ" }; //正解の文字列
+    private string[] correctAnswers = new string[3] { "バ", "ニ", "ラ" }; //正解の文字列
                                                                                      
     private string[][] minhayaStringsOrigin = new string[3][] //問題の文字列
     {
@@ -32,12 +32,14 @@ public class Question2 : MonoBehaviour
     public int selected = 0; //選択中の文字の番号
     private bool isFin = false;
     private bool isResult = false;
-
+    private bool finished = false;
+    private SoundScript soundScript;
 
     void Start()
     {
         Minhaya.SetActive(true);
         answerText.SetActive(false);
+        soundScript = GameObject.Find("_SoundManager_").GetComponent<SoundScript>();
 
         for (int i = 0; i < chars.Length; i++)
         {
@@ -68,14 +70,18 @@ public class Question2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isFin)
+        if (finished)
+            return;
+        else if (isFin)
         {
             if (Input.anyKeyDown)
             {
+                soundScript.PlaySound(6);
                 Animator anim = GetComponent<Animator>();
                 anim.SetBool("fin", true);
                 RonGameManager rgm = GameObject.Find("_GameManager_").GetComponent<RonGameManager>();
                 rgm.questionEnd[2] = true;
+                finished = true;
             }
 
         }
@@ -98,14 +104,17 @@ public class Question2 : MonoBehaviour
             // 操作を受け付ける
             if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.JoystickButton2))
             {
+                soundScript.PlaySound(1);
                 selected = (selected + 4) % 5;
             }
             if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.JoystickButton1))
             {
+                soundScript.PlaySound(1);
                 selected = (selected + 1) % 5;
             }
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton10) || Input.GetKeyDown(KeyCode.JoystickButton11))
             {
+                soundScript.PlaySound(2);
                 answers[number] = minhayaStrings[number][selected];
                 charsManager[number].sequence = 1;
                 charsManager[number].answer = answers[number];
@@ -136,6 +145,8 @@ public class Question2 : MonoBehaviour
 
         yield return new WaitForSeconds(1.0f);
 
+        soundScript.PlaySound(3);
+
         // 一つずつ回答を表示する
         for (int i = 0; i < chars.Length; i++)
         {
@@ -154,6 +165,12 @@ public class Question2 : MonoBehaviour
             if (!charsManager[i].isCorrect)
                 allCorrect = false;
         }
+
+        if (allCorrect)
+            soundScript.PlaySound(4);
+        else
+            soundScript.PlaySound(5);
+
         QuestionManager questionManager = GameObject.Find("_QuestionManager_").GetComponent<QuestionManager>();
         questionManager.correct[questionManager.currentQuestion] = allCorrect;
 

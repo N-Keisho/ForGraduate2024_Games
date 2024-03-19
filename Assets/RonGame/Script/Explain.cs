@@ -31,6 +31,7 @@ public class Explain : MonoBehaviour
     public int selected = 0; //選択中の文字の番号
     private bool isFin = false;
     private bool isResult = false;
+    private bool finished = false;
 
     private SoundScript soundScript;
     void Start()
@@ -38,7 +39,7 @@ public class Explain : MonoBehaviour
         this.gameObject.SetActive(true);
         Minhaya.SetActive(true);
         answerText.SetActive(false);
-        soundScript = GameObject.Find("SoundManager").GetComponent<SoundScript>();
+        soundScript = GameObject.Find("_SoundManager_").GetComponent<SoundScript>();
 
         for (int i = 0; i < chars.Length; i++)
         {
@@ -71,14 +72,20 @@ public class Explain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isFin)
+        if (finished)
+        {
+            return;
+        }
+        else if (isFin)
         {
             if (Input.anyKeyDown)
             {
+                soundScript.PlaySound(6);
                 Animator anim = GetComponent<Animator>();
                 anim.SetBool("fin", true);
                 RonGameManager rgm = GameObject.Find("_GameManager_").GetComponent<RonGameManager>();
                 rgm.questionEnd[0] = true;
+                finished = true;
             }
 
         }
@@ -156,12 +163,20 @@ public class Explain : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
 
         // 正解だったかどうかを格納する
-        // bool allCorrect = true;
-        // for (int i = 0; i < charsManager.Length; i++)
-        // {
-        //     if (!charsManager[i].isCorrect)
-        //         allCorrect = false;
-        // }
+        bool allCorrect = true;
+        for (int i = 0; i < charsManager.Length; i++)
+        {
+            if (!charsManager[i].isCorrect)
+                allCorrect = false;
+        }
+        if (allCorrect)
+        {
+            soundScript.PlaySound(4);
+        }
+        else
+        {
+            soundScript.PlaySound(5);
+        }
         isFin = true;
     }
 }
